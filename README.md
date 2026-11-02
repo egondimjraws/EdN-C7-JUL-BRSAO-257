@@ -10,6 +10,7 @@ O projeto é composto pelos seguintes arquivos principais:
 *   **`questoes_clf_c02.py`**: Banco com as questões reais do exame, organizadas pelos 4 domínios oficiais, com alternativas, gabarito e explicação.
 *   **`simuladoaws.py`**: Modo de treino livre. Sorteia perguntas aleatórias e fornece a validação e explicação da AWS imediatamente após a resposta.
 *   **`exame_oficial.py`**: Modo de exame simulado. Configura um ambiente de teste estrito com 64 questões, cronômetro regressivo de 90 minutos e gera uma nota final baseada na escala oficial da AWS (100 a 1000).
+*   **`web/`**: Interface web opcional (`servidor_web.py` + `static/index.html`) com os modos de treino e exame no navegador, usando o mesmo banco de dados.
 
 ---
 
@@ -81,6 +82,27 @@ python3 exame_oficial.py
 *   **Funcionamento**: O script solicitará o seu nome e iniciará um cronômetro regressivo de **90 minutos**. Serão exibidas **64 questões** consecutivas sem feedback imediato.
 *   **Encerramento por Tempo**: Se o cronômetro zerar antes de você concluir, o exame é interrompido e computa apenas as respostas enviadas até o momento.
 *   **Painel de Desempenho**: Ao final, o sistema exibe um relatório com o tempo total gasto, percentual de acertos, a nota na escala AWS (mínimo de 700 para passar) e um diagnóstico detalhado de desempenho por domínio para você saber onde precisa focar seus estudos.
+
+### Opcional: Usar a Interface Web no Navegador (`web/servidor_web.py`)
+Se preferir estudar pelo navegador em vez do terminal, inicie o servidor web (depois de executar o Passo 1):
+
+* **Linux / Windows:**
+```bash
+python3 web/servidor_web.py
+```
+*(No Windows, se necessário, use: `python web\servidor_web.py`)*
+
+O navegador abre automaticamente em `http://127.0.0.1:8000`. Se essa porta já estiver em uso por outro programa, escolha outra:
+```bash
+python3 web/servidor_web.py --porta 8080
+```
+Para iniciar sem abrir o navegador automaticamente, use `--sem-navegador`. Pressione `CTRL+C` no terminal para encerrar o servidor.
+
+*   **Sem instalação extra**: Usa apenas a biblioteca padrão do Python e lê o `aws_simulados.db` em modo somente leitura, sem alterar os dados.
+*   **Treino livre**: Uma questão aleatória por vez, com gabarito, explicação da AWS e placar de acertos.
+*   **Exame simulado**: 64 questões com cronômetro de 90 minutos. É possível navegar entre as questões, alterar respostas e marcar questões para revisar. Ao zerar o tempo, o exame é encerrado automaticamente.
+*   **Resultado**: Nota na escala AWS (100 a 1000, aprovação com 700), desempenho por domínio e revisão de cada questão com a explicação.
+*   **Atalhos de teclado**: `A`–`D` para responder, `Enter` para a próxima questão no treino e as setas `←` `→` para navegar no exame.
 
 ---
 
