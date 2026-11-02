@@ -45,19 +45,15 @@ python3 gerar_banco.py
 ```
 *(Nota para usuários de Windows: Se o comando `python3` não funcionar, utilize apenas `python gerar_banco.py`)*
 
-*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 500O questões populadas.
+*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 5000 questões populadas.
 
 No total são 25.004 registros:
 
-┌─────────────────┬───────────┐
-│     Tabela      │ Registros │
-├─────────────────┼───────────┤
-│ exam_categories │ 4         │
-├─────────────────┼───────────┤
-│ questions       │ 5.000     │
-├─────────────────┼───────────┤
-│ alternatives    │ 20.000    │
-└─────────────────┴───────────┘
+| Tabela | Registros |
+|---|---:|
+| `exam_categories` | 4 |
+| `questions` | 5.000 |
+| `alternatives` | 20.000 |
 
 São 4 alternativas para cada questão.
 
@@ -138,5 +134,3 @@ O arquivo `aws_simulados.db` gerado respeita a seguinte modelagem relacional:
 
 ---
 💡 *Dica de estudo: Foque em compreender as justificativas geradas no final do `exame_oficial.py` para fixar as diferenças críticas entre os serviços principais da AWS (como as diferenças entre S3, EBS e EFS).*
-
-
