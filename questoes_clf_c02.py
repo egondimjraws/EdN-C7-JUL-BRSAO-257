@@ -22,14 +22,14 @@ QUESTOES = [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson deseja migrar para a nuvem da AWS para transformar custos fixos de TI em custos variáveis baseados no uso real. Qual vantagem do Cloud Computing isso representa?",
-        "alternativas": ["Elasticidade", "Agilidade", "Trocar despesas de capital por despesas operacionais", "Economia de escala"],
+        "alternativas": ["Aumentar a elasticidade para atender picos de demanda", "Ganhar agilidade no provisionamento de recursos", "Trocar despesas de capital por despesas operacionais", "Economia de escala"],
         "correta": "Trocar despesas de capital por despesas operacionais",
         "explicacao": "A conversão de CapEx (Despesas de Capital) para OpEx (Despesas Operacionais) é um dos pilares financeiros da AWS: paga-se apenas pelo que é consumido, sem investimento antecipado em data centers e servidores."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A AWS consegue reduzir seus preços continuamente porque agrega o uso de centenas de milhares de clientes. Qual vantagem da nuvem descreve esse cenário?",
-        "alternativas": ["Beneficiar-se de enormes economias de escala", "Parar de adivinhar a capacidade", "Tornar-se global em minutos", "Aumentar a velocidade e a agilidade"],
+        "alternativas": ["Beneficiar-se de enormes economias de escala", "Parar de adivinhar a capacidade", "Tornar-se global em minutos", "Aumentar a velocidade e a agilidade das equipes de TI"],
         "correta": "Beneficiar-se de enormes economias de escala",
         "explicacao": "Com o uso agregado de muitos clientes, a AWS obtém economias de escala maiores do que uma empresa conseguiria sozinha, o que se traduz em preços menores no modelo pré-pago."
     },
@@ -134,14 +134,14 @@ QUESTOES = [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson precisa migrar rapidamente centenas de servidores para o Amazon EC2 sem fazer nenhuma alteração nas aplicações. Qual estratégia de migração está sendo utilizada?",
-        "alternativas": ["Redefinir a hospedagem (rehost)", "Refatorar (refactor)", "Recomprar (repurchase)", "Aposentar (retire)"],
+        "alternativas": ["Redefinir a hospedagem (rehost)", "Refatorar ou rearquitetar (refactor)", "Recomprar (repurchase)", "Aposentar (retire)"],
         "correta": "Redefinir a hospedagem (rehost)",
         "explicacao": "Rehost, conhecido como 'lift and shift', move as aplicações para a nuvem sem alterações, sendo a forma mais rápida de migrar em grande escala."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson vai migrar seu banco de dados MySQL de um servidor próprio para o Amazon RDS, sem alterar o código da aplicação, para reduzir o trabalho de administração. Qual estratégia de migração está sendo aplicada?",
-        "alternativas": ["Redefinir a plataforma (replatform)", "Redefinir a hospedagem (rehost)", "Refatorar (refactor)", "Reter (retain)"],
+        "alternativas": ["Redefinir a plataforma (replatform)", "Redefinir a hospedagem (rehost)", "Refatorar ou rearquitetar (refactor)", "Reter (retain)"],
         "correta": "Redefinir a plataforma (replatform)",
         "explicacao": "Replatform ('lift, tinker and shift') faz algumas otimizações para aproveitar a nuvem, como trocar um banco autogerenciado por um serviço gerenciado, sem mudar a arquitetura principal da aplicação."
     },
@@ -162,7 +162,7 @@ QUESTOES = [
     {
         "dominio_id": 1,
         "template_pergunta": "Um arquiteto colocou uma fila do Amazon SQS entre o front-end e o processamento de pedidos para que a falha de um componente não derrube o outro. Qual princípio de design da nuvem foi aplicado?",
-        "alternativas": ["Desacoplar os componentes (acoplamento fraco)", "Escalabilidade vertical", "Servidores como animais de estimação", "Arquitetura monolítica"],
+        "alternativas": ["Desacoplar os componentes (acoplamento fraco)", "Escalabilidade vertical", "Tratar servidores como animais de estimação (pets)", "Arquitetura monolítica"],
         "correta": "Desacoplar os componentes (acoplamento fraco)",
         "explicacao": "Com acoplamento fraco, os componentes se comunicam de forma assíncrona e uma falha ou lentidão em um deles não se propaga para os demais."
     },
@@ -176,7 +176,7 @@ QUESTOES = [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer migrar seu banco de dados Oracle on-premises para a AWS mantendo o banco de origem em funcionamento durante a migração, com mínimo tempo de inatividade. Qual serviço deve ser usado?",
-        "alternativas": ["AWS Database Migration Service (AWS DMS)", "AWS DataSync", "AWS Snowball Edge", "AWS Backup"],
+        "alternativas": ["AWS Database Migration Service (AWS DMS)", "AWS DataSync", "AWS Snowball Edge Storage Optimized", "AWS Schema Conversion Tool (AWS SCT)"],
         "correta": "AWS Database Migration Service (AWS DMS)",
         "explicacao": "O AWS DMS migra bancos de dados para a AWS de forma rápida e segura; o banco de origem continua operacional durante a migração, minimizando o tempo de inatividade."
     },
@@ -201,7 +201,7 @@ QUESTOES = [
     {
         "dominio_id": 2,
         "template_pergunta": "De acordo com o Modelo de Responsabilidade Compartilhada da AWS, qual das seguintes opções é uma responsabilidade exclusiva do cliente?",
-        "alternativas": ["Segurança física das instalações", "Gerenciamento de patches do sistema operacional convidado", "Manutenção do software do hipervisor", "Descarte seguro de discos rígidos"],
+        "alternativas": ["Segurança física das instalações e controle de acesso aos data centers", "Gerenciamento de patches do sistema operacional convidado", "Manutenção e atualização do software do hipervisor dos hosts", "Descarte seguro de discos rígidos"],
         "correta": "Gerenciamento de patches do sistema operacional convidado",
         "explicacao": "A AWS cuida da segurança 'da' nuvem (infraestrutura) e o cliente cuida da segurança 'na' nuvem (dados e sistemas operacionais das instâncias EC2)."
     },
@@ -215,21 +215,21 @@ QUESTOES = [
     {
         "dominio_id": 2,
         "template_pergunta": "Ao usar o Amazon RDS, qual tarefa é de responsabilidade da AWS?",
-        "alternativas": ["Aplicar patches no sistema operacional e no mecanismo do banco de dados", "Criar os usuários do banco de dados e suas permissões", "Configurar as regras dos security groups do banco", "Decidir se os dados serão criptografados"],
+        "alternativas": ["Aplicar patches no sistema operacional e no mecanismo do banco de dados", "Criar os usuários do banco de dados e definir as permissões de cada um deles", "Configurar as regras dos security groups do banco", "Decidir se os dados armazenados no banco serão criptografados em repouso"],
         "correta": "Aplicar patches no sistema operacional e no mecanismo do banco de dados",
         "explicacao": "Em serviços gerenciados como o RDS, a AWS assume a manutenção do sistema operacional e do mecanismo do banco. O cliente continua responsável por acessos, rede e proteção dos dados."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a prática recomendada para o usuário raiz (root) de uma conta da AWS?",
-        "alternativas": ["Habilitar MFA e usá-lo apenas para tarefas que exigem o usuário raiz", "Usá-lo diariamente para tarefas administrativas", "Compartilhar suas credenciais com a equipe de operações", "Criar chaves de acesso para uso em scripts"],
+        "alternativas": ["Habilitar MFA e usá-lo apenas para tarefas que exigem o usuário raiz", "Usá-lo diariamente para tarefas administrativas", "Compartilhar suas credenciais com a equipe de operações para agilizar o suporte", "Criar chaves de acesso para uso em scripts"],
         "correta": "Habilitar MFA e usá-lo apenas para tarefas que exigem o usuário raiz",
         "explicacao": "O usuário raiz tem acesso irrestrito à conta. A AWS recomenda protegê-lo com MFA, não criar chaves de acesso para ele e usar identidades do IAM nas tarefas do dia a dia."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um administrador concedeu a um analista apenas a permissão de leitura em um bucket específico do S3, que é tudo o que ele precisa para trabalhar. Qual prática de segurança foi aplicada?",
-        "alternativas": ["Princípio do privilégio mínimo", "Defesa em profundidade", "Separação de contas", "Criptografia em trânsito"],
+        "alternativas": ["Princípio do privilégio mínimo", "Princípio da defesa em profundidade", "Separação de contas", "Criptografia em trânsito"],
         "correta": "Princípio do privilégio mínimo",
         "explicacao": "O privilégio mínimo consiste em conceder somente as permissões necessárias para executar uma tarefa, reduzindo o impacto de credenciais comprometidas ou erros."
     },
@@ -250,7 +250,7 @@ QUESTOES = [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson com várias contas na AWS quer impedir que qualquer conta da área de desenvolvimento use serviços fora de uma lista aprovada, inclusive para administradores. Qual recurso deve ser usado?",
-        "alternativas": ["Políticas de controle de serviço (SCPs) do AWS Organizations", "Grupos do IAM", "AWS Config", "Security groups"],
+        "alternativas": ["Políticas de controle de serviço (SCPs) do AWS Organizations", "Grupos do IAM", "Regras do AWS Config com notificação para os administradores", "Security groups restritivos aplicados em todas as VPCs das contas"],
         "correta": "Políticas de controle de serviço (SCPs) do AWS Organizations",
         "explicacao": "As SCPs definem o máximo de permissões disponível nas contas de uma organização ou unidade organizacional, valendo inclusive para os administradores dessas contas."
     },
@@ -320,7 +320,7 @@ QUESTOES = [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual serviço permite criar e gerenciar chaves criptográficas e controlar seu uso em diversos serviços da AWS?",
-        "alternativas": ["AWS Key Management Service (AWS KMS)", "AWS Certificate Manager", "AWS Secrets Manager", "AWS IAM"],
+        "alternativas": ["AWS Key Management Service (AWS KMS)", "AWS Certificate Manager", "AWS Secrets Manager", "AWS Identity and Access Management (IAM)"],
         "correta": "AWS Key Management Service (AWS KMS)",
         "explicacao": "O AWS KMS facilita a criação e o controle das chaves usadas para criptografar dados e é integrado à maioria dos serviços da AWS, como S3, EBS e RDS."
     },
@@ -341,7 +341,7 @@ QUESTOES = [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual serviço permite provisionar, gerenciar e renovar automaticamente certificados SSL/TLS para uso com o Elastic Load Balancing e o Amazon CloudFront?",
-        "alternativas": ["AWS Certificate Manager (ACM)", "AWS KMS", "AWS CloudHSM", "AWS Secrets Manager"],
+        "alternativas": ["AWS Certificate Manager (ACM)", "AWS Key Management Service (AWS KMS)", "AWS CloudHSM", "AWS Secrets Manager"],
         "correta": "AWS Certificate Manager (ACM)",
         "explicacao": "O ACM provisiona e renova certificados SSL/TLS públicos e privados; os certificados públicos usados com serviços integrados não têm custo adicional."
     },
@@ -541,14 +541,14 @@ QUESTOES = [
     {
         "dominio_id": 3,
         "template_pergunta": "Como é definida uma Zona de Disponibilidade na infraestrutura global da AWS?",
-        "alternativas": ["Um ou mais data centers distintos com energia, rede e conectividade redundantes dentro de uma Região", "Um ponto de presença usado para cache de conteúdo", "Uma área geográfica que contém várias Regiões", "Um único servidor físico dedicado a um cliente"],
+        "alternativas": ["Um ou mais data centers distintos com energia, rede e conectividade redundantes dentro de uma Região", "Um ponto de presença usado pelo CloudFront para armazenar conteúdo em cache perto dos usuários finais em grandes cidades", "Uma área geográfica isolada que agrupa várias Regiões da AWS em um mesmo continente", "Um único servidor físico dedicado a um cliente"],
         "correta": "Um ou mais data centers distintos com energia, rede e conectividade redundantes dentro de uma Região",
         "explicacao": "Cada Região da AWS é composta por várias Zonas de Disponibilidade isoladas fisicamente, conectadas entre si por redes de baixa latência."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual componente da infraestrutura global da AWS é usado pelo Amazon CloudFront para armazenar conteúdo em cache perto dos usuários finais?",
-        "alternativas": ["Pontos de presença (edge locations)", "Zonas de Disponibilidade", "Regiões", "AWS Outposts"],
+        "alternativas": ["Pontos de presença (edge locations)", "Zonas de Disponibilidade", "Regiões", "Racks do AWS Outposts nas instalações do cliente"],
         "correta": "Pontos de presença (edge locations)",
         "explicacao": "Os pontos de presença estão distribuídos em centenas de cidades e são usados por serviços como CloudFront e Route 53 para reduzir a latência para os usuários."
     },
@@ -685,14 +685,14 @@ QUESTOES = [
     {
         "dominio_id": 4,
         "template_pergunta": "O que está incluído no plano Basic do AWS Support, disponível sem custo adicional para todos os clientes?",
-        "alternativas": ["AWS Health Dashboard e as verificações principais do AWS Trusted Advisor", "Suporte técnico 24x7 por telefone com engenheiros", "Um Technical Account Manager designado", "Orientação arquitetural para casos de uso específicos"],
+        "alternativas": ["AWS Health Dashboard e as verificações principais do AWS Trusted Advisor", "Suporte técnico 24x7 por telefone, chat e e-mail com engenheiros de suporte", "Um Technical Account Manager designado", "Orientação arquitetural para casos de uso específicos"],
         "correta": "AWS Health Dashboard e as verificações principais do AWS Trusted Advisor",
         "explicacao": "O plano Basic oferece atendimento ao cliente para dúvidas de conta e faturamento, documentação, fóruns, o AWS Health Dashboard e as verificações principais do Trusted Advisor, mas não inclui suporte técnico."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson executa uma aplicação com uso estável e previsível 24 horas por dia e pode se comprometer com um valor de uso por 3 anos. Qual opção reduz mais os custos de computação?",
-        "alternativas": ["Savings Plans com compromisso de 3 anos", "Instâncias sob demanda", "Instâncias Spot", "Hosts dedicados sob demanda"],
+        "alternativas": ["Savings Plans com compromisso de 3 anos", "Instâncias sob demanda", "Instâncias Spot", "Hosts dedicados sob demanda sem compromisso"],
         "correta": "Savings Plans com compromisso de 3 anos",
         "explicacao": "Savings Plans e Instâncias Reservadas oferecem grandes descontos em troca de um compromisso de 1 ou 3 anos, sendo ideais para cargas estáveis. As Spot não são indicadas para cargas que não toleram interrupções."
     },
@@ -706,7 +706,7 @@ QUESTOES = [
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson com várias contas da AWS quer receber uma única fatura e somar o uso de todas as contas para obter descontos por volume. Qual recurso deve ser usado?",
-        "alternativas": ["Faturamento consolidado do AWS Organizations", "AWS Cost Explorer", "AWS Budgets", "Tags de alocação de custos"],
+        "alternativas": ["Faturamento consolidado do AWS Organizations", "AWS Cost Explorer", "AWS Budgets", "Tags de alocação de custos ativadas em cada conta"],
         "correta": "Faturamento consolidado do AWS Organizations",
         "explicacao": "O faturamento consolidado reúne as cobranças de todas as contas da organização em uma única fatura e combina o uso para aplicar descontos por volume."
     },
@@ -754,7 +754,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Qual opção descreve corretamente a computação em nuvem?",
-        "alternativas": ["Entrega sob demanda de recursos de TI pela internet com pagamento conforme o uso", "Aluguel de servidores físicos com contrato mínimo de cinco anos", "Instalação de softwares diretamente nos computadores dos funcionários", "Compra antecipada de hardware para um data center próprio"],
+        "alternativas": ["Entrega sob demanda de recursos de TI pela internet com pagamento conforme o uso", "Aluguel de servidores físicos com contrato mínimo de cinco anos e pagamento antecipado", "Instalação de softwares diretamente nos computadores dos funcionários", "Compra antecipada de hardware para um data center próprio"],
         "correta": "Entrega sob demanda de recursos de TI pela internet com pagamento conforme o uso",
         "explicacao": "Computação em nuvem é a entrega sob demanda de poder computacional, banco de dados, armazenamento, aplicações e outros recursos de TI pela internet, com preço de pagamento conforme o uso."
     },
@@ -768,14 +768,14 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer que sua equipe de TI pare de cuidar de racks, cabeamento, energia e refrigeração para se concentrar em projetos que diferenciam o negócio. Qual vantagem da nuvem atende a esse objetivo?",
-        "alternativas": ["Parar de gastar dinheiro com a operação e manutenção de data centers", "Tornar-se global em minutos", "Parar de adivinhar a capacidade", "Beneficiar-se de enormes economias de escala"],
+        "alternativas": ["Parar de gastar dinheiro com a operação e manutenção de data centers", "Tornar-se global em minutos, usando a infraestrutura em vários continentes", "Parar de adivinhar a capacidade", "Beneficiar-se de enormes economias de escala obtidas pela AWS"],
         "correta": "Parar de gastar dinheiro com a operação e manutenção de data centers",
         "explicacao": "Na nuvem, a AWS cuida da infraestrutura física. A empresa deixa de gastar com o trabalho pesado de manter data centers e pode focar em seus clientes e produtos."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Como a AWS chama tarefas como gerenciar servidores, aplicar patches em hardware e manter data centers, que consomem esforço mas não diferenciam o negócio do cliente?",
-        "alternativas": ["Trabalho pesado indiferenciado (undifferentiated heavy lifting)", "Excelência operacional", "Computação de borda", "Dívida técnica"],
+        "alternativas": ["Trabalho pesado indiferenciado (undifferentiated heavy lifting)", "Excelência operacional", "Computação de borda (edge computing) em pontos de presença", "Dívida técnica (technical debt) acumulada pela infraestrutura legada"],
         "correta": "Trabalho pesado indiferenciado (undifferentiated heavy lifting)",
         "explicacao": "A AWS usa o termo 'trabalho pesado indiferenciado' para atividades de infraestrutura necessárias, mas que não agregam valor competitivo. Serviços gerenciados eliminam boa parte desse esforço."
     },
@@ -817,7 +817,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Qual afirmação descreve corretamente a diferença entre escalabilidade e elasticidade?",
-        "alternativas": ["Escalabilidade é crescer para atender a mais carga; elasticidade é ajustar os recursos automaticamente para cima e para baixo conforme a demanda", "Escalabilidade só se aplica a bancos de dados; elasticidade só se aplica a armazenamento", "Elasticidade exige compra de hardware; escalabilidade não", "Não há diferença: os dois termos significam reduzir custos fixos"],
+        "alternativas": ["Escalabilidade é crescer para atender a mais carga; elasticidade é ajustar os recursos automaticamente para cima e para baixo conforme a demanda", "Escalabilidade é reduzir recursos para economizar custos; elasticidade é comprar hardware antecipadamente para suportar picos de demanda futuros", "Elasticidade exige compra de hardware; escalabilidade não", "Não há diferença: os dois termos significam reduzir custos fixos"],
         "correta": "Escalabilidade é crescer para atender a mais carga; elasticidade é ajustar os recursos automaticamente para cima e para baixo conforme a demanda",
         "explicacao": "Um sistema elástico é escalável e, além disso, libera os recursos quando a demanda cai, evitando pagar por capacidade ociosa."
     },
@@ -915,14 +915,14 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Na nuvem, uma empresa cria sob demanda um ambiente idêntico ao de produção, executa testes de carga e depois o desliga, pagando apenas pelas horas usadas. Qual princípio geral de design é esse?",
-        "alternativas": ["Testar sistemas em escala de produção", "Parar de adivinhar a capacidade", "Projetar arquiteturas monolíticas", "Usar servidores de longa duração"],
+        "alternativas": ["Testar sistemas em escala de produção", "Parar de adivinhar a capacidade", "Projetar arquiteturas monolíticas de alta capacidade", "Usar servidores de longa duração"],
         "correta": "Testar sistemas em escala de produção",
         "explicacao": "Na nuvem é possível criar ambientes de teste em escala de produção apenas pelo tempo necessário, algo caro ou inviável em data centers tradicionais."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Qual é um benefício de definir a infraestrutura como código (IaC)?",
-        "alternativas": ["Criar ambientes reproduzíveis, versionados e consistentes", "Eliminar a necessidade de controles de segurança", "Garantir que os recursos não tenham custo", "Dispensar qualquer tipo de teste"],
+        "alternativas": ["Criar ambientes reproduzíveis, versionados e consistentes", "Eliminar a necessidade de controles de segurança e de revisões de acesso", "Garantir que os recursos não tenham custo", "Dispensar qualquer tipo de teste"],
         "correta": "Criar ambientes reproduzíveis, versionados e consistentes",
         "explicacao": "Com IaC, a infraestrutura é descrita em arquivos que podem ser versionados, revisados e reaplicados, reduzindo erros manuais e diferenças entre ambientes."
     },
@@ -936,7 +936,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Uma aplicação passou a guardar os dados de sessão dos usuários no Amazon DynamoDB em vez da memória de cada instância, permitindo adicionar ou remover instâncias livremente. Qual princípio de design foi aplicado?",
-        "alternativas": ["Projetar componentes sem estado (stateless)", "Acoplamento forte", "Escalabilidade vertical", "Arquitetura monolítica"],
+        "alternativas": ["Projetar componentes sem estado (stateless)", "Acoplamento forte", "Escalabilidade vertical das instâncias existentes", "Arquitetura monolítica"],
         "correta": "Projetar componentes sem estado (stateless)",
         "explicacao": "Componentes sem estado não guardam dados de sessão localmente, o que permite que qualquer instância atenda qualquer requisição e facilita a escalabilidade horizontal."
     },
@@ -950,7 +950,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Qual característica descreve corretamente a computação serverless na AWS?",
-        "alternativas": ["Não é preciso provisionar nem gerenciar servidores, e a escalabilidade é automática", "Não existe nenhum servidor físico envolvido na execução", "O cliente é responsável por aplicar patches no sistema operacional", "A cobrança é feita por servidor provisionado por mês"],
+        "alternativas": ["Não é preciso provisionar nem gerenciar servidores, e a escalabilidade é automática", "Não existe nenhum servidor físico envolvido na execução", "O cliente é responsável por aplicar patches no sistema operacional dos servidores que executam o código", "A cobrança é feita por servidor provisionado por mês"],
         "correta": "Não é preciso provisionar nem gerenciar servidores, e a escalabilidade é automática",
         "explicacao": "Em serverless os servidores existem, mas são totalmente gerenciados pela AWS. O cliente foca no código e paga pelo uso real, como no AWS Lambda."
     },
@@ -1069,7 +1069,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Ao calcular o custo total de propriedade (TCO) de um data center on-premises para comparar com a AWS, o que deve ser considerado além do preço do hardware?",
-        "alternativas": ["Energia, refrigeração, espaço físico e equipe de manutenção", "Somente o preço de compra dos servidores", "Apenas o custo das licenças de software", "Somente o custo do link de internet"],
+        "alternativas": ["Energia, refrigeração, espaço físico e equipe de manutenção", "Somente o preço de compra dos servidores e dos equipamentos de rede", "Apenas o custo das licenças de software", "Somente o custo do link de internet"],
         "correta": "Energia, refrigeração, espaço físico e equipe de manutenção",
         "explicacao": "O TCO inclui custos diretos e indiretos, como instalações, energia, refrigeração, hardware de rede e armazenamento, licenças e pessoas para operar a infraestrutura."
     },
@@ -1083,7 +1083,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Por que migrar um banco de dados autogerenciado em instâncias EC2 para o Amazon RDS pode reduzir o custo total de propriedade?",
-        "alternativas": ["A AWS assume tarefas como backups, patches e alta disponibilidade, reduzindo o esforço operacional", "O Amazon RDS é sempre gratuito", "O Amazon RDS dispensa o pagamento de armazenamento", "O Amazon RDS elimina a necessidade de qualquer configuração de segurança"],
+        "alternativas": ["A AWS assume tarefas como backups, patches e alta disponibilidade, reduzindo o esforço operacional", "O Amazon RDS é sempre gratuito", "O Amazon RDS dispensa o pagamento de armazenamento", "O Amazon RDS elimina a necessidade de qualquer configuração de segurança, de rede e de controle de acesso ao banco"],
         "correta": "A AWS assume tarefas como backups, patches e alta disponibilidade, reduzindo o esforço operacional",
         "explicacao": "Serviços gerenciados reduzem o tempo que a equipe gasta com administração, o que diminui custos de pessoal e permite focar em atividades de maior valor."
     },
@@ -1121,14 +1121,14 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson automatizou o desligamento dos ambientes de desenvolvimento à noite e nos fins de semana. Qual benefício econômico da nuvem isso aproveita?",
-        "alternativas": ["Pagar apenas pelas horas em que os recursos estão em uso", "Obter um desconto fixo por compromisso de três anos", "Eliminar a cobrança pelo armazenamento", "Receber hardware dedicado gratuitamente"],
+        "alternativas": ["Pagar apenas pelas horas em que os recursos estão em uso", "Obter um desconto fixo por compromisso de uso de três anos", "Eliminar a cobrança pelo armazenamento", "Receber hardware dedicado gratuitamente"],
         "correta": "Pagar apenas pelas horas em que os recursos estão em uso",
         "explicacao": "Com o modelo pay-as-you-go, recursos desligados deixam de gerar custos de computação. A automação ajuda a evitar pagar por capacidade ociosa."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Uma startup desenvolveu todas as suas aplicações diretamente na AWS, sem nenhuma infraestrutura em data center próprio. Qual modelo de implantação ela utiliza?",
-        "alternativas": ["Implantação em nuvem (totalmente na nuvem)", "Implantação híbrida", "On-premises (nuvem privada)", "Colocation"],
+        "alternativas": ["Implantação em nuvem (totalmente na nuvem)", "Implantação híbrida (on-premises e nuvem)", "On-premises (nuvem privada)", "Colocation em data center de terceiros"],
         "correta": "Implantação em nuvem (totalmente na nuvem)",
         "explicacao": "No modelo totalmente na nuvem, todas as partes da aplicação são executadas na nuvem, seja criadas nela ou migradas de um ambiente anterior."
     },
@@ -1177,7 +1177,7 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson mantém em outra Região uma cópia reduzida, mas totalmente funcional, de seu ambiente de produção, que pode ser escalada rapidamente em caso de desastre. Qual estratégia é essa?",
-        "alternativas": ["Espera ativa (warm standby)", "Luz piloto (pilot light)", "Backup e restauração", "Retenção on-premises"],
+        "alternativas": ["Espera ativa (warm standby)", "Luz piloto (pilot light)", "Backup e restauração", "Multissite ativo-ativo (active/active)"],
         "correta": "Espera ativa (warm standby)",
         "explicacao": "Na espera ativa, uma versão menor do ambiente está sempre em execução e atendendo requisições, reduzindo o tempo de recuperação em relação à luz piloto."
     },
@@ -1205,21 +1205,21 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Como a infraestrutura global da AWS ajuda empresas a atender requisitos de soberania de dados em diferentes países?",
-        "alternativas": ["O cliente escolhe a Região onde os dados ficam, e eles não saem dela sem uma ação do cliente", "A AWS replica automaticamente os dados para todas as Regiões", "Os dados ficam sempre armazenados nos Estados Unidos", "Os pontos de presença guardam a cópia principal dos dados"],
+        "alternativas": ["O cliente escolhe a Região onde os dados ficam, e eles não saem dela sem uma ação do cliente", "A AWS replica automaticamente os dados para todas as Regiões, garantindo que fiquem perto de cada país", "Os dados ficam sempre armazenados nos Estados Unidos", "Os pontos de presença guardam a cópia principal dos dados"],
         "correta": "O cliente escolhe a Região onde os dados ficam, e eles não saem dela sem uma ação do cliente",
         "explicacao": "Os dados armazenados em uma Região permanecem nela, a menos que o cliente configure explicitamente a replicação ou a transferência para outro local."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Na nuvem, se um experimento não der certo, a empresa simplesmente desliga os recursos e deixa de pagar por eles. Qual benefício isso proporciona?",
-        "alternativas": ["Baixo custo de experimentação, o que aumenta a agilidade e a inovação", "Garantia de que todos os experimentos terão sucesso", "Eliminação da necessidade de planejamento", "Desconto automático em todos os serviços"],
+        "alternativas": ["Baixo custo de experimentação, o que aumenta a agilidade e a inovação", "Garantia de que todos os experimentos terão sucesso antes de chegar à produção", "Eliminação da necessidade de planejamento", "Desconto automático em todos os serviços"],
         "correta": "Baixo custo de experimentação, o que aumenta a agilidade e a inovação",
         "explicacao": "Como não há investimento em hardware, o custo de testar ideias é baixo. Isso incentiva a experimentação frequente e acelera a inovação."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A frase 'tudo falha o tempo todo' resume qual princípio de arquitetura recomendado pela AWS?",
-        "alternativas": ["Projetar para falhas, assumindo que os componentes vão falhar", "Comprar hardware mais caro para evitar falhas", "Manter tudo em uma única instância grande", "Desativar o monitoramento para reduzir alertas"],
+        "alternativas": ["Projetar para falhas, assumindo que os componentes vão falhar", "Comprar hardware mais caro e confiável para evitar qualquer falha", "Manter tudo em uma única instância grande", "Desativar o monitoramento para reduzir alertas"],
         "correta": "Projetar para falhas, assumindo que os componentes vão falhar",
         "explicacao": "Projetar para falhas significa eliminar pontos únicos de falha com redundância, automação e recuperação automática, para que a aplicação continue funcionando."
     },
@@ -1240,21 +1240,21 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "O AWS Well-Architected Framework oferece orientações adicionais para setores e tecnologias específicas, como serverless, SaaS e serviços financeiros. Como essas extensões são chamadas?",
-        "alternativas": ["Lentes (lenses) do Well-Architected", "Perspectivas do AWS CAF", "Pilares adicionais", "Planos do AWS Support"],
+        "alternativas": ["Lentes (lenses) do Well-Architected", "Perspectivas do AWS Cloud Adoption Framework", "Pilares adicionais", "Planos do AWS Support"],
         "correta": "Lentes (lenses) do Well-Architected",
         "explicacao": "As lentes do Well-Architected ampliam as orientações dos seis pilares para domínios específicos, como Serverless Lens, SaaS Lens e Machine Learning Lens."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson vai migrar um banco MySQL on-premises para o Amazon Aurora MySQL. Por que, nesse caso, não é necessário converter o esquema do banco?",
-        "alternativas": ["Porque é uma migração homogênea, entre mecanismos compatíveis", "Porque o Aurora não usa esquemas", "Porque o AWS DMS só migra bancos NoSQL", "Porque o esquema é apagado durante a migração"],
+        "alternativas": ["Porque é uma migração homogênea, entre mecanismos compatíveis", "Porque o Aurora não usa esquemas", "Porque o AWS DMS só migra bancos NoSQL", "Porque o esquema é recriado automaticamente pelo Aurora após a migração"],
         "correta": "Porque é uma migração homogênea, entre mecanismos compatíveis",
         "explicacao": "Em migrações homogêneas (como MySQL para Aurora MySQL) o AWS DMS migra os dados diretamente. A conversão de esquema com o AWS SCT só é necessária em migrações heterogêneas."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Qual é um benefício de segurança obtido ao migrar cargas de trabalho para a AWS?",
-        "alternativas": ["Herdar controles de segurança e certificações de conformidade da infraestrutura da AWS", "Transferir à AWS toda a responsabilidade pela segurança dos dados", "Dispensar a configuração de permissões de acesso", "Eliminar a necessidade de criptografia"],
+        "alternativas": ["Herdar controles de segurança e certificações de conformidade da infraestrutura da AWS", "Transferir à AWS toda a responsabilidade pela segurança dos dados e das aplicações executadas na nuvem", "Dispensar a configuração de permissões de acesso", "Eliminar a necessidade de criptografia"],
         "correta": "Herdar controles de segurança e certificações de conformidade da infraestrutura da AWS",
         "explicacao": "O cliente herda os controles físicos e de infraestrutura da AWS, auditados por terceiros, mas continua responsável pela segurança do que coloca na nuvem."
     },
@@ -1268,21 +1268,21 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Qual tecnologia permite executar várias máquinas virtuais isoladas em um único servidor físico, sendo a base de serviços como o Amazon EC2?",
-        "alternativas": ["Virtualização por meio de um hipervisor", "Rede de entrega de conteúdo", "Balanceamento de carga", "Replicação entre Regiões"],
+        "alternativas": ["Virtualização por meio de um hipervisor", "Rede de entrega de conteúdo (CDN) com cache na borda", "Balanceamento de carga", "Replicação entre Regiões"],
         "correta": "Virtualização por meio de um hipervisor",
         "explicacao": "O hipervisor divide os recursos de um servidor físico entre várias máquinas virtuais. No EC2, essa função é desempenhada pelo AWS Nitro System."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Qual prática reduz os riscos de uma migração de muitas aplicações para a AWS?",
-        "alternativas": ["Migrar em ondas, começando pelas cargas de trabalho de menor risco", "Migrar todas as aplicações em um único fim de semana", "Pular a fase de avaliação para ganhar tempo", "Migrar sem plano de reversão"],
+        "alternativas": ["Migrar em ondas, começando pelas cargas de trabalho de menor risco", "Migrar todas as aplicações de uma só vez, em um único fim de semana", "Pular a fase de avaliação para ganhar tempo", "Migrar sem plano de reversão"],
         "correta": "Migrar em ondas, começando pelas cargas de trabalho de menor risco",
         "explicacao": "Migrar em ondas permite aprender com as primeiras migrações, ajustar processos e ganhar confiança antes de mover as aplicações mais críticas."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Uma equipe automatizou a compilação, os testes e a implantação do código para entregar mudanças pequenas com frequência e segurança. Qual prática é essa?",
-        "alternativas": ["Integração e entrega contínuas (CI/CD)", "Desenvolvimento em cascata", "Implantação manual em lote", "Congelamento de mudanças"],
+        "alternativas": ["Integração e entrega contínuas (CI/CD)", "Desenvolvimento em cascata", "Implantação manual em lote, com aprovação mensal", "Congelamento de mudanças"],
         "correta": "Integração e entrega contínuas (CI/CD)",
         "explicacao": "CI/CD automatiza o caminho do código até a produção, reduzindo erros manuais e permitindo mudanças pequenas, frequentes e reversíveis."
     },
@@ -1296,14 +1296,14 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer reduzir o tempo para lançar novos produtos no mercado. Qual característica da nuvem contribui mais diretamente para isso?",
-        "alternativas": ["Agilidade para provisionar recursos em minutos", "Contratos de hardware de longo prazo", "Data centers próprios maiores", "Processos de compra mais longos"],
+        "alternativas": ["Agilidade para provisionar recursos em minutos", "Contratos de hardware de longo prazo com fornecedores", "Data centers próprios maiores", "Processos de compra mais longos"],
         "correta": "Agilidade para provisionar recursos em minutos",
         "explicacao": "A agilidade da nuvem reduz o tempo entre ter uma ideia e colocá-la em produção, pois não é preciso esperar pela compra e instalação de hardware."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Durante a Black Friday, uma loja usa o Amazon EC2 Auto Scaling para dobrar o número de instâncias e depois volta à capacidade normal. Qual vantagem financeira isso traz em relação a um data center próprio?",
-        "alternativas": ["Não é preciso comprar e manter hardware ocioso dimensionado para o pico", "Os recursos usados no pico não são cobrados", "O tráfego de entrada passa a ser cobrado em dobro", "Não há nenhuma diferença de custo"],
+        "alternativas": ["Não é preciso comprar e manter hardware ocioso dimensionado para o pico", "Os recursos usados no pico não são cobrados, pois o Auto Scaling é gratuito", "O tráfego de entrada passa a ser cobrado em dobro", "Não há nenhuma diferença de custo"],
         "correta": "Não é preciso comprar e manter hardware ocioso dimensionado para o pico",
         "explicacao": "On-premises, seria preciso comprar capacidade para o pico, que ficaria ociosa o resto do ano. Na nuvem, paga-se pela capacidade extra apenas enquanto ela é usada."
     },
@@ -1324,49 +1324,49 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "Qual é uma vantagem de usar serviços gerenciados da AWS em vez de instalar e operar o mesmo software em instâncias EC2?",
-        "alternativas": ["Menor sobrecarga operacional, pois a AWS cuida de tarefas como escalabilidade e manutenção", "Controle total sobre o hardware físico", "Ausência total de custos", "Possibilidade de acessar fisicamente os data centers"],
+        "alternativas": ["Menor sobrecarga operacional, pois a AWS cuida de tarefas como escalabilidade e manutenção", "Controle total sobre o hardware físico", "Ausência total de custos", "Possibilidade de acessar fisicamente os data centers e escolher o hardware usado em cada servidor"],
         "correta": "Menor sobrecarga operacional, pois a AWS cuida de tarefas como escalabilidade e manutenção",
         "explicacao": "Serviços gerenciados transferem à AWS grande parte das tarefas operacionais, permitindo que a equipe foque no desenvolvimento das aplicações."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson pretende migrar e quer receber treinamento, orientação de arquitetura e financiamento da AWS para acelerar a jornada. Qual programa foi criado para apoiar migrações em larga escala?",
-        "alternativas": ["AWS Migration Acceleration Program (MAP)", "AWS Free Tier", "AWS Artifact", "AWS Budgets"],
+        "alternativas": ["AWS Migration Acceleration Program (MAP)", "Nível gratuito da AWS (AWS Free Tier)", "AWS Artifact", "AWS Budgets com alertas de orçamento"],
         "correta": "AWS Migration Acceleration Program (MAP)",
         "explicacao": "O AWS MAP é um programa que combina metodologia, ferramentas, especialistas, treinamento e incentivos financeiros para reduzir o custo e a complexidade de migrações."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Por que o uso de várias Zonas de Disponibilidade é considerado uma prática de alta disponibilidade de baixo custo e baixa complexidade?",
-        "alternativas": ["As Zonas de Disponibilidade são próximas o bastante para replicação síncrona com baixa latência, mas isoladas fisicamente", "As Zonas de Disponibilidade ficam em continentes diferentes", "As Zonas de Disponibilidade compartilham a mesma fonte de energia", "As Zonas de Disponibilidade são gratuitas para transferência de dados em qualquer cenário"],
+        "alternativas": ["As Zonas de Disponibilidade são próximas o bastante para replicação síncrona com baixa latência, mas isoladas fisicamente", "As Zonas de Disponibilidade ficam em continentes diferentes", "As Zonas de Disponibilidade compartilham a mesma fonte de energia", "As Zonas de Disponibilidade são gratuitas para transferência de dados em qualquer cenário e não exigem nenhuma configuração de rede adicional"],
         "correta": "As Zonas de Disponibilidade são próximas o bastante para replicação síncrona com baixa latência, mas isoladas fisicamente",
         "explicacao": "As Zonas de Disponibilidade de uma Região ficam a uma distância significativa umas das outras, com energia e rede independentes, mas conectadas por links de baixa latência."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Qual afirmação descreve uma Região da AWS?",
-        "alternativas": ["Uma localização física no mundo composta por várias Zonas de Disponibilidade isoladas", "Um único data center localizado em uma cidade", "Um ponto de presença usado apenas para cache", "Um rack de servidores instalado no escritório do cliente"],
+        "alternativas": ["Uma localização física no mundo composta por várias Zonas de Disponibilidade isoladas", "Um único data center localizado em uma cidade", "Um ponto de presença usado apenas para cache", "Um rack de servidores da AWS instalado no escritório do cliente para atender requisitos de baixa latência"],
         "correta": "Uma localização física no mundo composta por várias Zonas de Disponibilidade isoladas",
         "explicacao": "Cada Região é uma área geográfica separada com várias Zonas de Disponibilidade, normalmente pelo menos três, isoladas e fisicamente separadas."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer reduzir o custo de ambientes de teste que ficam ligados mesmo quando ninguém os usa, sem perder a capacidade de recriá-los rapidamente. Qual prática da nuvem atende a esse objetivo?",
-        "alternativas": ["Criar os ambientes com infraestrutura como código e excluí-los quando não forem necessários", "Comprar instâncias reservadas de três anos para os testes", "Manter os ambientes sempre ligados para evitar reconfiguração", "Mover os testes para hardware on-premises"],
+        "alternativas": ["Criar os ambientes com infraestrutura como código e excluí-los quando não forem necessários", "Comprar instâncias reservadas de três anos para os testes", "Manter os ambientes sempre ligados para evitar o trabalho de reconfigurá-los manualmente a cada uso", "Mover os testes para hardware on-premises"],
         "correta": "Criar os ambientes com infraestrutura como código e excluí-los quando não forem necessários",
         "explicacao": "Com IaC, é possível recriar ambientes inteiros em minutos, então não há motivo para mantê-los ligados e pagando quando ninguém os está usando."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer se beneficiar do modelo de nuvem para lidar com uma demanda que cresce de forma imprevisível. Qual abordagem é a mais adequada?",
-        "alternativas": ["Usar escalabilidade automática para ajustar a capacidade conforme a demanda real", "Comprar hoje toda a capacidade estimada para os próximos cinco anos", "Limitar o número de usuários da aplicação", "Escolher sempre o maior tipo de instância disponível"],
+        "alternativas": ["Usar escalabilidade automática para ajustar a capacidade conforme a demanda real", "Comprar hoje toda a capacidade estimada para os próximos cinco anos, com margem de segurança", "Limitar o número de usuários da aplicação", "Escolher sempre o maior tipo de instância disponível"],
         "correta": "Usar escalabilidade automática para ajustar a capacidade conforme a demanda real",
         "explicacao": "A escalabilidade automática evita tanto o excesso quanto a falta de capacidade, acompanhando a demanda e cobrando apenas pelo que é usado."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "Qual é a principal diferença entre alta disponibilidade e tolerância a falhas?",
-        "alternativas": ["Tolerância a falhas busca zero interrupção, enquanto alta disponibilidade aceita um tempo mínimo de inatividade", "Alta disponibilidade só existe on-premises", "Tolerância a falhas não usa redundância", "Não há diferença entre os dois conceitos"],
+        "alternativas": ["Tolerância a falhas busca zero interrupção, enquanto alta disponibilidade aceita um tempo mínimo de inatividade", "Alta disponibilidade só existe on-premises, enquanto a tolerância a falhas só existe na nuvem pública", "Tolerância a falhas não usa redundância, enquanto a alta disponibilidade exige componentes duplicados em várias Regiões", "Não há diferença entre os dois conceitos"],
         "correta": "Tolerância a falhas busca zero interrupção, enquanto alta disponibilidade aceita um tempo mínimo de inatividade",
         "explicacao": "Um sistema altamente disponível minimiza o tempo de inatividade. Um sistema tolerante a falhas continua operando sem interrupção perceptível, normalmente com mais redundância e custo."
     },
@@ -1380,28 +1380,28 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer saber se pode migrar cargas de trabalho Windows e SQL Server para a AWS mantendo o uso de suas licenças Microsoft. Qual fator do custo total de propriedade ela está avaliando?",
-        "alternativas": ["Estratégia de licenciamento de software", "Escolha da Zona de Disponibilidade", "Política de senhas do IAM", "Configuração de DNS"],
+        "alternativas": ["Estratégia de licenciamento de software", "Escolha da Zona de Disponibilidade das instâncias", "Política de senhas do IAM", "Configuração de DNS"],
         "correta": "Estratégia de licenciamento de software",
         "explicacao": "O licenciamento impacta bastante o TCO. É preciso avaliar se é possível usar BYOL, se é melhor usar licença incluída ou se compensa migrar para alternativas de código aberto."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson reduziu a equipe dedicada a trocar discos, atualizar firmware e substituir servidores após migrar para a AWS. Que tipo de redução de custo é essa?",
-        "alternativas": ["Redução de custos operacionais com infraestrutura física", "Redução de custos com licenças de aplicativos SaaS", "Redução de impostos sobre transferência de dados", "Redução do custo de treinamento em nuvem"],
+        "alternativas": ["Redução de custos operacionais com infraestrutura física", "Redução de custos com licenças de aplicativos SaaS contratados", "Redução de impostos sobre transferência de dados", "Redução do custo de treinamento em nuvem"],
         "correta": "Redução de custos operacionais com infraestrutura física",
         "explicacao": "Como a AWS é responsável pelo hardware, tarefas como manutenção física e substituição de equipamentos deixam de ser responsabilidade do cliente."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer modernizar uma aplicação legada para obter benefícios como escalabilidade automática e menor manutenção. Qual abordagem de modernização normalmente traz esses benefícios?",
-        "alternativas": ["Adotar serviços gerenciados, contêineres ou arquiteturas serverless", "Mover a aplicação para um servidor físico maior", "Congelar a aplicação e não fazer mais mudanças", "Adicionar mais discos locais ao servidor atual"],
+        "alternativas": ["Adotar serviços gerenciados, contêineres ou arquiteturas serverless", "Mover a aplicação para um servidor físico maior e mais moderno no data center atual", "Congelar a aplicação e não fazer mais mudanças", "Adicionar mais discos locais ao servidor atual"],
         "correta": "Adotar serviços gerenciados, contêineres ou arquiteturas serverless",
         "explicacao": "Modernizar com serviços gerenciados, contêineres ou serverless reduz a manutenção da infraestrutura e permite escalar automaticamente conforme a demanda."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "O que significa dizer que a AWS oferece recursos 'sob demanda'?",
-        "alternativas": ["Os recursos podem ser provisionados quando necessários e liberados quando não forem mais usados", "Os recursos só podem ser solicitados por meio de contrato anual", "Os recursos são entregues fisicamente no endereço do cliente", "Os recursos ficam disponíveis apenas em horário comercial"],
+        "alternativas": ["Os recursos podem ser provisionados quando necessários e liberados quando não forem mais usados", "Os recursos só podem ser solicitados por meio de contrato anual assinado com a equipe comercial da AWS", "Os recursos são entregues fisicamente no endereço do cliente", "Os recursos ficam disponíveis apenas em horário comercial"],
         "correta": "Os recursos podem ser provisionados quando necessários e liberados quando não forem mais usados",
         "explicacao": "O autoatendimento sob demanda permite criar e encerrar recursos em minutos, pelo console, CLI ou APIs, sem interação humana com o provedor."
     },
@@ -1411,14 +1411,14 @@ QUESTOES += [
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson está comparando o modelo de nuvem com seu data center. Qual afirmação sobre o planejamento de capacidade na nuvem está correta?",
-        "alternativas": ["A capacidade pode ser ajustada a qualquer momento, reduzindo o risco de errar a previsão de demanda", "É preciso prever a demanda com cinco anos de antecedência", "A capacidade só pode ser alterada uma vez por ano", "A capacidade é fixa e definida na criação da conta"],
+        "alternativas": ["A capacidade pode ser ajustada a qualquer momento, reduzindo o risco de errar a previsão de demanda", "É preciso prever a demanda com cinco anos de antecedência e comprar a capacidade, como em um data center tradicional", "A capacidade só pode ser alterada uma vez por ano", "A capacidade é fixa e definida na criação da conta"],
         "correta": "A capacidade pode ser ajustada a qualquer momento, reduzindo o risco de errar a previsão de demanda",
         "explicacao": "Na nuvem, erros de previsão têm baixo impacto, porque é possível aumentar ou reduzir a capacidade rapidamente conforme a demanda real."
     },
     {
         "dominio_id": 1,
         "template_pergunta": "A lojinha do Alyson quer expandir para um novo país e precisa de infraestrutura local em poucos dias, sem negociar a construção de um data center. Qual benefício da AWS torna isso possível?",
-        "alternativas": ["Infraestrutura global disponível sob demanda em várias Regiões", "Contratos de colocation de longo prazo", "Compra de servidores com entrega expressa", "Licenças de software gratuitas"],
+        "alternativas": ["Infraestrutura global disponível sob demanda em várias Regiões", "Contratos de colocation de longo prazo em data centers locais do novo país", "Compra de servidores com entrega expressa", "Licenças de software gratuitas"],
         "correta": "Infraestrutura global disponível sob demanda em várias Regiões",
         "explicacao": "Como a AWS já mantém Regiões em diversos países, uma empresa pode implantar sua aplicação em outra parte do mundo em minutos, sem investir em instalações físicas."
     },
@@ -1445,14 +1445,14 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Ao usar o Amazon EC2, qual destas tarefas é responsabilidade do cliente?",
-        "alternativas": ["Configurar os security groups e atualizar o sistema operacional convidado", "Manter o hipervisor que executa as instâncias", "Proteger fisicamente os data centers", "Substituir os servidores físicos com defeito"],
+        "alternativas": ["Configurar os security groups e atualizar o sistema operacional convidado", "Manter e atualizar o hipervisor que executa as instâncias nos servidores físicos", "Proteger fisicamente os data centers", "Substituir os servidores físicos com defeito"],
         "correta": "Configurar os security groups e atualizar o sistema operacional convidado",
         "explicacao": "No EC2 (IaaS), o cliente gerencia o sistema operacional, as aplicações, os dados e as regras de firewall. A AWS gerencia o hardware e a virtualização."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Ao usar o Amazon DynamoDB, qual destas tarefas é responsabilidade da AWS?",
-        "alternativas": ["Aplicar patches e manter a infraestrutura e o software do banco de dados", "Definir quais usuários do IAM podem ler as tabelas", "Decidir quais dados serão armazenados nas tabelas", "Classificar a sensibilidade dos dados armazenados"],
+        "alternativas": ["Aplicar patches e manter a infraestrutura e o software do banco de dados", "Definir quais usuários e funções do IAM podem ler e gravar itens nas tabelas", "Decidir quais dados serão armazenados nas tabelas", "Classificar a sensibilidade dos dados armazenados"],
         "correta": "Aplicar patches e manter a infraestrutura e o software do banco de dados",
         "explicacao": "O DynamoDB é totalmente gerenciado: a AWS cuida da infraestrutura, do software e da escalabilidade. O cliente gerencia os dados e o controle de acesso a eles."
     },
@@ -1473,14 +1473,14 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Como a divisão de responsabilidades de segurança muda conforme o tipo de serviço usado?",
-        "alternativas": ["Quanto mais gerenciado o serviço, menos tarefas de segurança ficam com o cliente", "A divisão é sempre a mesma, independentemente do serviço", "Em serviços gerenciados, o cliente assume a segurança física", "Em IaaS, a AWS gerencia o sistema operacional do cliente"],
+        "alternativas": ["Quanto mais gerenciado o serviço, menos tarefas de segurança ficam com o cliente", "A divisão é sempre a mesma, independentemente do serviço ou do modelo de implantação", "Em serviços gerenciados, o cliente assume a segurança física", "Em IaaS, a AWS gerencia o sistema operacional do cliente"],
         "correta": "Quanto mais gerenciado o serviço, menos tarefas de segurança ficam com o cliente",
         "explicacao": "No EC2 o cliente gerencia o sistema operacional; no RDS a AWS assume essa parte; no Lambda e no DynamoDB a AWS gerencia ainda mais. Os dados e o acesso continuam sendo do cliente."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "De quem é a responsabilidade de treinar os funcionários de uma empresa sobre boas práticas de segurança no uso da AWS?",
-        "alternativas": ["Do cliente, para os seus funcionários", "Exclusivamente da AWS", "Do AWS Support, automaticamente", "De nenhuma das partes"],
+        "alternativas": ["Do cliente, para os seus funcionários", "Exclusivamente da AWS", "Do AWS Support, automaticamente, em todos os planos", "De nenhuma das partes"],
         "correta": "Do cliente, para os seus funcionários",
         "explicacao": "Conscientização e treinamento é um controle compartilhado: a AWS treina seus funcionários e o cliente deve treinar os seus."
     },
@@ -1501,28 +1501,28 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson acabou de criar sua conta da AWS. Qual é a ação recomendada antes de começar a usar os serviços?",
-        "alternativas": ["Proteger o usuário raiz com MFA e criar identidades administrativas separadas para o dia a dia", "Criar chaves de acesso para o usuário raiz", "Compartilhar a senha do usuário raiz com toda a equipe", "Desativar o AWS CloudTrail para economizar"],
+        "alternativas": ["Proteger o usuário raiz com MFA e criar identidades administrativas separadas para o dia a dia", "Criar chaves de acesso para o usuário raiz", "Compartilhar a senha do usuário raiz com toda a equipe para facilitar a administração diária da conta", "Desativar o AWS CloudTrail para economizar"],
         "correta": "Proteger o usuário raiz com MFA e criar identidades administrativas separadas para o dia a dia",
         "explicacao": "A AWS recomenda proteger o usuário raiz com MFA e uma senha forte e usar identidades do IAM ou do IAM Identity Center para as tarefas diárias."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "O que é a autenticação multifator (MFA) na AWS?",
-        "alternativas": ["Uma camada extra de segurança que exige, além da senha, um código ou dispositivo de autenticação", "Um tipo de criptografia aplicada aos buckets do S3", "Um recurso que permite usar várias contas com a mesma senha", "Um serviço de backup das credenciais"],
+        "alternativas": ["Uma camada extra de segurança que exige, além da senha, um código ou dispositivo de autenticação", "Um tipo de criptografia aplicada aos buckets do S3", "Um recurso que permite usar a mesma senha em várias contas da AWS sem precisar decorar outras senhas", "Um serviço de backup das credenciais"],
         "correta": "Uma camada extra de segurança que exige, além da senha, um código ou dispositivo de autenticação",
         "explicacao": "A MFA exige um segundo fator, como um aplicativo autenticador, uma chave de segurança FIDO ou um token de hardware, dificultando o acesso com uma senha roubada."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual destes dispositivos pode ser usado como fator de MFA para usuários da AWS?",
-        "alternativas": ["Chave de segurança FIDO, como uma chave física USB", "Certificado SSL/TLS de um site", "Par de chaves SSH de uma instância EC2", "Endereço IP fixo do escritório"],
+        "alternativas": ["Chave de segurança FIDO, como uma chave física USB", "Certificado SSL/TLS de um site", "Par de chaves SSH gerado para acessar uma instância EC2 Linux", "Endereço IP fixo do escritório"],
         "correta": "Chave de segurança FIDO, como uma chave física USB",
         "explicacao": "A AWS aceita como MFA chaves de acesso e chaves de segurança FIDO (passkeys), aplicativos autenticadores virtuais e tokens TOTP de hardware."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um desenvolvedor precisa usar a AWS CLI em seu computador com um usuário do IAM. Que tipo de credencial ele deve usar?",
-        "alternativas": ["Chave de acesso (ID da chave de acesso e chave de acesso secreta)", "Par de chaves SSH", "Senha do console do usuário raiz", "Certificado do AWS Certificate Manager"],
+        "alternativas": ["Chave de acesso (ID da chave de acesso e chave de acesso secreta)", "Par de chaves SSH", "Senha do console do usuário raiz", "Certificado SSL/TLS emitido pelo AWS Certificate Manager para o usuário"],
         "correta": "Chave de acesso (ID da chave de acesso e chave de acesso secreta)",
         "explicacao": "Chaves de acesso são usadas para acesso programático pela CLI, SDKs e APIs. A AWS recomenda preferir credenciais temporárias, como as do IAM Identity Center, sempre que possível."
     },
@@ -1536,28 +1536,28 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer gerar um relatório com todos os usuários do IAM da conta e o status de suas credenciais, como senhas, chaves de acesso e MFA. Qual recurso deve ser usado?",
-        "alternativas": ["Relatório de credenciais do IAM", "AWS Cost and Usage Report", "AWS Artifact", "Amazon Inspector"],
+        "alternativas": ["Relatório de credenciais do IAM", "AWS Cost and Usage Report (via AWS Data Exports)", "AWS Artifact", "Amazon Inspector"],
         "correta": "Relatório de credenciais do IAM",
         "explicacao": "O relatório de credenciais lista os usuários da conta e o status de suas senhas, chaves de acesso e dispositivos de MFA, ajudando em auditorias."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um administrador quer descobrir quais serviços um usuário do IAM realmente acessou recentemente, para remover permissões que não são usadas. Qual informação do IAM ajuda nessa tarefa?",
-        "alternativas": ["Informações de último acesso (último acesso a serviços)", "Relatório de custos do Cost Explorer", "Logs de fluxo da VPC", "Métricas do Amazon CloudWatch"],
+        "alternativas": ["Informações de último acesso (último acesso a serviços)", "Relatório de custos e uso do AWS Cost Explorer por usuário", "Logs de fluxo da VPC", "Métricas do Amazon CloudWatch"],
         "correta": "Informações de último acesso (último acesso a serviços)",
         "explicacao": "As informações de último acesso do IAM mostram quando uma identidade usou cada serviço pela última vez, ajudando a aplicar o privilégio mínimo."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma política do IAM permite a ação s3:GetObject, mas outra política anexada ao mesmo usuário nega explicitamente essa ação. Qual será o resultado?",
-        "alternativas": ["O acesso é negado, porque uma negação explícita sempre prevalece", "O acesso é permitido, porque a permissão foi concedida", "O acesso é permitido apenas em horário comercial", "Prevalece a política criada por último"],
+        "alternativas": ["O acesso é negado, porque uma negação explícita sempre prevalece", "O acesso é permitido, porque a permissão explícita foi concedida em uma das políticas", "O acesso é permitido apenas em horário comercial", "Prevalece a política criada por último"],
         "correta": "O acesso é negado, porque uma negação explícita sempre prevalece",
         "explicacao": "Na avaliação de políticas da AWS, uma negação explícita (Deny) sempre se sobrepõe a qualquer permissão (Allow)."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um novo usuário do IAM foi criado e nenhuma política foi anexada a ele. Quais ações ele pode executar na AWS?",
-        "alternativas": ["Nenhuma, porque por padrão todas as ações são negadas implicitamente", "Todas, porque usuários novos são administradores", "Apenas ações de leitura em todos os serviços", "As mesmas ações do usuário raiz"],
+        "alternativas": ["Nenhuma, porque por padrão todas as ações são negadas implicitamente", "Todas, porque usuários novos recebem permissões de administrador por padrão", "Apenas ações de leitura em todos os serviços", "As mesmas ações do usuário raiz"],
         "correta": "Nenhuma, porque por padrão todas as ações são negadas implicitamente",
         "explicacao": "No IAM, tudo é negado por padrão. Uma identidade só pode executar ações que forem explicitamente permitidas por uma política."
     },
@@ -1571,7 +1571,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre uma política baseada em identidade e uma política baseada em recurso?",
-        "alternativas": ["A baseada em identidade é anexada a usuários, grupos ou funções; a baseada em recurso é anexada ao recurso, como um bucket do S3", "As duas são anexadas apenas ao usuário raiz", "A baseada em recurso só pode negar acessos", "A baseada em identidade só funciona no console"],
+        "alternativas": ["A baseada em identidade é anexada a usuários, grupos ou funções; a baseada em recurso é anexada ao recurso, como um bucket do S3", "As duas são anexadas apenas ao usuário raiz e valem somente para recursos criados por ele na conta de gerenciamento", "A baseada em recurso só pode negar acessos, enquanto a baseada em identidade só pode permitir acessos a serviços globais, como o IAM e o Route 53", "A baseada em identidade só funciona no console"],
         "correta": "A baseada em identidade é anexada a usuários, grupos ou funções; a baseada em recurso é anexada ao recurso, como um bucket do S3",
         "explicacao": "Políticas baseadas em identidade definem o que a identidade pode fazer. Políticas baseadas em recurso, como políticas de bucket, definem quem pode acessar aquele recurso."
     },
@@ -1606,21 +1606,21 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "No AWS IAM Identity Center, qual recurso define o conjunto de permissões que um usuário ou grupo recebe ao acessar uma conta da AWS?",
-        "alternativas": ["Conjunto de permissões (permission set)", "Security group", "Network ACL", "Política de bucket"],
+        "alternativas": ["Conjunto de permissões (permission set)", "Security group", "Lista de controle de acesso de rede (Network ACL)", "Política de bucket"],
         "correta": "Conjunto de permissões (permission set)",
         "explicacao": "Um conjunto de permissões é um modelo de políticas que o IAM Identity Center aplica nas contas atribuídas, criando as funções correspondentes automaticamente."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "No AWS Organizations, como se chama o agrupamento de contas que permite aplicar políticas, como SCPs, a várias contas ao mesmo tempo?",
-        "alternativas": ["Unidade organizacional (OU)", "Grupo do IAM", "Security group", "Zona de Disponibilidade"],
+        "alternativas": ["Unidade organizacional (OU)", "Grupo de recursos (resource group)", "Security group", "Zona de Disponibilidade"],
         "correta": "Unidade organizacional (OU)",
         "explicacao": "As OUs organizam as contas em uma hierarquia. Políticas aplicadas a uma OU valem para todas as contas que ela contém."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Por que a AWS recomenda usar várias contas, organizadas com o AWS Organizations, em vez de colocar todas as cargas de trabalho em uma única conta?",
-        "alternativas": ["Para isolar ambientes e limitar o impacto de incidentes de segurança", "Porque cada conta tem desconto automático de 50%", "Porque uma conta só pode ter uma instância EC2", "Porque o IAM não funciona em contas com muitos recursos"],
+        "alternativas": ["Para isolar ambientes e limitar o impacto de incidentes de segurança", "Porque cada conta tem desconto automático de 50%", "Porque uma conta só pode ter uma instância EC2", "Porque o IAM não funciona corretamente em contas com muitos recursos e usuários"],
         "correta": "Para isolar ambientes e limitar o impacto de incidentes de segurança",
         "explicacao": "A conta da AWS é um limite de isolamento. Separar produção, desenvolvimento e segurança em contas diferentes reduz o raio de impacto de problemas e facilita a governança."
     },
@@ -1634,14 +1634,14 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer compartilhar sub-redes e outros recursos de uma conta com outras contas da mesma organização, sem duplicá-los. Qual serviço permite isso?",
-        "alternativas": ["AWS Resource Access Manager (AWS RAM)", "AWS Artifact", "AWS Secrets Manager", "Amazon Macie"],
+        "alternativas": ["AWS Resource Access Manager (AWS RAM)", "AWS Directory Service (Microsoft AD gerenciado)", "AWS Secrets Manager", "Amazon Macie"],
         "correta": "AWS Resource Access Manager (AWS RAM)",
         "explicacao": "O AWS RAM permite compartilhar recursos, como sub-redes da VPC e Transit Gateways, com outras contas ou com toda a organização."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson precisa de um Microsoft Active Directory gerenciado na AWS para suas aplicações Windows, sem manter controladores de domínio em instâncias EC2. Qual serviço deve ser usado?",
-        "alternativas": ["AWS Directory Service for Microsoft Active Directory", "Amazon Cognito", "AWS IAM Identity Center sem diretório", "AWS Secrets Manager"],
+        "alternativas": ["AWS Directory Service for Microsoft Active Directory", "Amazon Cognito", "AWS IAM Identity Center com o diretório nativo do Identity Center", "AWS Secrets Manager"],
         "correta": "AWS Directory Service for Microsoft Active Directory",
         "explicacao": "O AWS Managed Microsoft AD é um Active Directory real, gerenciado pela AWS, que pode se integrar a cargas Windows e a diretórios on-premises."
     },
@@ -1662,35 +1662,35 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre o AWS Artifact e o AWS Audit Manager?",
-        "alternativas": ["O Artifact fornece relatórios de conformidade da própria AWS; o Audit Manager coleta evidências sobre o uso que o cliente faz da AWS", "Os dois fornecem apenas faturas", "O Artifact detecta ameaças; o Audit Manager bloqueia ataques DDoS", "O Audit Manager substitui o CloudTrail"],
+        "alternativas": ["O Artifact fornece relatórios de conformidade da própria AWS; o Audit Manager coleta evidências sobre o uso que o cliente faz da AWS", "Os dois fornecem apenas faturas", "O Artifact detecta ameaças em tempo real nas contas; o Audit Manager bloqueia ataques DDoS e aplica regras de firewall automaticamente", "O Audit Manager substitui o CloudTrail"],
         "correta": "O Artifact fornece relatórios de conformidade da própria AWS; o Audit Manager coleta evidências sobre o uso que o cliente faz da AWS",
         "explicacao": "O Artifact mostra a conformidade da infraestrutura da AWS. O Audit Manager ajuda o cliente a demonstrar a conformidade das suas próprias cargas de trabalho."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson precisa obter informações sobre os programas de conformidade da AWS, como ISO 27001, SOC e PCI DSS, e entender como a AWS os atende. Qual recurso oferece essa visão geral?",
-        "alternativas": ["Página de programas de conformidade da AWS (AWS Compliance Programs)", "AWS Health Dashboard", "Amazon CloudWatch", "AWS Pricing Calculator"],
+        "alternativas": ["Página de programas de conformidade da AWS (AWS Compliance Programs)", "Página de status dos serviços da AWS no AWS Health Dashboard", "Amazon CloudWatch", "Página de preços dos serviços da AWS (AWS Pricing)"],
         "correta": "Página de programas de conformidade da AWS (AWS Compliance Programs)",
         "explicacao": "A AWS publica a lista de programas de conformidade atendidos e os serviços incluídos em cada um. Os relatórios de auditoria detalhados ficam no AWS Artifact."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer verificar se um serviço da AWS faz parte do escopo de uma certificação específica, como PCI DSS, antes de usá-lo para dados de cartão. Onde ela deve consultar?",
-        "alternativas": ["Na página 'Serviços da AWS no escopo por programa de conformidade'", "No AWS Cost Explorer", "No AWS Marketplace", "No Amazon CloudWatch"],
+        "alternativas": ["Na página 'Serviços da AWS no escopo por programa de conformidade'", "No relatório de custos por serviço do AWS Cost Explorer", "Na página de produtos de segurança do AWS Marketplace", "No Amazon CloudWatch"],
         "correta": "Na página 'Serviços da AWS no escopo por programa de conformidade'",
         "explicacao": "A AWS mantém uma lista atualizada dos serviços incluídos no escopo de cada programa de conformidade, como PCI DSS, HIPAA, SOC e ISO."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer avaliar várias regras do AWS Config de uma só vez, como um pacote alinhado a um padrão de segurança, e implantá-lo em várias contas. Qual recurso deve ser usado?",
-        "alternativas": ["Pacotes de conformidade (conformance packs) do AWS Config", "Relatórios do AWS Artifact", "Políticas de senha do IAM", "Alarmes do Amazon CloudWatch"],
+        "alternativas": ["Pacotes de conformidade (conformance packs) do AWS Config", "Relatórios do AWS Artifact", "Políticas de senha do IAM", "Alarmes compostos do Amazon CloudWatch combinando várias métricas"],
         "correta": "Pacotes de conformidade (conformance packs) do AWS Config",
         "explicacao": "Os conformance packs agrupam regras do AWS Config e ações de correção, podendo ser implantados em toda a organização para avaliar a conformidade de forma padronizada."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre criptografia em repouso e criptografia em trânsito?",
-        "alternativas": ["Em repouso protege dados armazenados; em trânsito protege dados enquanto trafegam pela rede", "Em repouso protege dados na rede; em trânsito protege dados no disco", "As duas só se aplicam a bancos de dados", "Não há diferença entre elas"],
+        "alternativas": ["Em repouso protege dados armazenados; em trânsito protege dados enquanto trafegam pela rede", "Em repouso protege dados enquanto trafegam pela rede; em trânsito protege dados gravados em disco", "As duas só se aplicam a bancos de dados", "Não há diferença entre elas"],
         "correta": "Em repouso protege dados armazenados; em trânsito protege dados enquanto trafegam pela rede",
         "explicacao": "Criptografia em repouso protege dados em discos, buckets e bancos. Criptografia em trânsito, normalmente com TLS, protege dados que se movem entre sistemas."
     },
@@ -1704,7 +1704,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer criptografar automaticamente os volumes Amazon EBS das suas instâncias EC2. Qual afirmação está correta?",
-        "alternativas": ["A criptografia do EBS usa chaves do AWS KMS e pode ser ativada por padrão para novos volumes", "Volumes EBS não podem ser criptografados", "A criptografia do EBS exige instalar software de terceiros", "Somente volumes de instâncias Windows podem ser criptografados"],
+        "alternativas": ["A criptografia do EBS usa chaves do AWS KMS e pode ser ativada por padrão para novos volumes", "Volumes EBS não podem ser criptografados", "A criptografia do EBS exige instalar software de terceiros", "Somente volumes de instâncias Windows podem ser criptografados, usando o BitLocker configurado pela AWS"],
         "correta": "A criptografia do EBS usa chaves do AWS KMS e pode ser ativada por padrão para novos volumes",
         "explicacao": "A criptografia do EBS protege dados em repouso, snapshots e dados em trânsito entre a instância e o volume, usando chaves do AWS KMS, e pode ser ativada por padrão na Região."
     },
@@ -1725,7 +1725,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer garantir que nenhum bucket do S3 da conta possa ser exposto publicamente por engano. Qual recurso deve ser ativado?",
-        "alternativas": ["Bloqueio de acesso público do S3 (S3 Block Public Access)", "Versionamento do S3", "S3 Transfer Acceleration", "Classe de armazenamento S3 Standard-IA"],
+        "alternativas": ["Bloqueio de acesso público do S3 (S3 Block Public Access)", "Políticas de ciclo de vida do S3 aplicadas a todos os buckets", "S3 Transfer Acceleration", "Classe de armazenamento S3 Standard-IA"],
         "correta": "Bloqueio de acesso público do S3 (S3 Block Public Access)",
         "explicacao": "O S3 Block Public Access impede que políticas ou ACLs concedam acesso público, podendo ser aplicado a toda a conta. Ele vem ativado por padrão em novos buckets."
     },
@@ -1767,42 +1767,42 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson assinou o AWS Shield Advanced. Qual benefício adicional ela recebe em relação ao Shield Standard?",
-        "alternativas": ["Acesso à equipe de resposta do Shield e proteção de custos em picos de uso causados por ataques DDoS", "Proteção contra vírus nos computadores dos funcionários", "Criptografia automática de todos os buckets do S3", "Descontos em instâncias EC2"],
+        "alternativas": ["Acesso à equipe de resposta do Shield e proteção de custos em picos de uso causados por ataques DDoS", "Proteção automática contra vírus e malware nos computadores e celulares dos funcionários e dos parceiros da empresa", "Criptografia automática de todos os buckets do S3 e dos volumes EBS com chaves dedicadas", "Descontos em instâncias EC2"],
         "correta": "Acesso à equipe de resposta do Shield e proteção de custos em picos de uso causados por ataques DDoS",
         "explicacao": "O Shield Advanced oferece detecção aprimorada, suporte da Shield Response Team (SRT) 24x7, visibilidade de ataques e proteção contra cobranças causadas por ataques DDoS."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Em quais serviços o AWS WAF pode ser implantado para proteger aplicações web?",
-        "alternativas": ["Amazon CloudFront, Application Load Balancer e Amazon API Gateway", "Somente instâncias EC2 individuais", "Somente volumes Amazon EBS", "Somente buckets do S3 Glacier"],
+        "alternativas": ["Amazon CloudFront, Application Load Balancer e Amazon API Gateway", "Somente instâncias EC2 individuais, por meio de um agente instalado no sistema", "Somente volumes Amazon EBS", "Somente buckets do S3 Glacier"],
         "correta": "Amazon CloudFront, Application Load Balancer e Amazon API Gateway",
         "explicacao": "O AWS WAF se integra a serviços que recebem tráfego HTTP/HTTPS, como CloudFront, ALB, API Gateway, AWS AppSync e Amazon Cognito."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma equipe quer registrar informações sobre o tráfego IP que entra e sai das interfaces de rede da VPC, para investigar conexões rejeitadas. Qual recurso deve ser ativado?",
-        "alternativas": ["Logs de fluxo da VPC (VPC Flow Logs)", "AWS CloudTrail", "Relatório de credenciais do IAM", "AWS Artifact"],
+        "alternativas": ["Logs de fluxo da VPC (VPC Flow Logs)", "AWS CloudTrail", "Relatório de credenciais do IAM", "Logs de acesso do Elastic Load Balancing"],
         "correta": "Logs de fluxo da VPC (VPC Flow Logs)",
         "explicacao": "Os VPC Flow Logs capturam metadados do tráfego IP, como origem, destino, porta e se a conexão foi aceita ou rejeitada, e podem ser enviados ao CloudWatch Logs ou ao S3."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer acessar suas instâncias EC2 sem abrir a porta SSH nem manter bastion hosts, com registro de todas as sessões. Qual recurso deve ser usado?",
-        "alternativas": ["AWS Systems Manager Session Manager", "Abrir a porta 22 para 0.0.0.0/0", "AWS Direct Connect", "Amazon CloudFront"],
+        "alternativas": ["AWS Systems Manager Session Manager", "Abrir a porta 22 para 0.0.0.0/0 no security group", "AWS Direct Connect", "Amazon CloudFront"],
         "correta": "AWS Systems Manager Session Manager",
         "explicacao": "O Session Manager oferece acesso seguro às instâncias pelo console ou pela CLI, sem portas de entrada abertas, com controle via IAM e registro das sessões."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Instâncias em uma sub-rede privada precisam acessar o Amazon S3 sem que o tráfego passe pela internet. Qual recurso deve ser usado?",
-        "alternativas": ["Um endpoint da VPC (VPC endpoint) para o S3", "Um internet gateway", "Um IP elástico em cada instância", "Uma distribuição do Amazon CloudFront"],
+        "alternativas": ["Um endpoint da VPC (VPC endpoint) para o S3", "Um internet gateway", "Um IP elástico em cada instância", "Uma distribuição do Amazon CloudFront na frente do bucket"],
         "correta": "Um endpoint da VPC (VPC endpoint) para o S3",
         "explicacao": "Os endpoints da VPC permitem conectar a VPC a serviços da AWS de forma privada, sem internet gateway, NAT ou IPs públicos. Para o S3 e o DynamoDB existem endpoints de gateway."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre o security group padrão de uma VPC está correta?",
-        "alternativas": ["Ele não permite tráfego de entrada vindo da internet e permite todo o tráfego de saída", "Ele permite todo o tráfego de entrada da internet", "Ele bloqueia todo o tráfego de saída", "Ele aceita regras de negação explícita"],
+        "alternativas": ["Ele não permite tráfego de entrada vindo da internet e permite todo o tráfego de saída", "Ele permite todo o tráfego de entrada da internet e bloqueia todo o tráfego de saída por padrão", "Ele bloqueia todo o tráfego de saída", "Ele aceita regras de negação explícita"],
         "correta": "Ele não permite tráfego de entrada vindo da internet e permite todo o tráfego de saída",
         "explicacao": "Por padrão, security groups não permitem entrada (exceto entre membros do mesmo grupo padrão) e permitem toda a saída. Não existem regras de negação em security groups."
     },
@@ -1816,42 +1816,42 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer aplicar defesa em profundidade na VPC. Qual combinação de recursos de rede representa essa abordagem?",
-        "alternativas": ["Network ACLs no nível da sub-rede e security groups no nível da instância", "Apenas um internet gateway", "Apenas tabelas de rotas", "Apenas IPs elásticos"],
+        "alternativas": ["Network ACLs no nível da sub-rede e security groups no nível da instância", "Apenas um internet gateway com rotas públicas para todas as sub-redes", "Apenas tabelas de rotas bem configuradas, sem nenhum outro controle de acesso", "Apenas IPs elásticos"],
         "correta": "Network ACLs no nível da sub-rede e security groups no nível da instância",
         "explicacao": "Defesa em profundidade é aplicar segurança em várias camadas. Na VPC, isso inclui Network ACLs, security groups, WAF e outros controles combinados."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual tipo de evento o AWS CloudTrail registra por padrão no histórico de eventos, sem nenhuma configuração adicional?",
-        "alternativas": ["Eventos de gerenciamento dos últimos 90 dias", "Todo o conteúdo dos objetos do S3", "Métricas de CPU das instâncias", "Os pacotes de rede trafegados na VPC"],
+        "alternativas": ["Eventos de gerenciamento dos últimos 90 dias", "Todo o conteúdo dos objetos do S3", "Métricas de CPU das instâncias", "O conteúdo completo dos pacotes de rede trafegados na VPC"],
         "correta": "Eventos de gerenciamento dos últimos 90 dias",
         "explicacao": "O histórico de eventos do CloudTrail mostra 90 dias de eventos de gerenciamento sem custo. Para retenção maior, cria-se uma trilha que envia os logs ao S3 ou usa-se o CloudTrail Lake."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson precisa guardar os registros de atividade de API de todas as contas da organização por 7 anos para auditoria. O que deve ser configurado?",
-        "alternativas": ["Uma trilha organizacional do AWS CloudTrail entregando os logs em um bucket do S3", "Alarmes do Amazon CloudWatch", "O AWS Artifact", "O histórico de eventos padrão de 90 dias"],
+        "alternativas": ["Uma trilha organizacional do AWS CloudTrail entregando os logs em um bucket do S3", "Alarmes do Amazon CloudWatch", "O AWS Artifact", "O histórico de eventos padrão do CloudTrail, que guarda os registros de cada conta automaticamente"],
         "correta": "Uma trilha organizacional do AWS CloudTrail entregando os logs em um bucket do S3",
         "explicacao": "Uma trilha da organização registra eventos de todas as contas e os entrega no S3, onde podem ser retidos pelo tempo necessário com políticas de ciclo de vida e Object Lock."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "O AWS Config detectou que um bucket do S3 ficou público. A empresa quer que isso seja corrigido automaticamente. Qual recurso do AWS Config permite essa ação?",
-        "alternativas": ["Ações de correção (remediação) automática", "Relatórios do AWS Artifact", "Logs de fluxo da VPC", "Planos do AWS Support"],
+        "alternativas": ["Ações de correção (remediação) automática", "Relatórios de conformidade gerados pelo AWS Artifact", "Logs de fluxo da VPC", "Planos do AWS Support"],
         "correta": "Ações de correção (remediação) automática",
         "explicacao": "As regras do AWS Config podem acionar ações de correção, executadas por documentos de automação do Systems Manager, para corrigir recursos fora de conformidade."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer armazenar parâmetros de configuração e alguns valores sensíveis de forma hierárquica, com integração ao IAM e ao KMS, sem precisar de rotação automática de credenciais. Qual recurso é uma opção econômica?",
-        "alternativas": ["AWS Systems Manager Parameter Store", "AWS CloudHSM", "Amazon Macie", "AWS Artifact"],
+        "alternativas": ["AWS Systems Manager Parameter Store", "AWS CloudHSM com HSMs dedicados", "AWS Certificate Manager (ACM)", "AWS Key Management Service (AWS KMS)"],
         "correta": "AWS Systems Manager Parameter Store",
         "explicacao": "O Parameter Store armazena configurações e segredos (como SecureString criptografado com KMS). O Secrets Manager é indicado quando se precisa de rotação automática de credenciais."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre os grupos de usuários e os grupos de identidades do Amazon Cognito?",
-        "alternativas": ["Grupos de usuários autenticam os usuários; grupos de identidades fornecem credenciais temporárias da AWS a eles", "Grupos de usuários criptografam dados; grupos de identidades bloqueiam ataques DDoS", "Os dois servem apenas para funcionários internos", "Grupos de identidades substituem o AWS IAM"],
+        "alternativas": ["Grupos de usuários autenticam os usuários; grupos de identidades fornecem credenciais temporárias da AWS a eles", "Grupos de usuários criptografam os dados dos aplicativos; grupos de identidades bloqueiam ataques DDoS na borda da rede", "Os dois servem apenas para funcionários internos", "Grupos de identidades substituem o AWS IAM"],
         "correta": "Grupos de usuários autenticam os usuários; grupos de identidades fornecem credenciais temporárias da AWS a eles",
         "explicacao": "Os grupos de usuários (user pools) são diretórios para cadastro e login. Os grupos de identidades (identity pools) trocam essa identidade por credenciais temporárias para acessar serviços da AWS."
     },
@@ -1868,105 +1868,105 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre a ativação do Amazon GuardDuty está correta?",
-        "alternativas": ["Ele é ativado com poucos cliques e analisa fontes de dados sem exigir a instalação de agentes nas instâncias", "Ele exige instalar um agente em cada instância antes de funcionar", "Ele só funciona em contas com o plano de suporte Enterprise", "Ele precisa de um appliance físico no data center do cliente"],
+        "alternativas": ["Ele é ativado com poucos cliques e analisa fontes de dados sem exigir a instalação de agentes nas instâncias", "Ele exige instalar um agente em cada instância antes de funcionar", "Ele só funciona em contas com o plano de suporte Enterprise", "Ele precisa de um appliance físico instalado no data center do cliente para inspecionar todo o tráfego de rede da conta"],
         "correta": "Ele é ativado com poucos cliques e analisa fontes de dados sem exigir a instalação de agentes nas instâncias",
         "explicacao": "O GuardDuty consome diretamente fontes como CloudTrail, VPC Flow Logs e logs de DNS, sem impacto na performance das cargas de trabalho."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre o Amazon Inspector e o Amazon GuardDuty?",
-        "alternativas": ["O Inspector procura vulnerabilidades em softwares e configurações; o GuardDuty detecta atividades maliciosas e comportamentos suspeitos", "O Inspector detecta ataques DDoS; o GuardDuty emite certificados", "Os dois servem apenas para analisar custos", "O GuardDuty substitui o IAM"],
+        "alternativas": ["O Inspector procura vulnerabilidades em softwares e configurações; o GuardDuty detecta atividades maliciosas e comportamentos suspeitos", "O Inspector detecta e bloqueia ataques DDoS na borda; o GuardDuty emite e renova certificados SSL/TLS para os sites e aplicações da conta", "Os dois servem apenas para analisar custos e recomendar Instâncias Reservadas com base no histórico de uso da conta", "O GuardDuty substitui o IAM"],
         "correta": "O Inspector procura vulnerabilidades em softwares e configurações; o GuardDuty detecta atividades maliciosas e comportamentos suspeitos",
         "explicacao": "O Inspector avalia o que pode ser explorado (vulnerabilidades). O GuardDuty identifica ameaças que estão acontecendo, como acessos incomuns ou comunicação com IPs maliciosos."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre o Amazon Macie e o Amazon GuardDuty?",
-        "alternativas": ["O Macie descobre e classifica dados sensíveis no S3; o GuardDuty detecta ameaças na conta e nas cargas de trabalho", "O Macie bloqueia tráfego de rede; o GuardDuty criptografa dados", "Os dois são ferramentas de estimativa de custos", "O Macie gerencia usuários; o GuardDuty gerencia senhas"],
+        "alternativas": ["O Macie descobre e classifica dados sensíveis no S3; o GuardDuty detecta ameaças na conta e nas cargas de trabalho", "O Macie bloqueia o tráfego de rede suspeito nas VPCs; o GuardDuty criptografa automaticamente os dados armazenados no S3", "Os dois são ferramentas de estimativa de custos", "O Macie gerencia usuários; o GuardDuty gerencia senhas"],
         "correta": "O Macie descobre e classifica dados sensíveis no S3; o GuardDuty detecta ameaças na conta e nas cargas de trabalho",
         "explicacao": "O Macie foca na proteção de dados sensíveis armazenados no S3. O GuardDuty foca na detecção contínua de ameaças e atividades maliciosas."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer centralizar dados de segurança de várias contas e fontes em um data lake próprio, usando o formato padronizado OCSF. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Security Lake", "Amazon Athena", "AWS Artifact", "AWS Backup"],
+        "alternativas": ["Amazon Security Lake", "Amazon Athena", "Amazon OpenSearch Service", "AWS Backup"],
         "correta": "Amazon Security Lake",
         "explicacao": "O Amazon Security Lake centraliza automaticamente dados de segurança da AWS, de ambientes on-premises e de terceiros em um data lake na conta do cliente, normalizados no padrão OCSF."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer realizar testes de intrusão (pentest) em seus próprios recursos na AWS. Qual afirmação está correta?",
-        "alternativas": ["É permitido testar uma lista de serviços aprovados sem autorização prévia, seguindo a política da AWS", "É proibido realizar qualquer teste de intrusão na AWS", "É preciso contratar o plano Enterprise para poder testar", "É permitido testar inclusive a infraestrutura física da AWS"],
+        "alternativas": ["É permitido testar uma lista de serviços aprovados sem autorização prévia, seguindo a política da AWS", "É proibido realizar qualquer teste de intrusão na AWS", "É preciso contratar o plano Enterprise para poder testar", "É permitido testar qualquer serviço, inclusive a infraestrutura física e a rede interna da AWS, sem aviso"],
         "correta": "É permitido testar uma lista de serviços aprovados sem autorização prévia, seguindo a política da AWS",
         "explicacao": "A política de testes de intrusão da AWS permite testar sem aprovação prévia serviços como EC2, RDS, Lambda e outros listados, mas proíbe atividades como ataques DDoS ou testes na infraestrutura da AWS."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson percebeu que endereços IP da AWS estão sendo usados para enviar spam e ataques contra seus sistemas. A quem ela deve reportar esse uso indevido?",
-        "alternativas": ["À equipe AWS Trust & Safety, por meio do formulário de denúncia de abuso", "Ao AWS Marketplace", "À equipe de faturamento da AWS", "Ao AWS Partner Network"],
+        "alternativas": ["À equipe AWS Trust & Safety, por meio do formulário de denúncia de abuso", "Ao AWS Marketplace", "À equipe de faturamento da AWS, por meio de um caso de suporte de conta e faturamento", "Ao AWS Partner Network, por meio do portal de parceiros"],
         "correta": "À equipe AWS Trust & Safety, por meio do formulário de denúncia de abuso",
         "explicacao": "Atividades abusivas originadas de recursos da AWS, como spam, varreduras de portas e ataques, devem ser reportadas à equipe AWS Trust & Safety."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um desenvolvedor publicou por engano as chaves de acesso de um usuário do IAM em um repositório público. Qual deve ser a primeira ação?",
-        "alternativas": ["Desativar e excluir as chaves expostas e criar novas, se necessário", "Aguardar para ver se alguém usa as chaves", "Apenas mudar a senha do console do usuário", "Tornar o repositório privado e não fazer mais nada"],
+        "alternativas": ["Desativar e excluir as chaves expostas e criar novas, se necessário", "Aguardar para ver se alguém usa as chaves", "Apenas mudar a senha do console do usuário", "Tornar o repositório privado e não fazer mais nada, pois as chaves deixam de ser visíveis"],
         "correta": "Desativar e excluir as chaves expostas e criar novas, se necessário",
         "explicacao": "Credenciais expostas devem ser revogadas imediatamente. Em seguida, deve-se revisar o CloudTrail em busca de uso não autorizado e remover recursos criados indevidamente."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Por que a AWS recomenda rotacionar periodicamente as chaves de acesso de longo prazo dos usuários do IAM?",
-        "alternativas": ["Para reduzir o tempo em que uma chave comprometida pode ser usada", "Para reduzir o custo da conta", "Para aumentar o limite de instâncias EC2", "Porque as chaves deixam de funcionar após 24 horas"],
+        "alternativas": ["Para reduzir o tempo em que uma chave comprometida pode ser usada", "Para reduzir o custo da conta", "Para aumentar o limite de instâncias EC2", "Porque as chaves de acesso deixam de funcionar automaticamente após 24 horas"],
         "correta": "Para reduzir o tempo em que uma chave comprometida pode ser usada",
         "explicacao": "Rotacionar credenciais limita a janela de exposição. Melhor ainda é substituir chaves de longo prazo por credenciais temporárias, como funções do IAM."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson precisa emitir certificados privados para comunicação interna entre microsserviços, criando sua própria autoridade certificadora gerenciada. Qual serviço deve ser usado?",
-        "alternativas": ["AWS Private Certificate Authority", "AWS KMS", "Amazon Cognito", "AWS Artifact"],
+        "alternativas": ["AWS Private Certificate Authority", "AWS Key Management Service (AWS KMS)", "Amazon Cognito", "AWS Artifact"],
         "correta": "AWS Private Certificate Authority",
         "explicacao": "O AWS Private CA permite criar uma hierarquia de autoridades certificadoras privadas gerenciadas, para emitir certificados de uso interno."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma função AWS Lambda precisa gravar itens em uma tabela do DynamoDB. Como as permissões devem ser concedidas a ela?",
-        "alternativas": ["Por meio de uma função de execução do IAM com permissão para a tabela", "Gravando as chaves de acesso do usuário raiz no código", "Tornando a tabela pública", "Criando um usuário do IAM para cada execução"],
+        "alternativas": ["Por meio de uma função de execução do IAM com permissão para a tabela", "Gravando as chaves de acesso do usuário raiz nas variáveis de ambiente da função", "Tornando a tabela pública", "Criando um usuário do IAM para cada execução"],
         "correta": "Por meio de uma função de execução do IAM com permissão para a tabela",
         "explicacao": "Cada função Lambda assume uma função de execução do IAM, que fornece credenciais temporárias com as permissões necessárias, seguindo o privilégio mínimo."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer impedir que um administrador delegue a um usuário do IAM mais permissões do que um limite definido, mesmo que anexe políticas amplas. Qual recurso do IAM define esse teto para uma identidade?",
-        "alternativas": ["Limite de permissões (permissions boundary)", "Grupo do IAM", "Política de senhas", "Relatório de credenciais"],
+        "alternativas": ["Limite de permissões (permissions boundary)", "Grupo do IAM com uma política gerenciada pela AWS", "Política de senhas", "Relatório de credenciais do IAM"],
         "correta": "Limite de permissões (permissions boundary)",
         "explicacao": "Um permissions boundary define as permissões máximas que uma política baseada em identidade pode conceder a um usuário ou função do IAM."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre as políticas de controle de serviço (SCPs) do AWS Organizations está correta?",
-        "alternativas": ["Elas limitam as permissões máximas nas contas, mas não concedem permissões por si só", "Elas concedem permissões de administrador a todos os usuários", "Elas substituem a necessidade de políticas do IAM", "Elas só podem ser aplicadas ao usuário raiz da conta de gerenciamento"],
+        "alternativas": ["Elas limitam as permissões máximas nas contas, mas não concedem permissões por si só", "Elas concedem permissões de administrador a todos os usuários", "Elas substituem a necessidade de políticas do IAM", "Elas só podem ser aplicadas ao usuário raiz da conta de gerenciamento e não afetam as contas-membro"],
         "correta": "Elas limitam as permissões máximas nas contas, mas não concedem permissões por si só",
         "explicacao": "As SCPs funcionam como um filtro: uma ação só é permitida se for autorizada pela SCP e também por uma política do IAM. As SCPs não afetam a conta de gerenciamento."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer bloquear, em todas as contas da organização, a criação de recursos fora das Regiões de São Paulo e do Norte da Virgínia. Qual é a forma mais eficaz?",
-        "alternativas": ["Criar uma SCP que negue ações fora das Regiões permitidas", "Pedir aos usuários que escolham a Região correta", "Criar um alarme do CloudWatch", "Configurar um security group restritivo"],
+        "alternativas": ["Criar uma SCP que negue ações fora das Regiões permitidas", "Pedir aos usuários que escolham sempre a Região correta ao criar recursos", "Criar um alarme do CloudWatch", "Configurar um security group restritivo"],
         "correta": "Criar uma SCP que negue ações fora das Regiões permitidas",
         "explicacao": "Uma SCP com a condição aws:RequestedRegion pode negar ações em Regiões não aprovadas, garantindo o requisito em todas as contas da organização."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer que um bucket do S3 aceite somente requisições feitas por HTTPS. Como isso pode ser garantido?",
-        "alternativas": ["Com uma política de bucket que negue requisições quando aws:SecureTransport for falso", "Ativando o S3 Transfer Acceleration", "Mudando a classe de armazenamento para S3 Standard-IA", "Ativando o versionamento"],
+        "alternativas": ["Com uma política de bucket que negue requisições quando aws:SecureTransport for falso", "Ativando o S3 Transfer Acceleration, que usa somente conexões criptografadas pela rede de borda", "Mudando a classe de armazenamento para S3 Standard-IA", "Ativando o versionamento"],
         "correta": "Com uma política de bucket que negue requisições quando aws:SecureTransport for falso",
         "explicacao": "A condição aws:SecureTransport em uma política de bucket permite negar acessos sem TLS, garantindo a criptografia em trânsito."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre a criptografia de dados no Amazon DynamoDB está correta?",
-        "alternativas": ["Todos os dados do DynamoDB são criptografados em repouso por padrão", "O DynamoDB não oferece criptografia em repouso", "A criptografia só está disponível com o plano Enterprise", "É preciso instalar um agente para criptografar as tabelas"],
+        "alternativas": ["Todos os dados do DynamoDB são criptografados em repouso por padrão", "O DynamoDB não oferece criptografia em repouso", "A criptografia só está disponível com o plano Enterprise", "É preciso instalar um agente nas instâncias da aplicação para criptografar as tabelas"],
         "correta": "Todos os dados do DynamoDB são criptografados em repouso por padrão",
         "explicacao": "O DynamoDB criptografa todas as tabelas em repouso usando chaves do AWS KMS, com opção de chave pertencente à AWS, gerenciada pela AWS ou gerenciada pelo cliente."
     },
@@ -1980,7 +1980,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Quais são as principais diferenças entre o AWS KMS e o AWS CloudHSM?",
-        "alternativas": ["O KMS é um serviço gerenciado multilocatário integrado a muitos serviços; o CloudHSM oferece HSMs dedicados, de inquilino único, controlados pelo cliente", "O KMS é gratuito e o CloudHSM é usado apenas para certificados SSL", "O CloudHSM é integrado a todos os serviços da AWS e o KMS não", "Não há diferenças entre eles"],
+        "alternativas": ["O KMS é um serviço gerenciado multilocatário integrado a muitos serviços; o CloudHSM oferece HSMs dedicados, de inquilino único, controlados pelo cliente", "O KMS é totalmente gratuito e só armazena senhas; o CloudHSM é usado apenas para emitir certificados SSL/TLS públicos para sites", "O CloudHSM é integrado nativamente a todos os serviços da AWS; o KMS só funciona com aplicações on-premises e exige um appliance de hardware instalado pelo cliente", "Não há diferenças entre eles"],
         "correta": "O KMS é um serviço gerenciado multilocatário integrado a muitos serviços; o CloudHSM oferece HSMs dedicados, de inquilino único, controlados pelo cliente",
         "explicacao": "O KMS atende à maioria dos casos de criptografia com facilidade. O CloudHSM é indicado quando há exigência de hardware dedicado e controle exclusivo das chaves."
     },
@@ -2008,7 +2008,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Uma aplicação está recebendo milhares de requisições por minuto de um mesmo endereço IP, em uma tentativa de força bruta no login. Qual recurso do AWS WAF ajuda a mitigar isso?",
-        "alternativas": ["Regras baseadas em taxa (rate-based rules)", "Pacotes de conformidade", "Políticas de ciclo de vida", "Tags de alocação de custos"],
+        "alternativas": ["Regras baseadas em taxa (rate-based rules)", "Pacotes de conformidade (conformance packs)", "Políticas de ciclo de vida de objetos do S3", "Tags de alocação de custos"],
         "correta": "Regras baseadas em taxa (rate-based rules)",
         "explicacao": "Regras baseadas em taxa bloqueiam temporariamente origens que excedem um número definido de requisições em um intervalo de tempo."
     },
@@ -2022,28 +2022,28 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Contra quais tipos de ataque o AWS Shield Standard protege automaticamente?",
-        "alternativas": ["Ataques DDoS comuns nas camadas de rede e transporte, como inundações SYN e UDP", "Injeção de SQL nas aplicações", "Roubo de senhas por phishing", "Vazamento de dados sensíveis no S3"],
+        "alternativas": ["Ataques DDoS comuns nas camadas de rede e transporte, como inundações SYN e UDP", "Injeção de SQL e cross-site scripting nas aplicações web, na camada 7 do modelo OSI", "Roubo de senhas por phishing", "Vazamento de dados sensíveis armazenados em buckets do S3 com acesso público"],
         "correta": "Ataques DDoS comuns nas camadas de rede e transporte, como inundações SYN e UDP",
         "explicacao": "O Shield Standard protege contra os ataques DDoS de infraestrutura mais frequentes (camadas 3 e 4). Ataques de aplicação, como injeção de SQL, são tratados pelo AWS WAF."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual arquitetura aumenta a resiliência de uma aplicação web contra ataques DDoS?",
-        "alternativas": ["Usar Amazon CloudFront e Amazon Route 53 na frente da aplicação, com AWS WAF e AWS Shield", "Expor as instâncias EC2 diretamente com IPs públicos", "Usar uma única instância EC2 grande", "Desativar o balanceador de carga"],
+        "alternativas": ["Usar Amazon CloudFront e Amazon Route 53 na frente da aplicação, com AWS WAF e AWS Shield", "Expor as instâncias EC2 diretamente com IPs elásticos e deixar cada instância absorver o tráfego do ataque", "Usar uma única instância EC2 grande", "Desativar o balanceador de carga"],
         "correta": "Usar Amazon CloudFront e Amazon Route 53 na frente da aplicação, com AWS WAF e AWS Shield",
         "explicacao": "Serviços de borda como CloudFront e Route 53 absorvem e distribuem o tráfego pela rede global da AWS, reduzindo a superfície de ataque da origem."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma equipe quer que apenas as instâncias do security group do servidor web possam acessar o banco de dados na porta 3306. Como isso pode ser configurado de forma simples?",
-        "alternativas": ["Criar uma regra no security group do banco que referencie o security group do servidor web como origem", "Abrir a porta 3306 para 0.0.0.0/0", "Desativar o security group do banco", "Criar uma política de bucket do S3"],
+        "alternativas": ["Criar uma regra no security group do banco que referencie o security group do servidor web como origem", "Abrir a porta 3306 para 0.0.0.0/0 no security group do banco e confiar na senha do usuário do banco de dados", "Desativar o security group do banco", "Criar uma política de bucket do S3"],
         "correta": "Criar uma regra no security group do banco que referencie o security group do servidor web como origem",
         "explicacao": "Security groups podem usar outros security groups como origem, permitindo acesso apenas às instâncias associadas a eles, sem depender de endereços IP."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer automatizar a aplicação de patches de segurança no sistema operacional de centenas de instâncias EC2, seguindo janelas de manutenção. Qual recurso deve ser usado?",
-        "alternativas": ["AWS Systems Manager Patch Manager", "AWS Artifact", "Amazon Macie", "AWS Shield"],
+        "alternativas": ["AWS Systems Manager Patch Manager", "AWS Artifact", "Amazon Macie", "AWS Systems Manager Session Manager"],
         "correta": "AWS Systems Manager Patch Manager",
         "explicacao": "O Patch Manager automatiza a aplicação de patches em instâncias gerenciadas, de acordo com linhas de base e janelas de manutenção definidas pelo cliente."
     },
@@ -2057,28 +2057,28 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson, no Brasil, armazena dados pessoais na AWS. Quem é responsável por garantir que o tratamento desses dados atenda à LGPD?",
-        "alternativas": ["O cliente, que controla como os dados são coletados, usados e protegidos", "Exclusivamente a AWS", "O governo brasileiro", "O AWS Marketplace"],
+        "alternativas": ["O cliente, que controla como os dados são coletados, usados e protegidos", "A AWS, por ser a responsável pela segurança da nuvem e dos data centers", "O AWS Marketplace", "O governo brasileiro, por meio da ANPD, que fiscaliza o uso dos dados"],
         "correta": "O cliente, que controla como os dados são coletados, usados e protegidos",
         "explicacao": "A AWS fornece infraestrutura segura e recursos que ajudam na conformidade, mas o cliente é responsável por cumprir as leis de proteção de dados no uso que faz da nuvem."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson obteve, no AWS Artifact, o relatório que mostra que a infraestrutura da AWS está em conformidade com o PCI DSS. Isso significa que a aplicação de pagamentos da empresa também está automaticamente em conformidade?",
-        "alternativas": ["Não: o cliente também precisa garantir a conformidade da sua própria aplicação e configuração", "Sim: a conformidade da AWS cobre automaticamente qualquer aplicação", "Sim, desde que a aplicação use instâncias EC2", "Não, porque a AWS não possui certificação PCI DSS"],
+        "alternativas": ["Não: o cliente também precisa garantir a conformidade da sua própria aplicação e configuração", "Sim: a conformidade da AWS cobre automaticamente qualquer aplicação executada na infraestrutura certificada", "Sim, desde que a aplicação use instâncias EC2", "Não, porque a AWS não possui certificação PCI DSS"],
         "correta": "Não: o cliente também precisa garantir a conformidade da sua própria aplicação e configuração",
         "explicacao": "A conformidade é compartilhada: o cliente herda os controles da infraestrutura da AWS, mas precisa implementar e comprovar os controles das suas próprias cargas de trabalho."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer receber avisos sobre vulnerabilidades e problemas de segurança que afetem os serviços da AWS. Onde a AWS publica esse tipo de comunicado?",
-        "alternativas": ["Nos boletins de segurança da AWS (AWS Security Bulletins)", "No AWS Cost Explorer", "No AWS Pricing Calculator", "No console do Amazon Lightsail"],
+        "alternativas": ["Nos boletins de segurança da AWS (AWS Security Bulletins)", "No AWS Cost Explorer", "No AWS Pricing Calculator", "No relatório de faturamento mensal do AWS Billing and Cost Management"],
         "correta": "Nos boletins de segurança da AWS (AWS Security Bulletins)",
         "explicacao": "A AWS publica boletins de segurança sobre vulnerabilidades e as ações recomendadas. Eventos específicos da conta também aparecem no AWS Health Dashboard."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma equipe quer aprender boas práticas de segurança na AWS com artigos técnicos, novidades e soluções de referência publicados pela própria AWS. Qual recurso é adequado?",
-        "alternativas": ["AWS Security Blog e AWS Security Center", "AWS Budgets", "AWS Cost and Usage Report", "AWS Marketplace Seller Portal"],
+        "alternativas": ["AWS Security Blog e AWS Security Center", "AWS Budgets", "AWS Cost and Usage Report", "Portal de vendedores do AWS Marketplace (Seller Portal)"],
         "correta": "AWS Security Blog e AWS Security Center",
         "explicacao": "A AWS disponibiliza documentação, blogs, whitepapers e o centro de segurança com orientações e boas práticas para proteger cargas de trabalho."
     },
@@ -2099,28 +2099,28 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "O IAM Access Analyzer pode ajudar a aplicar o privilégio mínimo de que forma, além de identificar acessos externos?",
-        "alternativas": ["Gerando políticas com base na atividade de acesso registrada no CloudTrail", "Criando automaticamente usuários para cada funcionário", "Bloqueando ataques DDoS", "Criptografando os volumes EBS"],
+        "alternativas": ["Gerando políticas com base na atividade de acesso registrada no CloudTrail", "Criando automaticamente um usuário do IAM para cada funcionário do diretório corporativo", "Bloqueando ataques DDoS", "Criptografando os volumes EBS"],
         "correta": "Gerando políticas com base na atividade de acesso registrada no CloudTrail",
         "explicacao": "O IAM Access Analyzer pode gerar políticas a partir da atividade real, validar políticas contra boas práticas e identificar acessos não utilizados."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer definir quais recursos da AWS podem ser criados e quais configurações são obrigatórias, oferecendo às equipes um catálogo de produtos aprovados. Qual serviço deve ser usado?",
-        "alternativas": ["AWS Service Catalog", "AWS Artifact", "Amazon Inspector", "AWS Shield"],
+        "alternativas": ["AWS Service Catalog", "AWS Artifact", "Amazon Inspector", "AWS Shield Advanced"],
         "correta": "AWS Service Catalog",
         "explicacao": "O AWS Service Catalog permite criar e gerenciar catálogos de produtos aprovados, ajudando a manter a governança e a conformidade nas implantações."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre o AWS CloudTrail e o Amazon CloudWatch?",
-        "alternativas": ["O CloudTrail registra quem fez cada chamada de API; o CloudWatch monitora métricas, logs e alarmes de desempenho", "O CloudTrail monitora CPU; o CloudWatch registra chamadas de API", "Os dois servem apenas para faturamento", "O CloudWatch substitui o IAM"],
+        "alternativas": ["O CloudTrail registra quem fez cada chamada de API; o CloudWatch monitora métricas, logs e alarmes de desempenho", "O CloudTrail monitora o uso de CPU e memória das instâncias; o CloudWatch registra quem fez cada chamada de API na conta", "Os dois servem apenas para faturamento", "O CloudWatch substitui o IAM"],
         "correta": "O CloudTrail registra quem fez cada chamada de API; o CloudWatch monitora métricas, logs e alarmes de desempenho",
         "explicacao": "O CloudTrail é voltado à auditoria das ações na conta. O CloudWatch é voltado ao monitoramento operacional de recursos e aplicações."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual é a diferença entre o AWS CloudTrail e o AWS Config?",
-        "alternativas": ["O CloudTrail registra as ações (chamadas de API); o Config registra o estado e as mudanças de configuração dos recursos ao longo do tempo", "O CloudTrail avalia custos; o Config cria usuários", "O Config bloqueia ataques DDoS; o CloudTrail emite certificados", "Não há diferença entre eles"],
+        "alternativas": ["O CloudTrail registra as ações (chamadas de API); o Config registra o estado e as mudanças de configuração dos recursos ao longo do tempo", "O CloudTrail avalia os custos de cada chamada de API; o Config cria usuários e grupos do IAM automaticamente para cada equipe da empresa", "O Config bloqueia ataques DDoS na borda da rede; o CloudTrail emite e renova automaticamente os certificados SSL/TLS das aplicações", "Não há diferença entre eles"],
         "correta": "O CloudTrail registra as ações (chamadas de API); o Config registra o estado e as mudanças de configuração dos recursos ao longo do tempo",
         "explicacao": "O CloudTrail responde 'quem fez o quê e quando'. O Config responde 'como este recurso estava configurado e se ele está em conformidade'."
     },
@@ -2134,42 +2134,42 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer registrar todas as requisições feitas aos objetos de um bucket do S3, como quem acessou e quando, para fins de auditoria. Quais recursos podem ser usados?",
-        "alternativas": ["Logs de acesso ao servidor do S3 ou eventos de dados do CloudTrail", "Somente o histórico de eventos padrão do CloudTrail", "AWS Budgets", "AWS Pricing Calculator"],
+        "alternativas": ["Logs de acesso ao servidor do S3 ou eventos de dados do CloudTrail", "Somente o histórico de eventos padrão do CloudTrail, sem nenhuma configuração", "AWS Budgets", "AWS Pricing Calculator"],
         "correta": "Logs de acesso ao servidor do S3 ou eventos de dados do CloudTrail",
         "explicacao": "Os eventos de gerenciamento não registram operações nos objetos. Para isso, ativam-se os logs de acesso do S3 ou os eventos de dados do CloudTrail."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre a responsabilidade pela criptografia de dados na AWS está correta?",
-        "alternativas": ["A AWS fornece as ferramentas de criptografia, e o cliente decide quando e como usá-las", "A AWS é sempre a única responsável por criptografar os dados do cliente", "A criptografia é proibida em alguns serviços", "A criptografia só pode ser feita on-premises"],
+        "alternativas": ["A AWS fornece as ferramentas de criptografia, e o cliente decide quando e como usá-las", "A AWS é sempre a única responsável por criptografar os dados do cliente, em todos os serviços e Regiões", "A criptografia é proibida em alguns serviços", "A criptografia só pode ser feita on-premises"],
         "correta": "A AWS fornece as ferramentas de criptografia, e o cliente decide quando e como usá-las",
         "explicacao": "A proteção dos dados é responsabilidade do cliente, que escolhe usar recursos como KMS, criptografia do S3, EBS e RDS e TLS para dados em trânsito."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Um usuário do IAM precisa acessar a conta somente pelo console. Qual prática é recomendada para suas credenciais?",
-        "alternativas": ["Criar apenas uma senha de console com MFA, sem chaves de acesso", "Criar chaves de acesso e senha mesmo sem necessidade", "Compartilhar um único usuário entre várias pessoas", "Usar o usuário raiz com uma senha fácil de lembrar"],
+        "alternativas": ["Criar apenas uma senha de console com MFA, sem chaves de acesso", "Criar chaves de acesso e senha, para o caso de ele precisar usar a CLI no futuro", "Compartilhar um único usuário entre várias pessoas", "Usar o usuário raiz com uma senha fácil de lembrar"],
         "correta": "Criar apenas uma senha de console com MFA, sem chaves de acesso",
         "explicacao": "Seguindo o privilégio mínimo, cada pessoa deve receber somente os tipos de credencial de que precisa. Credenciais desnecessárias aumentam a superfície de ataque."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Por que não se deve compartilhar um mesmo usuário do IAM entre vários funcionários?",
-        "alternativas": ["Porque perde-se a rastreabilidade individual das ações e fica difícil revogar o acesso de uma só pessoa", "Porque a AWS cobra a mais por usuário compartilhado", "Porque usuários compartilhados não podem usar o console", "Porque o IAM permite apenas um login por dia"],
+        "alternativas": ["Porque perde-se a rastreabilidade individual das ações e fica difícil revogar o acesso de uma só pessoa", "Porque a AWS cobra a mais por usuário compartilhado", "Porque usuários compartilhados não podem usar o console nem a CLI ao mesmo tempo em computadores diferentes", "Porque o IAM permite apenas um login por dia"],
         "correta": "Porque perde-se a rastreabilidade individual das ações e fica difícil revogar o acesso de uma só pessoa",
         "explicacao": "Identidades individuais permitem auditar quem fez cada ação no CloudTrail e conceder ou remover permissões de forma específica para cada pessoa."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer que os desenvolvedores tenham acesso temporário de administrador apenas durante um incidente. Qual abordagem segue as boas práticas?",
-        "alternativas": ["Permitir que assumam uma função do IAM com permissões elevadas, com credenciais temporárias e registro no CloudTrail", "Conceder permissão de administrador permanente a todos", "Compartilhar a senha do usuário raiz durante o incidente", "Desativar o CloudTrail durante o incidente"],
+        "alternativas": ["Permitir que assumam uma função do IAM com permissões elevadas, com credenciais temporárias e registro no CloudTrail", "Conceder permissão de administrador permanente a todos os desenvolvedores, para que estejam prontos para qualquer incidente", "Compartilhar a senha do usuário raiz durante o incidente", "Desativar o CloudTrail durante o incidente"],
         "correta": "Permitir que assumam uma função do IAM com permissões elevadas, com credenciais temporárias e registro no CloudTrail",
         "explicacao": "Funções do IAM fornecem acesso temporário e auditável. Isso evita permissões elevadas permanentes, seguindo o princípio do privilégio mínimo."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Qual destas é uma boa prática para proteger dados sensíveis armazenados no Amazon S3?",
-        "alternativas": ["Manter o bloqueio de acesso público ativado, usar criptografia e conceder acesso com o privilégio mínimo", "Tornar o bucket público para facilitar o acesso", "Usar o mesmo bucket para dados públicos e confidenciais sem controles", "Desativar o versionamento e os logs"],
+        "alternativas": ["Manter o bloqueio de acesso público ativado, usar criptografia e conceder acesso com o privilégio mínimo", "Tornar o bucket público para facilitar o acesso", "Usar o mesmo bucket para dados públicos e confidenciais sem controles, para simplificar a gestão das políticas de acesso", "Desativar o versionamento e os logs"],
         "correta": "Manter o bloqueio de acesso público ativado, usar criptografia e conceder acesso com o privilégio mínimo",
         "explicacao": "A combinação de bloqueio de acesso público, criptografia, políticas restritivas, versionamento e monitoramento (por exemplo, com o Macie) reduz o risco de exposição."
     },
@@ -2197,14 +2197,14 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer que o Amazon GuardDuty e o AWS Security Hub sejam ativados e administrados de forma centralizada para todas as contas da organização. O que ela deve usar?",
-        "alternativas": ["A integração desses serviços com o AWS Organizations, usando uma conta de administrador delegado", "Um usuário do IAM em cada conta com a mesma senha", "O AWS Pricing Calculator", "Um bucket do S3 público"],
+        "alternativas": ["A integração desses serviços com o AWS Organizations, usando uma conta de administrador delegado", "Um usuário do IAM em cada conta, todos com a mesma senha, para que a equipe de segurança acesse uma conta por vez", "O AWS Pricing Calculator", "Um bucket do S3 público"],
         "correta": "A integração desses serviços com o AWS Organizations, usando uma conta de administrador delegado",
         "explicacao": "Muitos serviços de segurança se integram ao AWS Organizations, permitindo que uma conta de administrador delegado gerencie e veja as descobertas de todas as contas."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "Uma aplicação precisa acessar uma API de terceiros com uma chave secreta. Qual é a forma recomendada de armazenar essa chave?",
-        "alternativas": ["No AWS Secrets Manager, recuperando-a em tempo de execução", "Em texto puro no código-fonte", "Em uma variável pública do repositório", "No nome da instância EC2"],
+        "alternativas": ["No AWS Secrets Manager, recuperando-a em tempo de execução", "Em texto puro no código-fonte", "Em uma variável de ambiente definida em um repositório público de código", "No nome da instância EC2"],
         "correta": "No AWS Secrets Manager, recuperando-a em tempo de execução",
         "explicacao": "Armazenar segredos em um serviço dedicado evita expor credenciais no código e permite controlar o acesso por IAM, auditar o uso e rotacionar os valores."
     },
@@ -2218,14 +2218,14 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer impedir que dados confidenciais armazenados em uma conta sejam copiados para contas da AWS fora da organização. Qual combinação de controles ajuda nesse objetivo?",
-        "alternativas": ["Políticas de recurso e SCPs com condições que restrinjam o acesso a identidades da própria organização", "Apenas tags de alocação de custos", "Apenas alarmes de faturamento", "Apenas o AWS Pricing Calculator"],
+        "alternativas": ["Políticas de recurso e SCPs com condições que restrinjam o acesso a identidades da própria organização", "Apenas tags de alocação de custos aplicadas aos buckets, identificando quais dados são confidenciais", "Apenas alarmes de faturamento que avisam quando há aumento na transferência de dados para fora da conta", "Apenas o AWS Pricing Calculator"],
         "correta": "Políticas de recurso e SCPs com condições que restrinjam o acesso a identidades da própria organização",
         "explicacao": "Condições como aws:PrincipalOrgID em políticas de recurso e SCPs ajudam a criar um perímetro de dados, limitando o acesso a identidades e recursos da organização."
     },
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer receber uma notificação imediata sempre que o usuário raiz da conta fizer login no console. Qual combinação de serviços permite isso?",
-        "alternativas": ["AWS CloudTrail com uma regra do Amazon EventBridge que envia um alerta pelo Amazon SNS", "AWS Budgets com o AWS Pricing Calculator", "Amazon S3 com o S3 Transfer Acceleration", "AWS Artifact com o AWS Marketplace"],
+        "alternativas": ["AWS CloudTrail com uma regra do Amazon EventBridge que envia um alerta pelo Amazon SNS", "AWS Budgets com um alerta de orçamento enviado por e-mail sempre que houver login do usuário raiz", "Amazon S3 com o S3 Transfer Acceleration", "AWS Artifact com o AWS Marketplace"],
         "correta": "AWS CloudTrail com uma regra do Amazon EventBridge que envia um alerta pelo Amazon SNS",
         "explicacao": "O CloudTrail registra o login do usuário raiz, o EventBridge detecta o evento e o SNS envia a notificação por e-mail ou SMS."
     },
@@ -2246,7 +2246,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "Qual afirmação sobre os grupos do IAM está correta?",
-        "alternativas": ["Um grupo contém usuários do IAM e não pode ser usado como identidade para fazer login", "Um grupo pode conter outros grupos aninhados", "Um grupo pode assumir funções como se fosse um usuário", "Um grupo substitui as políticas de bucket do S3"],
+        "alternativas": ["Um grupo contém usuários do IAM e não pode ser usado como identidade para fazer login", "Um grupo pode conter outros grupos aninhados", "Um grupo pode assumir funções do IAM e fazer login no console da AWS como se fosse um usuário comum", "Um grupo substitui as políticas de bucket do S3"],
         "correta": "Um grupo contém usuários do IAM e não pode ser usado como identidade para fazer login",
         "explicacao": "Grupos servem para atribuir permissões a vários usuários. Não é possível fazer login como um grupo, e grupos não podem conter outros grupos."
     },
@@ -2260,7 +2260,7 @@ QUESTOES += [
     {
         "dominio_id": 2,
         "template_pergunta": "A lojinha do Alyson quer garantir que somente imagens de máquina (AMIs) aprovadas e com as configurações de segurança corretas sejam usadas para lançar instâncias. Qual prática ajuda nesse objetivo?",
-        "alternativas": ["Criar AMIs padronizadas e reforçadas (hardened) e restringir o uso por meio de políticas", "Permitir que qualquer usuário use AMIs públicas desconhecidas", "Desativar as atualizações do sistema operacional", "Compartilhar AMIs publicamente"],
+        "alternativas": ["Criar AMIs padronizadas e reforçadas (hardened) e restringir o uso por meio de políticas", "Permitir que qualquer usuário use AMIs públicas da comunidade, mesmo de fornecedores desconhecidos", "Desativar as atualizações do sistema operacional", "Compartilhar AMIs publicamente"],
         "correta": "Criar AMIs padronizadas e reforçadas (hardened) e restringir o uso por meio de políticas",
         "explicacao": "Imagens 'douradas' com configurações seguras reduzem vulnerabilidades. O EC2 Image Builder ajuda a criar e manter essas imagens atualizadas."
     },
@@ -2280,7 +2280,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Quais são as formas de interagir com os serviços da AWS para criar e gerenciar recursos?",
-        "alternativas": ["Console de Gerenciamento da AWS, AWS CLI, SDKs e ferramentas de infraestrutura como código", "Apenas o Console de Gerenciamento da AWS", "Apenas ligações para o AWS Support", "Apenas formulários enviados por e-mail"],
+        "alternativas": ["Console de Gerenciamento da AWS, AWS CLI, SDKs e ferramentas de infraestrutura como código", "Apenas o Console de Gerenciamento da AWS, já que as APIs são de uso exclusivo da própria AWS", "Apenas ligações para o AWS Support", "Apenas formulários enviados por e-mail"],
         "correta": "Console de Gerenciamento da AWS, AWS CLI, SDKs e ferramentas de infraestrutura como código",
         "explicacao": "Todos os serviços da AWS são acessados por APIs, que podem ser usadas pelo console web, pela linha de comando (CLI), por SDKs em diversas linguagens ou por ferramentas como CloudFormation e CDK."
     },
@@ -2294,14 +2294,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Um desenvolvedor quer chamar serviços da AWS diretamente do código de sua aplicação em Python, com bibliotecas que cuidam da autenticação e das requisições. O que ele deve usar?",
-        "alternativas": ["Um SDK da AWS, como o Boto3 para Python", "O AWS Pricing Calculator", "O AWS Artifact", "Somente o console da AWS"],
+        "alternativas": ["Um SDK da AWS, como o Boto3 para Python", "O AWS Pricing Calculator", "O AWS Artifact", "Somente o Console de Gerenciamento da AWS"],
         "correta": "Um SDK da AWS, como o Boto3 para Python",
         "explicacao": "Os SDKs da AWS estão disponíveis para várias linguagens, como Python, Java, JavaScript, .NET e Go, e simplificam o uso das APIs da AWS no código."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Uma equipe quer definir sua infraestrutura na AWS usando linguagens de programação conhecidas, como TypeScript e Python, em vez de escrever templates em YAML. Qual ferramenta deve ser usada?",
-        "alternativas": ["AWS Cloud Development Kit (AWS CDK)", "AWS Artifact", "Amazon CloudWatch", "AWS Budgets"],
+        "alternativas": ["AWS Cloud Development Kit (AWS CDK)", "AWS Artifact", "AWS Systems Manager Automation", "AWS Elastic Beanstalk"],
         "correta": "AWS Cloud Development Kit (AWS CDK)",
         "explicacao": "O AWS CDK permite modelar infraestrutura com linguagens de programação e gera templates do AWS CloudFormation para provisionar os recursos."
     },
@@ -2315,7 +2315,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "O que é uma Amazon Machine Image (AMI)?",
-        "alternativas": ["Um modelo com o sistema operacional e o software usados para lançar instâncias EC2", "Uma imagem de contêiner armazenada no S3 Glacier", "Um certificado de segurança para sites", "Um tipo de volume de armazenamento em bloco"],
+        "alternativas": ["Um modelo com o sistema operacional e o software usados para lançar instâncias EC2", "Uma imagem de contêiner armazenada no S3 Glacier", "Um certificado de segurança usado para habilitar HTTPS nos sites hospedados em instâncias EC2", "Um tipo de volume de armazenamento em bloco"],
         "correta": "Um modelo com o sistema operacional e o software usados para lançar instâncias EC2",
         "explicacao": "A AMI contém as informações necessárias para iniciar uma instância, como o sistema operacional, aplicações e configurações. Podem ser fornecidas pela AWS, pela comunidade, pelo Marketplace ou criadas pelo cliente."
     },
@@ -2378,14 +2378,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma equipe precisa de um registro privado e gerenciado para armazenar e versionar suas imagens de contêiner Docker. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Elastic Container Registry (Amazon ECR)", "Amazon S3 Glacier", "AWS CodeArtifact", "Amazon EFS"],
+        "alternativas": ["Amazon Elastic Container Registry (Amazon ECR)", "Amazon S3 Glacier Flexible Retrieval", "AWS CodeArtifact", "Amazon Elastic File System (Amazon EFS)"],
         "correta": "Amazon Elastic Container Registry (Amazon ECR)",
         "explicacao": "O Amazon ECR é um registro de contêineres totalmente gerenciado, integrado ao ECS, ao EKS e ao Lambda, com verificação de vulnerabilidades das imagens."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer orquestrar contêineres usando uma solução própria da AWS, simples e totalmente gerenciada, sem usar Kubernetes. Qual serviço deve ser escolhido?",
-        "alternativas": ["Amazon Elastic Container Service (Amazon ECS)", "Amazon EKS", "Amazon EMR", "AWS Outposts"],
+        "alternativas": ["Amazon Elastic Container Service (Amazon ECS)", "Amazon Elastic Kubernetes Service (Amazon EKS)", "Amazon EMR", "AWS Outposts"],
         "correta": "Amazon Elastic Container Service (Amazon ECS)",
         "explicacao": "O Amazon ECS é o serviço de orquestração de contêineres da AWS, que pode executar as tarefas em instâncias EC2 ou no AWS Fargate (serverless)."
     },
@@ -2420,7 +2420,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a durabilidade para a qual o Amazon S3 foi projetado?",
-        "alternativas": ["99,999999999% (11 noves)", "99,9%", "99,99%", "100%"],
+        "alternativas": ["99,999999999% (11 noves)", "99,9% (3 noves)", "99,99% (4 noves)", "100% (garantia contratual)"],
         "correta": "99,999999999% (11 noves)",
         "explicacao": "O S3 foi projetado para 11 noves de durabilidade, armazenando os objetos de forma redundante em vários dispositivos e, na maioria das classes, em várias Zonas de Disponibilidade."
     },
@@ -2441,21 +2441,21 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer mover automaticamente os objetos do S3 para classes mais baratas depois de 30 dias e excluí-los depois de um ano. Qual recurso deve ser configurado?",
-        "alternativas": ["Políticas de ciclo de vida do S3", "S3 Transfer Acceleration", "Bloqueio de acesso público", "S3 Object Lock"],
+        "alternativas": ["Políticas de ciclo de vida do S3", "S3 Transfer Acceleration", "Bloqueio de acesso público do S3", "S3 Object Lock"],
         "correta": "Políticas de ciclo de vida do S3",
         "explicacao": "As regras de ciclo de vida automatizam a transição de objetos entre classes de armazenamento e a expiração (exclusão) após um período definido."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer manter automaticamente uma cópia dos objetos de um bucket em outra Região da AWS para recuperação de desastres. Qual recurso deve ser usado?",
-        "alternativas": ["Replicação entre Regiões do S3 (S3 Cross-Region Replication)", "S3 Transfer Acceleration", "Políticas de ciclo de vida", "S3 Select"],
+        "alternativas": ["Replicação entre Regiões do S3 (S3 Cross-Region Replication)", "S3 Transfer Acceleration entre os pontos de presença", "Políticas de ciclo de vida com transição para outra Região", "Versionamento do S3 com cópia automática das versões"],
         "correta": "Replicação entre Regiões do S3 (S3 Cross-Region Replication)",
         "explicacao": "A replicação entre Regiões copia automaticamente novos objetos para um bucket em outra Região, ajudando em requisitos de conformidade, latência e recuperação de desastres."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer hospedar um site institucional composto apenas por HTML, CSS, imagens e JavaScript, sem servidores. Qual opção é a mais simples e econômica?",
-        "alternativas": ["Hospedagem de site estático no Amazon S3, opcionalmente com o Amazon CloudFront", "Um cluster do Amazon EKS", "Instâncias EC2 com Auto Scaling", "Um banco de dados Amazon RDS"],
+        "alternativas": ["Hospedagem de site estático no Amazon S3, opcionalmente com o Amazon CloudFront", "Um cluster do Amazon EKS com vários nós em três Zonas de Disponibilidade diferentes", "Instâncias EC2 com Auto Scaling atrás de um Application Load Balancer", "Um banco de dados Amazon RDS"],
         "correta": "Hospedagem de site estático no Amazon S3, opcionalmente com o Amazon CloudFront",
         "explicacao": "O S3 pode servir sites estáticos diretamente. Usar o CloudFront na frente melhora a performance e permite HTTPS com domínio próprio."
     },
@@ -2490,7 +2490,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Como funcionam os snapshots do Amazon EBS?",
-        "alternativas": ["São backups incrementais do volume, armazenados de forma durável no Amazon S3", "São cópias completas armazenadas no próprio volume", "São cópias temporárias perdidas ao desligar a instância", "São usados apenas para volumes de instance store"],
+        "alternativas": ["São backups incrementais do volume, armazenados de forma durável no Amazon S3", "São cópias completas armazenadas no próprio volume", "São cópias completas e temporárias, perdidas quando a instância é desligada ou encerrada", "São usados apenas para volumes de instance store"],
         "correta": "São backups incrementais do volume, armazenados de forma durável no Amazon S3",
         "explicacao": "Os snapshots salvam apenas os blocos alterados desde o último snapshot. Podem ser usados para criar novos volumes, inclusive em outras Zonas de Disponibilidade e Regiões."
     },
@@ -2504,7 +2504,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Um banco de dados crítico exige IOPS altas e consistentes com latência muito baixa. Qual tipo de volume Amazon EBS é o mais indicado?",
-        "alternativas": ["io2 Block Express (SSD de IOPS provisionadas)", "sc1 (HDD frio)", "st1 (HDD otimizado para throughput)", "gp2 com o menor tamanho possível"],
+        "alternativas": ["io2 Block Express (SSD de IOPS provisionadas)", "sc1 (HDD frio)", "st1 (HDD otimizado para throughput)", "gp2 (SSD de uso geral) com o menor tamanho possível"],
         "correta": "io2 Block Express (SSD de IOPS provisionadas)",
         "explicacao": "Os volumes de IOPS provisionadas (io1 e io2) são indicados para bancos de dados críticos que precisam de desempenho de E/S alto e previsível."
     },
@@ -2518,7 +2518,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson precisa de um sistema de arquivos compartilhado e totalmente gerenciado, compatível com o protocolo SMB e o Active Directory, para servidores Windows. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon FSx for Windows File Server", "Amazon EFS", "Amazon S3", "Amazon EBS"],
+        "alternativas": ["Amazon FSx for Windows File Server", "Amazon Elastic File System (Amazon EFS)", "Amazon S3", "Amazon EBS"],
         "correta": "Amazon FSx for Windows File Server",
         "explicacao": "O Amazon FSx for Windows File Server oferece armazenamento de arquivos baseado em Windows Server, com SMB, NTFS e integração ao Active Directory."
     },
@@ -2553,14 +2553,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer substituir sua biblioteca de fitas físicas de backup por armazenamento na nuvem, sem mudar o software de backup existente. Qual opção atende a esse requisito?",
-        "alternativas": ["Gateway de fitas do AWS Storage Gateway", "Amazon EFS", "Amazon FSx for Lustre", "Amazon EBS"],
+        "alternativas": ["Gateway de fitas do AWS Storage Gateway", "Amazon EFS", "Gateway de volumes do AWS Storage Gateway", "Amazon EBS"],
         "correta": "Gateway de fitas do AWS Storage Gateway",
         "explicacao": "O Tape Gateway apresenta uma biblioteca de fitas virtual ao software de backup e armazena as fitas no S3 e nas classes Glacier."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a diferença entre o Multi-AZ e as réplicas de leitura do Amazon RDS?",
-        "alternativas": ["O Multi-AZ oferece alta disponibilidade com failover automático; as réplicas de leitura aumentam a capacidade de leitura", "O Multi-AZ aumenta a capacidade de gravação; as réplicas de leitura fazem backup", "Os dois servem apenas para reduzir custos", "As réplicas de leitura só existem no DynamoDB"],
+        "alternativas": ["O Multi-AZ oferece alta disponibilidade com failover automático; as réplicas de leitura aumentam a capacidade de leitura", "O Multi-AZ aumenta a capacidade de gravação; as réplicas de leitura fazem backup automático dos dados em outra Região a cada hora", "Os dois servem apenas para reduzir custos", "As réplicas de leitura só existem no DynamoDB"],
         "correta": "O Multi-AZ oferece alta disponibilidade com failover automático; as réplicas de leitura aumentam a capacidade de leitura",
         "explicacao": "No Multi-AZ, uma instância em espera em outra zona assume em caso de falha. As réplicas de leitura distribuem consultas de leitura e podem ficar em outras Regiões."
     },
@@ -2581,7 +2581,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma aplicação que usa o DynamoDB precisa reduzir a latência de leitura de milissegundos para microssegundos, com um cache totalmente compatível com a API do DynamoDB. Qual recurso deve ser usado?",
-        "alternativas": ["Amazon DynamoDB Accelerator (DAX)", "Amazon Redshift", "Amazon S3 Glacier", "AWS Global Accelerator"],
+        "alternativas": ["Amazon DynamoDB Accelerator (DAX)", "Amazon Redshift", "Amazon S3 Glacier", "Amazon CloudFront com cache de API"],
         "correta": "Amazon DynamoDB Accelerator (DAX)",
         "explicacao": "O DAX é um cache em memória gerenciado para o DynamoDB, que melhora o desempenho de leitura sem exigir grandes mudanças na aplicação."
     },
@@ -2602,7 +2602,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer migrar suas cargas de trabalho Apache Cassandra para um serviço gerenciado e serverless. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Keyspaces (for Apache Cassandra)", "Amazon DocumentDB", "Amazon Neptune", "Amazon Aurora"],
+        "alternativas": ["Amazon Keyspaces (for Apache Cassandra)", "Amazon DocumentDB (compatível com MongoDB)", "Amazon Neptune", "Amazon Aurora"],
         "correta": "Amazon Keyspaces (for Apache Cassandra)",
         "explicacao": "O Amazon Keyspaces é um serviço de banco de dados compatível com Apache Cassandra, serverless e totalmente gerenciado."
     },
@@ -2623,14 +2623,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Em qual situação faz sentido instalar e gerenciar um banco de dados em uma instância EC2, em vez de usar o Amazon RDS?",
-        "alternativas": ["Quando é necessário acesso total ao sistema operacional ou uma configuração que o RDS não suporta", "Quando se quer o menor esforço de administração possível", "Quando se quer que a AWS aplique os patches do banco", "Quando se precisa de backups automáticos sem configuração"],
+        "alternativas": ["Quando é necessário acesso total ao sistema operacional ou uma configuração que o RDS não suporta", "Quando se quer o menor esforço de administração possível", "Quando se quer que a AWS aplique automaticamente os patches do sistema operacional e do banco de dados", "Quando se precisa de backups automáticos sem configuração"],
         "correta": "Quando é necessário acesso total ao sistema operacional ou uma configuração que o RDS não suporta",
         "explicacao": "Bancos autogerenciados no EC2 dão controle total, mas o cliente assume tarefas como patches, backups e alta disponibilidade, que o RDS automatiza."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a diferença entre uma sub-rede pública e uma sub-rede privada em uma VPC?",
-        "alternativas": ["A sub-rede pública tem rota para um internet gateway; a privada não tem rota direta para a internet", "A sub-rede pública é gratuita e a privada é paga", "A sub-rede privada fica fora da VPC", "Não há diferença entre elas"],
+        "alternativas": ["A sub-rede pública tem rota para um internet gateway; a privada não tem rota direta para a internet", "A sub-rede pública é gratuita e a privada é cobrada por hora, conforme o número de instâncias executadas nela", "A sub-rede privada fica fora da VPC", "Não há diferença entre elas"],
         "correta": "A sub-rede pública tem rota para um internet gateway; a privada não tem rota direta para a internet",
         "explicacao": "A tabela de rotas define se a sub-rede é pública. Recursos como bancos de dados costumam ficar em sub-redes privadas, protegidos do acesso direto pela internet."
     },
@@ -2651,7 +2651,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer conectar duas VPCs para que se comuniquem usando endereços IP privados, como se estivessem na mesma rede. Qual recurso é o mais simples para isso?",
-        "alternativas": ["Emparelhamento de VPC (VPC peering)", "Internet gateway", "Amazon CloudFront", "AWS Direct Connect"],
+        "alternativas": ["Emparelhamento de VPC (VPC peering)", "Internet gateway em cada VPC com IPs públicos", "Amazon CloudFront", "AWS Direct Connect"],
         "correta": "Emparelhamento de VPC (VPC peering)",
         "explicacao": "O VPC peering conecta duas VPCs de forma privada, inclusive entre contas e Regiões. Ele não é transitivo: cada par de VPCs precisa de sua própria conexão."
     },
@@ -2672,14 +2672,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma aplicação precisa de um endereço IPv4 público fixo que possa ser movido rapidamente para outra instância em caso de falha. Qual recurso deve ser usado?",
-        "alternativas": ["Endereço IP elástico (Elastic IP)", "Endereço IP privado", "Um nome de DNS interno", "Uma tabela de rotas"],
+        "alternativas": ["Endereço IP elástico (Elastic IP)", "Endereço IP privado secundário", "Um nome de DNS privado do Route 53", "Uma tabela de rotas"],
         "correta": "Endereço IP elástico (Elastic IP)",
         "explicacao": "Um Elastic IP é um IPv4 público estático associado à conta, que pode ser remapeado entre instâncias. A AWS cobra por todos os endereços IPv4 públicos."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer que o Amazon Route 53 direcione cada usuário para a Região da AWS que oferece a menor latência para ele. Qual política de roteamento deve ser usada?",
-        "alternativas": ["Roteamento baseado em latência", "Roteamento simples", "Roteamento ponderado", "Roteamento de failover"],
+        "alternativas": ["Roteamento baseado em latência", "Roteamento por geolocalização", "Roteamento ponderado", "Roteamento de failover"],
         "correta": "Roteamento baseado em latência",
         "explicacao": "O roteamento baseado em latência responde às consultas DNS com o recurso da Região que oferece a menor latência para o usuário."
     },
@@ -2745,7 +2745,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson precisa coletar e processar em tempo real milhões de eventos por segundo, como cliques em um site, com várias aplicações consumindo os mesmos dados. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Kinesis Data Streams", "Amazon S3 Glacier", "Amazon RDS", "AWS Batch"],
+        "alternativas": ["Amazon Kinesis Data Streams", "Amazon Simple Queue Service (Amazon SQS)", "Amazon RDS", "AWS Batch"],
         "correta": "Amazon Kinesis Data Streams",
         "explicacao": "O Amazon Kinesis Data Streams captura e armazena fluxos de dados em tempo real, permitindo que várias aplicações consumam e processem os eventos."
     },
@@ -2766,7 +2766,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer pesquisar e analisar logs de aplicações em tempo quase real, com busca de texto completo e painéis de visualização. Qual serviço é o mais indicado?",
-        "alternativas": ["Amazon OpenSearch Service", "Amazon RDS", "Amazon Neptune", "AWS Glue"],
+        "alternativas": ["Amazon OpenSearch Service", "Amazon Redshift Serverless", "Amazon Neptune", "AWS Glue"],
         "correta": "Amazon OpenSearch Service",
         "explicacao": "O Amazon OpenSearch Service facilita a implantação de clusters OpenSearch para busca, análise de logs, monitoramento e observabilidade."
     },
@@ -2780,7 +2780,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson usa Apache Kafka on-premises e quer migrar para um serviço gerenciado e totalmente compatível na AWS. Qual serviço deve ser escolhido?",
-        "alternativas": ["Amazon Managed Streaming for Apache Kafka (Amazon MSK)", "Amazon SQS", "Amazon SNS", "Amazon MQ"],
+        "alternativas": ["Amazon Managed Streaming for Apache Kafka (Amazon MSK)", "Amazon Simple Queue Service (Amazon SQS)", "Amazon Kinesis Data Streams", "Amazon MQ (para Apache ActiveMQ e RabbitMQ)"],
         "correta": "Amazon Managed Streaming for Apache Kafka (Amazon MSK)",
         "explicacao": "O Amazon MSK executa clusters Apache Kafka totalmente gerenciados, compatíveis com as aplicações e ferramentas Kafka existentes."
     },
@@ -2794,7 +2794,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer executar uma função Lambda automaticamente todos os dias às 2h da manhã. Qual serviço permite agendar essa execução?",
-        "alternativas": ["Amazon EventBridge Scheduler", "Amazon SQS", "AWS Direct Connect", "Amazon Route 53"],
+        "alternativas": ["Amazon EventBridge Scheduler", "Amazon SQS", "AWS Direct Connect", "Amazon CloudWatch Logs Insights"],
         "correta": "Amazon EventBridge Scheduler",
         "explicacao": "O EventBridge Scheduler e as regras agendadas do EventBridge permitem acionar alvos, como funções Lambda, em horários definidos ou em intervalos regulares."
     },
@@ -2808,7 +2808,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma loja virtual precisa enviar e-mails transacionais, como confirmações de pedido, em grande volume e com boa entregabilidade. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Simple Email Service (Amazon SES)", "Amazon SQS", "Amazon Connect", "AWS Direct Connect"],
+        "alternativas": ["Amazon Simple Email Service (Amazon SES)", "Amazon Simple Notification Service (Amazon SNS)", "Amazon Connect", "AWS Direct Connect"],
         "correta": "Amazon Simple Email Service (Amazon SES)",
         "explicacao": "O Amazon SES é um serviço de envio de e-mails escalável para mensagens transacionais e de marketing, com ferramentas para melhorar a entregabilidade."
     },
@@ -2829,7 +2829,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Um evento de novo pedido precisa ser entregue simultaneamente a várias filas do SQS, cada uma processada por um sistema diferente. Qual padrão de arquitetura deve ser usado?",
-        "alternativas": ["Fan-out com um tópico do Amazon SNS assinado pelas filas do SQS", "Uma única fila FIFO compartilhada", "Polling direto no banco de dados", "Cópia manual das mensagens"],
+        "alternativas": ["Fan-out com um tópico do Amazon SNS assinado pelas filas do SQS", "Uma única fila FIFO compartilhada, consumida por todos os sistemas ao mesmo tempo", "Polling direto no banco de dados", "Cópia manual das mensagens"],
         "correta": "Fan-out com um tópico do Amazon SNS assinado pelas filas do SQS",
         "explicacao": "No padrão fan-out, uma mensagem publicada em um tópico do SNS é entregue a todas as filas assinantes, que a processam de forma independente."
     },
@@ -2871,7 +2871,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Um administrador precisa executar o mesmo comando ou script em centenas de instâncias EC2 ao mesmo tempo, sem acessar cada uma por SSH. Qual recurso deve ser usado?",
-        "alternativas": ["AWS Systems Manager Run Command", "Amazon CloudFront", "AWS CodeArtifact", "Amazon Inspector"],
+        "alternativas": ["AWS Systems Manager Run Command", "Amazon CloudFront", "AWS CodeArtifact", "AWS Systems Manager Parameter Store"],
         "correta": "AWS Systems Manager Run Command",
         "explicacao": "O Run Command executa comandos e scripts remotamente em frotas de instâncias gerenciadas, com controle de acesso pelo IAM e registro dos resultados."
     },
@@ -2885,7 +2885,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer controlar o uso de licenças de software, como Microsoft e Oracle, em instâncias EC2 e servidores on-premises, evitando exceder os limites contratados. Qual serviço deve ser usado?",
-        "alternativas": ["AWS License Manager", "AWS Artifact", "AWS Budgets", "Amazon Macie"],
+        "alternativas": ["AWS License Manager", "AWS Artifact", "AWS Trusted Advisor", "Amazon Macie"],
         "correta": "AWS License Manager",
         "explicacao": "O AWS License Manager ajuda a gerenciar licenças de software de fornecedores, definindo regras de uso e alertando sobre possíveis violações."
     },
@@ -3032,7 +3032,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma equipe de pesquisa em um navio, sem conexão estável com a internet, precisa coletar e processar dados localmente e depois enviá-los à AWS. Qual serviço é o mais indicado?",
-        "alternativas": ["AWS Snowball Edge com capacidade de computação", "AWS Direct Connect", "Amazon CloudFront", "AWS Site-to-Site VPN"],
+        "alternativas": ["AWS Snowball Edge com capacidade de computação", "AWS Direct Connect com link dedicado no porto", "Amazon CloudFront", "AWS Site-to-Site VPN via conexão por satélite"],
         "correta": "AWS Snowball Edge com capacidade de computação",
         "explicacao": "O Snowball Edge pode executar instâncias EC2 e funções localmente em ambientes desconectados ou remotos e, depois, ser enviado à AWS para importar os dados."
     },
@@ -3060,7 +3060,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer que o Amazon EC2 Auto Scaling mantenha a utilização média de CPU do grupo em torno de 50%, adicionando ou removendo instâncias automaticamente. Que tipo de política deve ser usada?",
-        "alternativas": ["Política de rastreamento de destino (target tracking)", "Política de ciclo de vida do S3", "Política de senhas do IAM", "Política de controle de serviço"],
+        "alternativas": ["Política de rastreamento de destino (target tracking)", "Política de ciclo de vida do S3", "Política de senhas do IAM", "Política de controle de serviço (SCP) do AWS Organizations"],
         "correta": "Política de rastreamento de destino (target tracking)",
         "explicacao": "Com o rastreamento de destino, define-se um valor-alvo para uma métrica e o Auto Scaling ajusta a capacidade para mantê-la próxima desse valor."
     },
@@ -3074,42 +3074,42 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Uma equipe quer reunir em uma só tela os gráficos de métricas de vários serviços, como CPU das instâncias, erros do balanceador e latência do banco. Qual recurso deve ser usado?",
-        "alternativas": ["Painéis (dashboards) do Amazon CloudWatch", "AWS Artifact", "AWS Budgets", "Políticas de ciclo de vida do S3"],
+        "alternativas": ["Painéis (dashboards) do Amazon CloudWatch", "AWS Artifact", "Relatórios do AWS Cost Explorer por serviço", "Políticas de ciclo de vida do S3"],
         "correta": "Painéis (dashboards) do Amazon CloudWatch",
         "explicacao": "Os painéis do CloudWatch são páginas personalizáveis que mostram métricas e alarmes de vários recursos, inclusive de diferentes Regiões e contas."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Um alarme do Amazon CloudWatch pode executar qual destas ações automaticamente quando uma métrica ultrapassa o limite definido?",
-        "alternativas": ["Enviar uma notificação pelo Amazon SNS ou acionar uma ação do EC2 Auto Scaling", "Excluir a conta da AWS", "Alterar o plano de suporte", "Gerar uma fatura extra"],
+        "alternativas": ["Enviar uma notificação pelo Amazon SNS ou acionar uma ação do EC2 Auto Scaling", "Excluir automaticamente a conta da AWS para evitar novas cobranças", "Alterar automaticamente o plano de suporte para Enterprise durante o incidente", "Gerar uma fatura extra com o custo excedente e enviá-la ao responsável pela conta"],
         "correta": "Enviar uma notificação pelo Amazon SNS ou acionar uma ação do EC2 Auto Scaling",
         "explicacao": "Os alarmes do CloudWatch podem notificar via SNS, ajustar grupos do Auto Scaling, executar ações no EC2 (como reiniciar) ou criar itens no Systems Manager."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer implantar o mesmo template do AWS CloudFormation em várias contas e Regiões de uma só vez. Qual recurso deve ser usado?",
-        "alternativas": ["AWS CloudFormation StackSets", "AWS Artifact", "Amazon CloudWatch Logs", "AWS Budgets"],
+        "alternativas": ["AWS CloudFormation StackSets", "AWS Artifact", "AWS Systems Manager Automation", "AWS Budgets"],
         "correta": "AWS CloudFormation StackSets",
         "explicacao": "O CloudFormation StackSets permite criar, atualizar e excluir pilhas em várias contas e Regiões com uma única operação."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual afirmação sobre o custo do AWS CloudFormation está correta?",
-        "alternativas": ["Não há cobrança adicional pelo CloudFormation ao gerenciar recursos da AWS; paga-se pelos recursos criados", "Cada template custa um valor fixo por linha", "O CloudFormation é cobrado por usuário do IAM", "O CloudFormation só pode ser usado com o plano Enterprise"],
+        "alternativas": ["Não há cobrança adicional pelo CloudFormation ao gerenciar recursos da AWS; paga-se pelos recursos criados", "Cada template custa um valor fixo por linha", "O CloudFormation é cobrado por usuário do IAM", "O CloudFormation só pode ser usado por clientes com o plano de suporte Enterprise, que inclui o custo do serviço"],
         "correta": "Não há cobrança adicional pelo CloudFormation ao gerenciar recursos da AWS; paga-se pelos recursos criados",
         "explicacao": "O CloudFormation não cobra pelo gerenciamento de recursos da AWS. O cliente paga pelos recursos provisionados, como instâncias EC2 e buckets S3."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual afirmação sobre o AWS Elastic Beanstalk está correta?",
-        "alternativas": ["Não há custo adicional pelo Beanstalk; paga-se pelos recursos que ele cria, e o cliente mantém acesso a eles", "O Beanstalk é cobrado por linha de código implantada", "O Beanstalk impede o acesso às instâncias EC2 criadas", "O Beanstalk só suporta aplicações em Java"],
+        "alternativas": ["Não há custo adicional pelo Beanstalk; paga-se pelos recursos que ele cria, e o cliente mantém acesso a eles", "O Beanstalk é cobrado por linha de código implantada", "O Beanstalk cobra uma taxa por ambiente e impede que o cliente acesse ou altere as instâncias EC2 criadas por ele", "O Beanstalk só suporta aplicações em Java"],
         "correta": "Não há custo adicional pelo Beanstalk; paga-se pelos recursos que ele cria, e o cliente mantém acesso a eles",
         "explicacao": "O Elastic Beanstalk provisiona recursos como EC2, balanceadores e Auto Scaling para aplicações em várias linguagens, sem cobrar pelo serviço em si."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a função de um ponto de presença (edge location) no Amazon Route 53?",
-        "alternativas": ["Responder às consultas DNS próximo aos usuários, reduzindo a latência", "Executar instâncias EC2 para o cliente", "Armazenar backups dos bancos de dados RDS", "Hospedar as Zonas de Disponibilidade"],
+        "alternativas": ["Responder às consultas DNS próximo aos usuários, reduzindo a latência", "Executar instâncias EC2 para o cliente", "Armazenar backups dos bancos de dados RDS perto dos usuários para restauração rápida", "Hospedar as Zonas de Disponibilidade"],
         "correta": "Responder às consultas DNS próximo aos usuários, reduzindo a latência",
         "explicacao": "O Route 53 usa a rede global de pontos de presença para responder às consultas DNS com baixa latência e alta disponibilidade."
     },
@@ -3123,21 +3123,21 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer executar pequenos trechos de código JavaScript nos pontos de presença do CloudFront para manipular cabeçalhos e redirecionar requisições com latência mínima. Qual recurso deve ser usado?",
-        "alternativas": ["CloudFront Functions", "AWS Batch", "Amazon EMR", "AWS Outposts"],
+        "alternativas": ["CloudFront Functions", "AWS Lambda em uma única Região", "Amazon EMR", "AWS Outposts"],
         "correta": "CloudFront Functions",
         "explicacao": "CloudFront Functions e Lambda@Edge permitem executar código nos pontos de presença para personalizar o conteúdo e o comportamento das requisições perto dos usuários."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson precisa de mais throughput do que uma única conexão do AWS Direct Connect oferece, e também quer criptografar o tráfego pela conexão dedicada. Qual combinação é possível?",
-        "alternativas": ["Usar várias conexões Direct Connect e uma VPN site a site sobre o Direct Connect", "Usar apenas um internet gateway", "Usar o Amazon CloudFront como substituto", "Não é possível criptografar tráfego que passa pelo Direct Connect"],
+        "alternativas": ["Usar várias conexões Direct Connect e uma VPN site a site sobre o Direct Connect", "Usar apenas um internet gateway", "Usar o Amazon CloudFront como substituto", "Não é possível criptografar o tráfego que passa pelo Direct Connect nem agregar várias conexões"],
         "correta": "Usar várias conexões Direct Connect e uma VPN site a site sobre o Direct Connect",
         "explicacao": "O Direct Connect não criptografa o tráfego por padrão. É possível combiná-lo com VPN IPsec ou MACsec, e agregar várias conexões para mais capacidade e resiliência."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é uma vantagem de usar o AWS Site-to-Site VPN como backup de uma conexão AWS Direct Connect?",
-        "alternativas": ["Manter a conectividade com a AWS pela internet, de forma criptografada, caso a conexão dedicada falhe", "Dobrar a velocidade do Direct Connect", "Eliminar os custos do Direct Connect", "Hospedar sites estáticos"],
+        "alternativas": ["Manter a conectividade com a AWS pela internet, de forma criptografada, caso a conexão dedicada falhe", "Dobrar a velocidade da conexão dedicada do Direct Connect, somando automaticamente a largura de banda das duas conexões", "Eliminar os custos do Direct Connect, já que a VPN passa a substituí-lo em tempo integral", "Hospedar sites estáticos"],
         "correta": "Manter a conectividade com a AWS pela internet, de forma criptografada, caso a conexão dedicada falhe",
         "explicacao": "Uma VPN site a site pode servir como caminho alternativo de baixo custo para manter a conectividade híbrida quando o Direct Connect fica indisponível."
     },
@@ -3151,14 +3151,14 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a diferença entre o Amazon RDS e o Amazon Redshift quanto ao tipo de carga de trabalho?",
-        "alternativas": ["O RDS é indicado para transações (OLTP); o Redshift é indicado para análises de grandes volumes de dados (OLAP)", "O RDS é um banco NoSQL; o Redshift é um cache", "Os dois são usados apenas para armazenar arquivos", "O Redshift é indicado para pequenas transações de e-commerce"],
+        "alternativas": ["O RDS é indicado para transações (OLTP); o Redshift é indicado para análises de grandes volumes de dados (OLAP)", "O RDS é um banco NoSQL; o Redshift é um cache", "Os dois são usados apenas para armazenar arquivos", "O Redshift é indicado para pequenas transações de e-commerce (OLTP); o RDS é indicado para data warehouses (OLAP)"],
         "correta": "O RDS é indicado para transações (OLTP); o Redshift é indicado para análises de grandes volumes de dados (OLAP)",
         "explicacao": "Bancos OLTP lidam com muitas transações pequenas. Data warehouses como o Redshift armazenam dados em colunas e são otimizados para consultas analíticas complexas."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a diferença entre bancos de dados relacionais e não relacionais (NoSQL)?",
-        "alternativas": ["Os relacionais usam tabelas com esquema fixo e SQL; os NoSQL usam modelos flexíveis, como chave-valor, documentos ou grafos", "Os relacionais não permitem consultas", "Os NoSQL só armazenam imagens", "Não há diferença entre eles"],
+        "alternativas": ["Os relacionais usam tabelas com esquema fixo e SQL; os NoSQL usam modelos flexíveis, como chave-valor, documentos ou grafos", "Os relacionais não permitem consultas com filtros; os NoSQL usam SQL padrão com esquema fixo, tabelas relacionadas e chaves estrangeiras", "Os NoSQL só armazenam arquivos de imagem e vídeo; os relacionais armazenam apenas números e datas em planilhas", "Não há diferença entre eles"],
         "correta": "Os relacionais usam tabelas com esquema fixo e SQL; os NoSQL usam modelos flexíveis, como chave-valor, documentos ou grafos",
         "explicacao": "RDS e Aurora são relacionais. DynamoDB (chave-valor), DocumentDB (documentos) e Neptune (grafos) são exemplos de bancos NoSQL na AWS."
     },
@@ -3172,21 +3172,21 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "Qual afirmação sobre um volume do Amazon EBS e as Zonas de Disponibilidade está correta?",
-        "alternativas": ["O volume EBS existe em uma Zona de Disponibilidade e é anexado a instâncias na mesma zona", "Um volume EBS pode ser anexado a qualquer instância em qualquer Região", "O volume EBS é replicado automaticamente para todas as Regiões", "O volume EBS é armazenado no ponto de presença mais próximo"],
+        "alternativas": ["O volume EBS existe em uma Zona de Disponibilidade e é anexado a instâncias na mesma zona", "Um volume EBS pode ser anexado a qualquer instância em qualquer Região, sem necessidade de snapshots", "O volume EBS é replicado automaticamente para todas as Regiões", "O volume EBS é armazenado no ponto de presença mais próximo"],
         "correta": "O volume EBS existe em uma Zona de Disponibilidade e é anexado a instâncias na mesma zona",
         "explicacao": "O EBS é replicado dentro da sua Zona de Disponibilidade. Para usá-lo em outra zona ou Região, cria-se um snapshot e, a partir dele, um novo volume."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "Qual é a diferença entre o Amazon EFS e o Amazon EBS?",
-        "alternativas": ["O EFS é um sistema de arquivos compartilhado por muitas instâncias; o EBS é armazenamento em bloco anexado normalmente a uma instância", "O EFS armazena objetos; o EBS armazena e-mails", "O EBS é compartilhado entre Regiões; o EFS não", "Não há diferença entre eles"],
+        "alternativas": ["O EFS é um sistema de arquivos compartilhado por muitas instâncias; o EBS é armazenamento em bloco anexado normalmente a uma instância", "O EFS armazena objetos acessados por API como o S3; o EBS é um sistema de arquivos compartilhado entre várias Regiões", "O EBS é compartilhado automaticamente entre Regiões; o EFS só pode ser montado por uma única instância por vez, em uma única Zona de Disponibilidade da conta", "Não há diferença entre eles"],
         "correta": "O EFS é um sistema de arquivos compartilhado por muitas instâncias; o EBS é armazenamento em bloco anexado normalmente a uma instância",
         "explicacao": "O EFS escala automaticamente e pode ser montado simultaneamente por milhares de instâncias em várias zonas. O EBS funciona como um disco para uma instância."
     },
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson quer coletar métricas e visualizar painéis operacionais usando ferramentas de código aberto conhecidas, mas sem gerenciar os servidores dessas ferramentas. Qual combinação de serviços gerenciados é adequada?",
-        "alternativas": ["Amazon Managed Service for Prometheus e Amazon Managed Grafana", "AWS Artifact e AWS Budgets", "Amazon Polly e Amazon Lex", "AWS Snowball Edge e AWS Outposts"],
+        "alternativas": ["Amazon Managed Service for Prometheus e Amazon Managed Grafana", "AWS X-Ray e AWS CloudTrail Lake com consultas SQL", "Amazon Polly e Amazon Lex", "Amazon CloudWatch Logs e AWS Systems Manager Run Command"],
         "correta": "Amazon Managed Service for Prometheus e Amazon Managed Grafana",
         "explicacao": "A AWS oferece Prometheus e Grafana gerenciados, que reduzem o esforço operacional de executar essas ferramentas populares de observabilidade."
     },
@@ -3217,7 +3217,7 @@ QUESTOES += [
     {
         "dominio_id": 3,
         "template_pergunta": "A lojinha do Alyson, que trabalha com segurança patrimonial, quer transmitir com segurança vídeos de milhares de câmeras para a AWS, para armazenamento, reprodução e análise com machine learning. Qual serviço deve ser usado?",
-        "alternativas": ["Amazon Kinesis Video Streams", "Amazon Data Firehose", "Amazon SQS", "Amazon Polly"],
+        "alternativas": ["Amazon Kinesis Video Streams", "Amazon Data Firehose", "Amazon Kinesis Data Streams", "Amazon Polly"],
         "correta": "Amazon Kinesis Video Streams",
         "explicacao": "O Amazon Kinesis Video Streams captura, processa e armazena streams de vídeo de dispositivos conectados para análise, reprodução e machine learning."
     },
@@ -3244,7 +3244,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Qual é a diferença entre as Instâncias Reservadas padrão e as Instâncias Reservadas conversíveis?",
-        "alternativas": ["As padrão oferecem desconto maior; as conversíveis permitem trocar a família, o sistema operacional ou a locação durante o prazo", "As conversíveis oferecem desconto maior e não permitem mudanças", "As padrão podem ser canceladas a qualquer momento sem custo", "As conversíveis só existem para o Amazon S3"],
+        "alternativas": ["As padrão oferecem desconto maior; as conversíveis permitem trocar a família, o sistema operacional ou a locação durante o prazo", "As conversíveis oferecem desconto maior e não permitem mudanças; as padrão permitem trocar livremente a família e o sistema operacional", "As padrão podem ser canceladas a qualquer momento sem custo", "As conversíveis só existem para o Amazon S3"],
         "correta": "As padrão oferecem desconto maior; as conversíveis permitem trocar a família, o sistema operacional ou a locação durante o prazo",
         "explicacao": "As Instâncias Reservadas conversíveis oferecem mais flexibilidade em troca de um desconto um pouco menor que o das padrão."
     },
@@ -3272,7 +3272,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Como é definido o compromisso de um Savings Plan?",
-        "alternativas": ["Um valor de uso por hora, em dólares, por um prazo de 1 ou 3 anos", "Uma quantidade fixa de instâncias por mês", "Um número de usuários do IAM", "Um volume de dados armazenados no S3"],
+        "alternativas": ["Um valor de uso por hora, em dólares, por um prazo de 1 ou 3 anos", "Uma quantidade fixa de instâncias de um mesmo tipo, reservada por mês", "Um número de usuários do IAM", "Um volume de dados armazenados no S3"],
         "correta": "Um valor de uso por hora, em dólares, por um prazo de 1 ou 3 anos",
         "explicacao": "No Savings Plan, o cliente se compromete a gastar um valor por hora (por exemplo, US$ 10/hora) durante o prazo. O uso acima do compromisso é cobrado sob demanda."
     },
@@ -3286,28 +3286,28 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Para qual destas cargas de trabalho as Instâncias Spot NÃO são recomendadas?",
-        "alternativas": ["Um banco de dados de produção que não pode ser interrompido", "Processamento de imagens em lote", "Testes de integração contínua", "Análise de big data tolerante a falhas"],
+        "alternativas": ["Um banco de dados de produção que não pode ser interrompido", "Processamento de imagens em lote com novas tentativas automáticas", "Testes de integração contínua", "Análise de big data tolerante a falhas e a interrupções"],
         "correta": "Um banco de dados de produção que não pode ser interrompido",
         "explicacao": "Instâncias Spot podem ser recuperadas pela AWS com aviso de dois minutos. São ideais para cargas flexíveis e tolerantes a falhas, não para sistemas críticos sem interrupção."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "Qual é a diferença entre Instâncias dedicadas e Hosts dedicados no Amazon EC2?",
-        "alternativas": ["Ambos usam hardware exclusivo, mas o Host dedicado dá visibilidade e controle sobre o servidor físico, como soquetes e núcleos", "Instâncias dedicadas são compartilhadas com outros clientes", "Hosts dedicados são gratuitos", "Não há diferença entre eles"],
+        "alternativas": ["Ambos usam hardware exclusivo, mas o Host dedicado dá visibilidade e controle sobre o servidor físico, como soquetes e núcleos", "Instâncias dedicadas são compartilhadas com outros clientes, enquanto os Hosts dedicados são servidores físicos gratuitos para quem usa BYOL", "Hosts dedicados são gratuitos", "Não há diferença entre eles"],
         "correta": "Ambos usam hardware exclusivo, mas o Host dedicado dá visibilidade e controle sobre o servidor físico, como soquetes e núcleos",
         "explicacao": "O Host dedicado é indicado quando há licenças vinculadas ao servidor físico ou requisitos de conformidade que exigem controle sobre o posicionamento das instâncias."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson precisa garantir que terá capacidade EC2 disponível em uma Zona de Disponibilidade específica durante um evento, sem assumir compromisso de 1 ou 3 anos. Qual opção deve ser usada?",
-        "alternativas": ["Reservas de capacidade sob demanda (On-Demand Capacity Reservations)", "Instâncias Spot", "Compute Savings Plans", "Instâncias Reservadas regionais"],
+        "alternativas": ["Reservas de capacidade sob demanda (On-Demand Capacity Reservations)", "Instâncias Spot", "Compute Savings Plans com compromisso mínimo de 1 ano", "Instâncias Reservadas regionais com prazo de 1 ano"],
         "correta": "Reservas de capacidade sob demanda (On-Demand Capacity Reservations)",
         "explicacao": "As reservas de capacidade sob demanda garantem capacidade em uma zona pelo tempo que o cliente quiser, cobradas pelo preço sob demanda, e podem ser combinadas com Savings Plans."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson usa o Amazon RDS de forma contínua e previsível. Qual opção pode reduzir o custo desse banco de dados?",
-        "alternativas": ["Instâncias de banco de dados reservadas do RDS", "Instâncias Spot do RDS", "Hosts dedicados do S3", "Desativar os backups automáticos"],
+        "alternativas": ["Instâncias de banco de dados reservadas do RDS", "Instâncias Spot do RDS com desconto de até 90%", "Hosts dedicados do S3", "Desativar os backups automáticos"],
         "correta": "Instâncias de banco de dados reservadas do RDS",
         "explicacao": "O RDS oferece instâncias reservadas com prazo de 1 ou 3 anos e desconto significativo em relação ao preço sob demanda."
     },
@@ -3328,7 +3328,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Qual destes itens influencia o custo do Amazon S3?",
-        "alternativas": ["Volume armazenado, classe de armazenamento, número de requisições e dados transferidos para fora", "Apenas o número de buckets criados", "Apenas o número de usuários do IAM com acesso", "Apenas a Região onde a conta foi criada"],
+        "alternativas": ["Volume armazenado, classe de armazenamento, número de requisições e dados transferidos para fora", "Apenas o número de buckets criados", "Apenas o número de usuários do IAM com acesso aos buckets, cobrado por usuário ativo no mês", "Apenas a Região onde a conta foi criada, já que o preço por GB é igual para qualquer volume de requisições"],
         "correta": "Volume armazenado, classe de armazenamento, número de requisições e dados transferidos para fora",
         "explicacao": "O custo do S3 depende do armazenamento por GB-mês, da classe escolhida, das requisições, das recuperações (em classes de arquivamento) e da transferência de saída."
     },
@@ -3349,35 +3349,35 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Quais tipos de orçamento podem ser criados no AWS Budgets?",
-        "alternativas": ["Orçamentos de custo, de uso, de reservas e de Savings Plans", "Somente orçamentos de custo", "Somente orçamentos de número de usuários", "Somente orçamentos de chamadas ao suporte"],
+        "alternativas": ["Orçamentos de custo, de uso, de reservas e de Savings Plans", "Somente orçamentos de custo", "Somente orçamentos de número de usuários do IAM e de contas da organização", "Somente orçamentos de chamadas ao suporte"],
         "correta": "Orçamentos de custo, de uso, de reservas e de Savings Plans",
         "explicacao": "O AWS Budgets permite acompanhar custos, quantidade de uso e a utilização e cobertura de Instâncias Reservadas e Savings Plans."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson quer que, ao atingir 100% do orçamento de um projeto, novas instâncias sejam impedidas automaticamente de ser criadas. Qual recurso do AWS Budgets permite isso?",
-        "alternativas": ["Ações do AWS Budgets (Budget actions)", "Relatórios do AWS Artifact", "Alarmes do AWS Health", "Tags de alocação de custos"],
+        "alternativas": ["Ações do AWS Budgets (Budget actions)", "Relatórios do AWS Artifact", "Alarmes do AWS Health Dashboard para a conta", "Tags de alocação de custos"],
         "correta": "Ações do AWS Budgets (Budget actions)",
         "explicacao": "As ações de orçamento podem aplicar automaticamente uma política do IAM ou uma SCP, ou interromper instâncias EC2 e RDS, quando um limite é atingido."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "Uma equipe financeira precisa dos dados de custo e uso mais detalhados possíveis, linha a linha e por recurso, para analisar em suas próprias ferramentas. Qual recurso deve ser usado?",
-        "alternativas": ["AWS Cost and Usage Report (via AWS Data Exports)", "AWS Pricing Calculator", "AWS Health Dashboard", "AWS Artifact"],
+        "alternativas": ["AWS Cost and Usage Report (via AWS Data Exports)", "Estimativas exportadas do AWS Pricing Calculator", "Painel do AWS Billing and Cost Management", "AWS Artifact"],
         "correta": "AWS Cost and Usage Report (via AWS Data Exports)",
         "explicacao": "O Cost and Usage Report, entregue pelo AWS Data Exports em um bucket do S3, contém o conjunto mais completo de dados de custo e uso, podendo ser analisado com Athena ou QuickSight."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson aplicou a tag 'Projeto' em seus recursos, mas ela não aparece nos relatórios de custos. O que precisa ser feito?",
-        "alternativas": ["Ativar a tag como tag de alocação de custos no console de Faturamento", "Excluir e recriar todos os recursos", "Contratar o plano de suporte Enterprise", "Mudar os recursos de Região"],
+        "alternativas": ["Ativar a tag como tag de alocação de custos no console de Faturamento", "Excluir e recriar todos os recursos com a tag já aplicada na criação", "Contratar o plano de suporte Enterprise", "Mudar os recursos para a Região do Norte da Virgínia, onde fica o faturamento"],
         "correta": "Ativar a tag como tag de alocação de custos no console de Faturamento",
         "explicacao": "As tags definidas pelo usuário só aparecem nas ferramentas de custo depois de ativadas como tags de alocação de custos pela conta de gerenciamento."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson quer garantir que todos os recursos criados nas contas da organização sigam um padrão de nomes e valores de tags. Qual recurso do AWS Organizations ajuda nisso?",
-        "alternativas": ["Políticas de tags (tag policies)", "Políticas de senha do IAM", "Pacotes de conformidade", "Grupos de regras do WAF"],
+        "alternativas": ["Políticas de tags (tag policies)", "Políticas de senha do IAM", "Políticas de backup do AWS Organizations", "Grupos de regras do WAF"],
         "correta": "Políticas de tags (tag policies)",
         "explicacao": "As políticas de tags do AWS Organizations padronizam chaves e valores de tags nas contas, facilitando a alocação de custos e a governança."
     },
@@ -3405,7 +3405,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson tem várias contas em uma organização. Uma delas comprou Instâncias Reservadas que não estão sendo totalmente usadas. O que acontece com esse desconto no faturamento consolidado?",
-        "alternativas": ["O desconto pode ser aplicado ao uso correspondente de outras contas da organização", "O desconto é perdido", "O desconto é devolvido em dinheiro", "O desconto só vale para a conta de gerenciamento"],
+        "alternativas": ["O desconto pode ser aplicado ao uso correspondente de outras contas da organização", "O desconto é perdido", "O desconto é devolvido em dinheiro", "O desconto só vale para a conta de gerenciamento, que paga a fatura consolidada da organização"],
         "correta": "O desconto pode ser aplicado ao uso correspondente de outras contas da organização",
         "explicacao": "No faturamento consolidado, os benefícios de Instâncias Reservadas e Savings Plans são compartilhados entre as contas, a menos que esse compartilhamento seja desativado."
     },
@@ -3419,21 +3419,21 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Quais tipos de recomendações de otimização de custos o AWS Trusted Advisor pode fazer?",
-        "alternativas": ["Identificar instâncias EC2 ociosas, volumes EBS subutilizados e IPs elásticos não associados", "Negociar descontos com a equipe comercial da AWS", "Cancelar automaticamente a conta", "Mudar o plano de suporte sem autorização"],
+        "alternativas": ["Identificar instâncias EC2 ociosas, volumes EBS subutilizados e IPs elásticos não associados", "Negociar automaticamente descontos por volume com a equipe comercial da AWS em nome do cliente a cada mês", "Cancelar automaticamente a conta", "Mudar o plano de suporte sem autorização"],
         "correta": "Identificar instâncias EC2 ociosas, volumes EBS subutilizados e IPs elásticos não associados",
         "explicacao": "As verificações de otimização de custos do Trusted Advisor ajudam a eliminar recursos ociosos e subutilizados e a aproveitar opções de compra com desconto."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "Quais são as categorias de verificações do AWS Trusted Advisor?",
-        "alternativas": ["Otimização de custos, performance, segurança, tolerância a falhas, limites de serviço e excelência operacional", "Somente segurança", "Somente faturamento", "Rede, DNS e e-mail"],
+        "alternativas": ["Otimização de custos, performance, segurança, tolerância a falhas, limites de serviço e excelência operacional", "Somente segurança e conformidade, com base nos relatórios do AWS Artifact e nas regras do AWS Config de cada conta da organização", "Somente faturamento, custos por serviço e previsões de gastos futuros", "Rede, DNS, e-mail, faturamento, contratos e licenças de software de terceiros"],
         "correta": "Otimização de custos, performance, segurança, tolerância a falhas, limites de serviço e excelência operacional",
         "explicacao": "O Trusted Advisor avalia o ambiente em seis categorias e mostra recomendações com status de alerta para cada verificação."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "Um desenvolvedor quer consultar os preços dos serviços da AWS de forma programática para integrá-los a uma ferramenta interna de estimativas. Qual recurso deve usar?",
-        "alternativas": ["AWS Price List API", "AWS Artifact", "AWS Health API", "AWS CloudTrail"],
+        "alternativas": ["AWS Price List API", "AWS Cost Explorer API", "AWS Health API", "AWS CloudTrail"],
         "correta": "AWS Price List API",
         "explicacao": "A AWS Price List API permite consultar programaticamente os preços dos produtos da AWS, com filtros por serviço, Região e atributos."
     },
@@ -3447,7 +3447,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Qual afirmação sobre o plano Developer do AWS Support está correta?",
-        "alternativas": ["Oferece acesso a engenheiros de suporte por e-mail em horário comercial, indicado para testes e desenvolvimento", "Inclui um Technical Account Manager designado", "Oferece resposta em 15 minutos para casos críticos", "Inclui todas as verificações do Trusted Advisor"],
+        "alternativas": ["Oferece acesso a engenheiros de suporte por e-mail em horário comercial, indicado para testes e desenvolvimento", "Inclui um Technical Account Manager designado", "Oferece resposta em 15 minutos para casos críticos de negócio e acesso 24x7 por telefone e chat aos engenheiros de suporte", "Inclui todas as verificações do Trusted Advisor e um Technical Account Manager designado para a conta"],
         "correta": "Oferece acesso a engenheiros de suporte por e-mail em horário comercial, indicado para testes e desenvolvimento",
         "explicacao": "O plano Developer é recomendado para quem está experimentando ou testando na AWS, com suporte técnico por e-mail em horário comercial e orientação geral."
     },
@@ -3475,7 +3475,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson usa apenas o plano Basic do AWS Support e tem uma dúvida sobre uma cobrança na fatura. Ela pode abrir um caso de suporte?",
-        "alternativas": ["Sim: todos os planos, inclusive o Basic, incluem suporte para questões de conta e faturamento", "Não: o Basic não permite abrir nenhum tipo de caso", "Somente se pagar por um caso avulso", "Somente por meio de um AWS Partner"],
+        "alternativas": ["Sim: todos os planos, inclusive o Basic, incluem suporte para questões de conta e faturamento", "Não: o Basic não permite abrir nenhum tipo de caso, nem mesmo de faturamento, apenas consultar a documentação", "Somente se pagar por um caso avulso", "Somente por meio de um AWS Partner"],
         "correta": "Sim: todos os planos, inclusive o Basic, incluem suporte para questões de conta e faturamento",
         "explicacao": "O atendimento ao cliente para questões de conta e faturamento está disponível em todos os planos. O suporte técnico exige o plano Developer ou superior."
     },
@@ -3503,7 +3503,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson quer contratar especialistas da própria AWS para ajudar em um grande projeto de transformação para a nuvem. Qual recurso deve ser procurado?",
-        "alternativas": ["AWS Professional Services", "AWS re:Post", "AWS Marketplace", "AWS Free Tier"],
+        "alternativas": ["AWS Professional Services", "AWS re:Post", "AWS Marketplace", "AWS Partner Network (APN)"],
         "correta": "AWS Professional Services",
         "explicacao": "O AWS Professional Services é uma equipe global de especialistas que trabalha com clientes e parceiros para alcançar resultados de negócio com a nuvem."
     },
@@ -3524,7 +3524,7 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Quais modelos de cobrança são oferecidos pelos produtos do AWS Marketplace?",
-        "alternativas": ["Pagamento conforme o uso, assinaturas, contratos, BYOL e avaliações gratuitas, conforme o produto", "Apenas pagamento em dinheiro na entrega", "Apenas licenças perpétuas pagas ao fornecedor fora da AWS", "Apenas produtos gratuitos"],
+        "alternativas": ["Pagamento conforme o uso, assinaturas, contratos, BYOL e avaliações gratuitas, conforme o produto", "Apenas pagamento em dinheiro na entrega", "Apenas licenças perpétuas pagas diretamente ao fornecedor, fora da fatura da AWS, por transferência bancária", "Apenas produtos gratuitos"],
         "correta": "Pagamento conforme o uso, assinaturas, contratos, BYOL e avaliações gratuitas, conforme o produto",
         "explicacao": "O AWS Marketplace oferece vários modelos de preço, e as cobranças aparecem na fatura da AWS, simplificando a compra de software de terceiros."
     },
@@ -3552,14 +3552,14 @@ QUESTOES += [
     {
         "dominio_id": 4,
         "template_pergunta": "Qual opção pode reduzir os custos de transferência de dados para a internet de um site com muito conteúdo estático acessado globalmente?",
-        "alternativas": ["Usar o Amazon CloudFront para entregar o conteúdo a partir do cache", "Mover o site para uma instância EC2 maior", "Usar o AWS Artifact", "Desativar a compressão de arquivos"],
+        "alternativas": ["Usar o Amazon CloudFront para entregar o conteúdo a partir do cache", "Mover o site para uma instância EC2 maior, com mais largura de banda de rede", "Usar o AWS Artifact", "Desativar a compressão de arquivos"],
         "correta": "Usar o Amazon CloudFront para entregar o conteúdo a partir do cache",
         "explicacao": "O CloudFront reduz a carga na origem e, em geral, a transferência de dados da origem para o CloudFront não é cobrada, tornando a entrega global mais eficiente."
     },
     {
         "dominio_id": 4,
         "template_pergunta": "A lojinha do Alyson quer encontrar um parceiro de tecnologia da AWS que ofereça um software já integrado e validado para seu caso de uso. Além do AWS Marketplace, qual recurso ajuda a encontrar esses parceiros?",
-        "alternativas": ["AWS Partner Solutions Finder", "AWS Artifact", "AWS Health Dashboard", "AWS Budgets"],
+        "alternativas": ["AWS Partner Solutions Finder", "AWS Artifact", "AWS Prescriptive Guidance", "AWS Budgets"],
         "correta": "AWS Partner Solutions Finder",
         "explicacao": "O AWS Partner Solutions Finder permite pesquisar parceiros de consultoria e de tecnologia da AWS por especialização, setor, localização e caso de uso."
     },
