@@ -31,7 +31,7 @@ QUESTOES = [
         "template_pergunta": "A AWS consegue reduzir seus preços continuamente porque agrega o uso de centenas de milhares de clientes. Qual vantagem da nuvem descreve esse cenário?",
         "alternativas": ["Beneficiar-se de enormes economias de escala", "Parar de adivinhar a capacidade", "Tornar-se global em minutos", "Aumentar a velocidade e a agilidade"],
         "correta": "Beneficiar-se de enormes economias de escala",
-        "explicacao": "Com o uso agregado de muitos clientes, a AWS obtém economias de escala maiores do que uma empresa conseguiria sozinha, o que se traduz em preços menores no modelo pré-pago."
+        "explicacao": "Com o uso agregado de muitos clientes, a AWS obtém economias de escala maiores do que a lojinha do Alyson conseguiria sozinha, o que se traduz em preços menores no modelo pré-pago."
     },
     {
         "dominio_id": 1,
@@ -119,7 +119,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Durante a adoção da nuvem, uma empresa precisa preparar seus funcionários com novas habilidades e adaptar a cultura organizacional. Qual perspectiva do AWS Cloud Adoption Framework (AWS CAF) trata desse tema?",
+        "template_pergunta": "Durante a adoção da nuvem, a lojinha do Alyson precisa preparar seus funcionários com novas habilidades e adaptar a cultura organizacional. Qual perspectiva do AWS Cloud Adoption Framework (AWS CAF) trata desse tema?",
         "alternativas": ["Pessoas", "Plataforma", "Operações", "Segurança"],
         "correta": "Pessoas",
         "explicacao": "A perspectiva Pessoas do AWS CAF faz a ponte entre tecnologia e negócios, cuidando de cultura, estrutura organizacional, liderança e capacitação da força de trabalho."
@@ -154,7 +154,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Durante a análise do portfólio de TI para migração, uma empresa identificou aplicações que não são mais usadas e decidiu desligá-las. Qual estratégia de migração é essa?",
+        "template_pergunta": "Durante a análise do portfólio de TI para migração, a lojinha do Alyson identificou aplicações que não são mais usadas e decidiu desligá-las. Qual estratégia de migração é essa?",
         "alternativas": ["Aposentar (retire)", "Reter (retain)", "Recomprar (repurchase)", "Realocar (relocate)"],
         "correta": "Aposentar (retire)",
         "explicacao": "Aposentar consiste em desativar aplicações que não são mais úteis, reduzindo custos e a superfície a ser protegida e migrada."
@@ -326,7 +326,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 2,
-        "template_pergunta": "Por exigência regulatória, uma empresa precisa armazenar suas chaves de criptografia em um módulo de segurança de hardware (HSM) dedicado, de inquilino único e sob seu controle exclusivo. Qual serviço atende a esse requisito?",
+        "template_pergunta": "Por exigência regulatória, a lojinha do Alyson precisa armazenar suas chaves de criptografia em um módulo de segurança de hardware (HSM) dedicado, de inquilino único e sob seu controle exclusivo. Qual serviço atende a esse requisito?",
         "alternativas": ["AWS CloudHSM", "AWS KMS com chaves gerenciadas pela AWS", "AWS Secrets Manager", "AWS Certificate Manager"],
         "correta": "AWS CloudHSM",
         "explicacao": "O AWS CloudHSM fornece HSMs dedicados na nuvem, nos quais o cliente gerencia as próprias chaves com controle exclusivo, atendendo a requisitos rigorosos de conformidade."
@@ -498,7 +498,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 3,
-        "template_pergunta": "Para reduzir a carga no banco de dados e acelerar a leitura de dados acessados com frequência, uma empresa quer adicionar um cache em memória compatível com Redis. Qual serviço deve ser usado?",
+        "template_pergunta": "Para reduzir a carga no banco de dados e acelerar a leitura de dados acessados com frequência, a lojinha do Alyson quer adicionar um cache em memória compatível com Redis. Qual serviço deve ser usado?",
         "alternativas": ["Amazon ElastiCache", "Amazon S3", "Amazon EBS", "Amazon Redshift"],
         "correta": "Amazon ElastiCache",
         "explicacao": "O Amazon ElastiCache é um serviço de cache em memória totalmente gerenciado, compatível com Valkey, Redis OSS e Memcached, que reduz a latência das leituras para microssegundos."
@@ -554,7 +554,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 3,
-        "template_pergunta": "Por requisitos de baixa latência e residência de dados, uma empresa precisa executar serviços da AWS dentro de seu próprio data center, usando as mesmas APIs e ferramentas. Qual serviço atende a essa necessidade?",
+        "template_pergunta": "Por requisitos de baixa latência e residência de dados, a lojinha do Alyson precisa executar serviços da AWS dentro de seu próprio data center, usando as mesmas APIs e ferramentas. Qual serviço atende a essa necessidade?",
         "alternativas": ["AWS Outposts", "AWS Snowball Edge", "AWS Direct Connect", "AWS Storage Gateway"],
         "correta": "AWS Outposts",
         "explicacao": "O AWS Outposts leva a infraestrutura e os serviços da AWS para as instalações do cliente, oferecendo uma experiência híbrida consistente."
@@ -670,7 +670,7 @@ QUESTOES = [
     },
     {
         "dominio_id": 4,
-        "template_pergunta": "Antes de migrar, uma empresa quer estimar quanto vai pagar por mês pela arquitetura que pretende criar na AWS. Qual ferramenta deve ser usada?",
+        "template_pergunta": "Antes de migrar, a lojinha do Alyson quer estimar quanto vai pagar por mês pela arquitetura que pretende criar na AWS. Qual ferramenta deve ser usada?",
         "alternativas": ["AWS Pricing Calculator", "AWS Cost Explorer", "AWS Budgets", "AWS Billing Conductor"],
         "correta": "AWS Pricing Calculator",
         "explicacao": "A AWS Pricing Calculator permite modelar soluções e estimar seus custos antes de criar qualquer recurso. O Cost Explorer analisa gastos já realizados."
@@ -823,7 +823,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Uma lei exige que os dados pessoais de clientes de uma empresa brasileira permaneçam armazenados no Brasil. Qual fator é determinante na escolha da Região da AWS?",
+        "template_pergunta": "Uma lei exige que os dados pessoais de clientes da lojinha do Alyson permaneçam armazenados no Brasil. Qual fator é determinante na escolha da Região da AWS?",
         "alternativas": ["Conformidade e requisitos de residência de dados", "Quantidade de pontos de presença da Região", "Proximidade da sede da AWS nos Estados Unidos", "Número de serviços em versão prévia na Região"],
         "correta": "Conformidade e requisitos de residência de dados",
         "explicacao": "Os quatro fatores principais para escolher uma Região são: conformidade e governança de dados, proximidade dos clientes (latência), disponibilidade de serviços e preço."
@@ -914,7 +914,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Na nuvem, uma empresa cria sob demanda um ambiente idêntico ao de produção, executa testes de carga e depois o desliga, pagando apenas pelas horas usadas. Qual princípio geral de design é esse?",
+        "template_pergunta": "Na nuvem, a lojinha do Alyson cria sob demanda um ambiente idêntico ao de produção, executa testes de carga e depois o desliga, pagando apenas pelas horas usadas. Qual princípio geral de design é esse?",
         "alternativas": ["Testar sistemas em escala de produção", "Parar de adivinhar a capacidade", "Projetar arquiteturas monolíticas", "Usar servidores de longa duração"],
         "correta": "Testar sistemas em escala de produção",
         "explicacao": "Na nuvem é possível criar ambientes de teste em escala de produção apenas pelo tempo necessário, algo caro ou inviável em data centers tradicionais."
@@ -1005,7 +1005,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Algumas aplicações de uma empresa dependem de sistemas que ainda não podem ser migrados, por isso continuarão on-premises por enquanto. Qual estratégia de migração é essa?",
+        "template_pergunta": "Algumas aplicações da lojinha do Alyson dependem de sistemas que ainda não podem ser migrados, por isso continuarão on-premises por enquanto. Qual estratégia de migração é essa?",
         "alternativas": ["Reter (retain)", "Aposentar (retire)", "Redefinir a hospedagem (rehost)", "Recomprar (repurchase)"],
         "correta": "Reter (retain)",
         "explicacao": "Reter significa manter a aplicação no ambiente atual, normalmente por dependências, requisitos de conformidade ou porque a migração ainda não se justifica."
@@ -1040,7 +1040,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Antes de migrar, uma empresa precisa coletar informações sobre seus servidores on-premises, como configuração, utilização e dependências entre eles. Qual serviço ajuda nessa tarefa?",
+        "template_pergunta": "Antes de migrar, a lojinha do Alyson precisa coletar informações sobre seus servidores on-premises, como configuração, utilização e dependências entre eles. Qual serviço ajuda nessa tarefa?",
         "alternativas": ["AWS Application Discovery Service", "AWS Application Migration Service", "AWS Snowball Edge", "AWS Systems Manager"],
         "correta": "AWS Application Discovery Service",
         "explicacao": "O AWS Application Discovery Service coleta dados de uso, configuração e dependências dos servidores on-premises para apoiar o planejamento da migração."
@@ -1061,7 +1061,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 1,
-        "template_pergunta": "Parceiros de negócio de uma empresa enviam arquivos via SFTP, e ela quer que esses arquivos sejam gravados diretamente no Amazon S3 sem manter um servidor SFTP próprio. Qual serviço deve ser usado?",
+        "template_pergunta": "Parceiros de negócio da lojinha do Alyson enviam arquivos via SFTP, e ela quer que esses arquivos sejam gravados diretamente no Amazon S3 sem manter um servidor SFTP próprio. Qual serviço deve ser usado?",
         "alternativas": ["AWS Transfer Family", "AWS DataSync", "AWS Storage Gateway", "Amazon EFS"],
         "correta": "AWS Transfer Family",
         "explicacao": "O AWS Transfer Family oferece endpoints gerenciados de SFTP, FTPS, FTP e AS2 que gravam os arquivos diretamente no Amazon S3 ou no Amazon EFS."
@@ -1420,7 +1420,7 @@ QUESTOES += [
         "template_pergunta": "A lojinha do Alyson quer expandir para um novo país e precisa de infraestrutura local em poucos dias, sem negociar a construção de um data center. Qual benefício da AWS torna isso possível?",
         "alternativas": ["Infraestrutura global disponível sob demanda em várias Regiões", "Contratos de colocation de longo prazo em data centers locais do novo país", "Compra de servidores com entrega expressa e instalação no país de destino", "Licenças de software gratuitas para cada novo país em que a empresa passar a operar"],
         "correta": "Infraestrutura global disponível sob demanda em várias Regiões",
-        "explicacao": "Como a AWS já mantém Regiões em diversos países, uma empresa pode implantar sua aplicação em outra parte do mundo em minutos, sem investir em instalações físicas."
+        "explicacao": "Como a AWS já mantém Regiões em diversos países, a lojinha do Alyson pode implantar sua aplicação em outra parte do mundo em minutos, sem investir em instalações físicas."
     },
 ]
 
@@ -1479,7 +1479,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 2,
-        "template_pergunta": "De quem é a responsabilidade de treinar os funcionários de uma empresa sobre boas práticas de segurança no uso da AWS?",
+        "template_pergunta": "De quem é a responsabilidade de treinar os funcionários da lojinha do Alyson sobre boas práticas de segurança no uso da AWS?",
         "alternativas": ["Do cliente, para os seus funcionários", "Exclusivamente da AWS", "Do AWS Support, automaticamente", "De nenhuma das partes"],
         "correta": "Do cliente, para os seus funcionários",
         "explicacao": "Conscientização e treinamento é um controle compartilhado: a AWS treina seus funcionários e o cliente deve treinar os seus."
@@ -1731,7 +1731,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 2,
-        "template_pergunta": "Por exigência regulatória, uma empresa precisa garantir que certos objetos do S3 não possam ser excluídos nem alterados durante 7 anos (modelo WORM). Qual recurso atende a esse requisito?",
+        "template_pergunta": "Por exigência regulatória, a lojinha do Alyson precisa garantir que certos objetos do S3 não possam ser excluídos nem alterados durante 7 anos (modelo WORM). Qual recurso atende a esse requisito?",
         "alternativas": ["S3 Object Lock", "S3 Intelligent-Tiering", "S3 Transfer Acceleration", "Políticas de ciclo de vida do S3"],
         "correta": "S3 Object Lock",
         "explicacao": "O S3 Object Lock armazena objetos no modelo WORM (write once, read many), impedindo exclusão ou alteração durante o período de retenção definido."
@@ -2699,7 +2699,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 3,
-        "template_pergunta": "Por questões de licenciamento de conteúdo, uma empresa precisa direcionar usuários de cada país para versões diferentes do seu site. Qual política de roteamento do Route 53 deve ser usada?",
+        "template_pergunta": "Por questões de licenciamento de conteúdo, a lojinha do Alyson precisa direcionar usuários de cada país para versões diferentes do seu site. Qual política de roteamento do Route 53 deve ser usada?",
         "alternativas": ["Roteamento por geolocalização", "Roteamento ponderado", "Roteamento baseado em latência", "Roteamento simples"],
         "correta": "Roteamento por geolocalização",
         "explicacao": "O roteamento por geolocalização responde conforme a localização geográfica de origem da consulta DNS, como continente, país ou estado."
@@ -3397,7 +3397,7 @@ QUESTOES += [
     },
     {
         "dominio_id": 4,
-        "template_pergunta": "Onde uma empresa pode obter recomendações de compra de Instâncias Reservadas e Savings Plans com base no seu histórico de uso?",
+        "template_pergunta": "Onde a lojinha do Alyson pode obter recomendações de compra de Instâncias Reservadas e Savings Plans com base no seu histórico de uso?",
         "alternativas": ["No AWS Cost Explorer", "No AWS Artifact", "No AWS Health Dashboard", "No Amazon Inspector"],
         "correta": "No AWS Cost Explorer",
         "explicacao": "O Cost Explorer analisa o uso passado e recomenda compras de Instâncias Reservadas e Savings Plans, mostrando a economia estimada."
