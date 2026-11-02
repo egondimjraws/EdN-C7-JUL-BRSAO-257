@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulados AWS CLF-C02</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --card: #ffffff; --text: #16191f; --muted: #5f6b7a;
+    --border: #d5dbe3; --accent: #ec7211; --accent-hover: #d4620a; --accent-text: #ffffff;
+    --navy: #232f3e; --ok: #1d8102; --ok-bg: #e9f6e5; --bad: #c62828; --bad-bg: #fdecea;
+    --sel-bg: #fff4e8; --shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1419; --card: #1a2029; --text: #e6e9ee; --muted: #9aa5b4;
+      --border: #313a47; --accent: #ff9f40; --accent-hover: #ffb366; --accent-text: #16191f;
+      --navy: #0b0f14; --ok: #6fcf57; --ok-bg: #16301a; --bad: #ff7b72; --bad-bg: #3a1d1d;
+      --sel-bg: #3a2a18; --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background: var(--navy); color: #fff; padding: 14px 16px; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 1.05rem; font-weight: 600; cursor: pointer; }
+  header h1 span { color: #ff9f40; }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  main { padding: 24px 16px 48px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px; }
+  h2 { margin: 0 0 8px; font-size: 1.35rem; }
+  p.muted, .muted { color: var(--muted); }
+  .modos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .modos .card { display: flex; flex-direction: column; margin: 0; }
+  .modos .card p { flex: 1; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; border: 1px solid transparent;
+    padding: 10px 18px; font-weight: 600; }
+  .btn { background: var(--accent); color: var(--accent-text); }
+  .btn:hover { background: var(--accent-hover); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn-sec { background: transparent; color: var(--text); border-color: var(--border); }
+  .btn-sec:hover { border-color: var(--muted); }
+  .acoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+  .tag { display: inline-block; font-size: .8rem; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 999px; padding: 2px 10px; margin-bottom: 12px; }
+  .pergunta { font-size: 1.1rem; font-weight: 500; margin: 0 0 18px; }
+  .alts { display: grid; gap: 10px; }
+  .alt { display: flex; gap: 12px; align-items: flex-start; text-align: left; width: 100%;
+    background: var(--card); color: var(--text); border: 1px solid var(--border); font-weight: 400; padding: 12px 14px; }
+  .alt:hover:not(:disabled) { border-color: var(--accent); }
+  .alt .letra { flex: none; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--border);
+    display: grid; place-items: center; font-weight: 700; font-size: .85rem; }
+  .alt.sel { border-color: var(--accent); background: var(--sel-bg); }
+  .alt.sel .letra { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  .alt.ok { border-color: var(--ok); background: var(--ok-bg); }
+  .alt.ok .letra { background: var(--ok); color: #fff; border-color: var(--ok); }
+  .alt.bad { border-color: var(--bad); background: var(--bad-bg); }
+  .alt.bad .letra { background: var(--bad); color: #fff; border-color: var(--bad); }
+  .alt:disabled { cursor: default; }
+  .feedback { margin-top: 18px; padding: 14px 16px; border-radius: 8px; border-left: 4px solid; }
+  .feedback.ok { background: var(--ok-bg); border-color: var(--ok); }
+  .feedback.bad { background: var(--bad-bg); border-color: var(--bad); }
+  .feedback strong { display: block; margin-bottom: 4px; }
+  .placar { display: flex; gap: 16px; flex-wrap: wrap; font-size: .9rem; color: var(--muted); }
+  .placar b { color: var(--text); }
+  .barra-exame { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 12px; }
+  .timer { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; }
+  .timer.alerta { color: var(--bad); }
+  .progresso { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 16px; }
+  .progresso div { height: 100%; background: var(--accent); transition: width .2s; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; }
+  .grade button { padding: 6px 0; font-size: .8rem; font-weight: 600; background: var(--card);
+    color: var(--muted); border: 1px solid var(--border); }
+  .grade button.resp { background: var(--sel-bg); color: var(--text); border-color: var(--accent); }
+  .grade button.atual { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .grade button.marc { border-style: dashed; border-color: var(--bad); }
+  input[type=text] { font: inherit; width: 100%; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--bg); color: var(--text); margin-top: 6px; }
+  ul.regras { padding-left: 20px; margin: 12px 0 0; }
+  .nota { font-size: 3rem; font-weight: 800; line-height: 1; margin: 8px 0; font-variant-numeric: tabular-nums; }
+  .status { display: inline-block; padding: 4px 14px; border-radius: 999px; font-weight: 700; }
+  .status.ok { background: var(--ok-bg); color: var(--ok); }
+  .status.bad { background: var(--bad-bg); color: var(--bad); }
+  .metricas { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px; }
+  .metricas div { border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+  .metricas small { color: var(--muted); display: block; font-size: .8rem; }
+  .metricas b { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+  .dominio { margin-top: 14px; }
+  .dominio .linha { display: flex; justify-content: space-between; gap: 12px; font-size: .92rem; }
+  .dominio .trilho { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+  .dominio .trilho div { height: 100%; background: var(--ok); }
+  .dominio .trilho div.baixo { background: var(--bad); }
+  details.revisao { border-top: 1px solid var(--border); padding: 12px 0; }
+  details.revisao summary { cursor: pointer; }
+  .erro { color: var(--bad); }
+  .atalhos { font-size: .8rem; color: var(--muted); margin-top: 14px; }
+  kbd { border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: .75rem; }
+  [hidden] { display: none !important; }
+  @media (max-width: 520px) { .card { padding: 18px; } .nota { font-size: 2.4rem; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1 id="logo">☁️ AWS Cloud Practitioner <span>(CLF-C02)</span> · Simulados</h1>
+    <span id="hdr-info" class="muted" style="color:#c9d1dc;font-size:.9rem"></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- INÍCIO -->
+  <section id="tela-inicio">
+    <div class="card">
+      <h2>Escolha o modo de estudo</h2>
+      <p class="muted">As mesmas questões do banco <code>aws_simulados.db</code> usadas pelos scripts de terminal.</p>
+    </div>
+    <div class="modos">
+      <div class="card">
+        <h2>📘 Treino livre</h2>
+        <p class="muted">Uma questão aleatória por vez, com gabarito e explicação da AWS logo após cada resposta. Sem limite de tempo.</p>
+        <div><button class="btn" id="btn-treino">Começar treino</button></div>
+      </div>
+      <div class="card">
+        <h2>⏱️ Exame simulado</h2>
+        <p class="muted">64 questões, 90 minutos e nota de 100 a 1000 (aprovação com 700), como na prova real.</p>
+        <div><button class="btn" id="btn-exame">Configurar exame</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREINO -->
+  <section id="tela-treino" hidden>
+    <div class="card">
+      <div class="barra-exame">
+        <div class="placar">
+          <span>Respondidas: <b id="t-total">0</b></span>
+          <span>Acertos: <b id="t-acertos">0</b></span>
+          <span>Aproveitamento: <b id="t-pct">–</b></span>
+        </div>
+        <button class="btn-sec" id="t-sair">Sair do treino</button>
+      </div>
+      <span class="tag" id="t-categoria"></span>
+      <p class="pergunta" id="t-pergunta">Carregando…</p>
+      <div class="alts" id="t-alts"></div>
+      <div id="t-feedback"></div>
+      <div class="acoes"><button class="btn" id="t-proxima" hidden>Próxima pergunta →</button></div>
+      <p class="atalhos">Atalhos: <kbd>A</kbd>–<kbd>D</kbd> responder · <kbd>Enter</kbd> próxima</p>
+    </div>
+  </section>
+
+  <!-- INTRO EXAME -->
+  <section id="tela-intro" hidden>
+    <div class="card">
+      <h2>Exame simulado oficial</h2>
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" placeholder="Candidato(a)" maxlength="60" autocomplete="name">
+      <ul class="regras">
+        <li><b>Quantidade:</b> 64 questões sorteadas aleatoriamente.</li>
+        <li><b>Tempo limite:</b> 90 minutos. Ao zerar, o exame é encerrado automaticamente.</li>
+        <li><b>Aprovação:</b> mínimo de 70% de acertos (nota 700/1000).</li>
+        <li>Você pode navegar entre as questões, alterar respostas e marcar para revisar.</li>
+      </ul>
+      <p class="erro" id="intro-erro" hidden></p>
+      <div class="acoes">
+        <button class="btn" id="btn-iniciar">Iniciar cronômetro</button>
+        <button class="btn-sec" data-voltar>Voltar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAME -->
+  <section id="tela-exame" hidden>
+    <div class="card">
+      <div class="barra-exame">
+        <b id="e-num">Questão 1 de 64</b>
+        <span class="timer" id="e-timer">90:00</span>
+      </div>
+      <div class="progresso"><div id="e-prog" style="width:0"></div></div>
+      <span class="tag" id="e-categoria"></span>
+      <p class="pergunta" id="e-pergunta"></p>
+      <div class="alts" id="e-alts"></div>
+      <div class="acoes">
+        <button class="btn-sec" id="e-ant">← Anterior</button>
+        <button class="btn" id="e-prox">Próxima →</button>
+        <button class="btn-sec" id="e-marcar">🚩 Marcar para revisar</button>
+        <button class="btn-sec" id="e-finalizar" style="margin-left:auto">Finalizar exame</button>
+      </div>
+      <p class="atalhos">Atalhos: <kbd>A</kbd>–<kbd>D</kbd> responder · <kbd>←</kbd> <kbd>→</kbd> navegar</p>
+    </div>
+    <div class="card">
+      <div class="placar" style="margin-bottom:10px">
+        <span>Respondidas: <b id="e-resp">0</b>/64</span>
+        <span>Marcadas: <b id="e-marc">0</b></span>
+      </div>
+      <div class="grade" id="e-grade"></div>
+    </div>
+  </section>
+
+  <!-- RESULTADO -->
+  <section id="tela-resultado" hidden>
+    <div class="card">
+      <p class="muted" id="r-nome"></p>
+      <h2>Relatório de desempenho final</h2>
+      <div class="nota" id="r-nota"></div>
+      <span class="status" id="r-status"></span>
+      <div class="metricas">
+        <div><small>Acertos</small><b id="r-acertos"></b></div>
+        <div><small>Erros</small><b id="r-erros"></b></div>
+        <div><small>Percentual</small><b id="r-pct"></b></div>
+        <div><small>Respondidas</small><b id="r-resp"></b></div>
+        <div><small>Tempo utilizado</small><b id="r-tempo"></b></div>
+      </div>
+      <p class="muted" id="r-aviso" hidden></p>
+    </div>
+    <div class="card">
+      <h2>📈 Desempenho por domínio</h2>
+      <div id="r-dominios"></div>
+    </div>
+    <div class="card">
+      <h2>🔎 Revisão das questões</h2>
+      <p class="muted">Clique em uma questão para ver sua resposta, o gabarito e a explicação.</p>
+      <label class="muted"><input type="checkbox" id="r-so-erros" checked> Mostrar apenas as que errei</label>
+      <div id="r-revisao"></div>
+    </div>
+    <div class="acoes">
+      <button class="btn" id="r-novo">Fazer outro exame</button>
+      <button class="btn-sec" data-voltar>Voltar ao início</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const LETRAS = ["A", "B", "C", "D"];
+  const telas = ["inicio", "treino", "intro", "exame", "resultado"];
+  let telaAtual = "inicio";
+
+  function mostrar(nome) {
+    telaAtual = nome;
+    telas.forEach(t => $("tela-" + t).hidden = t !== nome);
+    $("hdr-info").textContent = "";
+    window.scrollTo(0, 0);
+  }
+
+  async function api(caminho, corpo) {
+    const resp = await fetch(caminho, corpo ? {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo)
+    } : undefined);
+    const dados = await resp.json();
+    if (!resp.ok) throw new Error(dados.erro || "Erro ao comunicar com o servidor.");
+    return dados;
+  }
+
+  function fmtTempo(s) {
+    s = Math.max(0, Math.floor(s));
+    return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+  }
+
+  function criarAlternativa(letra, texto) {
+    const b = document.createElement("button");
+    b.className = "alt";
+    const l = document.createElement("span"); l.className = "letra"; l.textContent = letra;
+    const t = document.createElement("span"); t.textContent = texto;
+    b.append(l, t);
+    return b;
+  }
+
+  /* ---------------- TREINO ---------------- */
+  const treino = { questao: null, respondida: false, total: 0, acertos: 0 };
+
+  function atualizarPlacar() {
+    $("t-total").textContent = treino.total;
+    $("t-acertos").textContent = treino.acertos;
+    $("t-pct").textContent = treino.total ? Math.round(treino.acertos / treino.total * 100) + "%" : "–";
+  }
+
+  async function carregarTreino() {
+    treino.respondida = false;
+    $("t-feedback").replaceChildren();
+    $("t-proxima").hidden = true;
+    $("t-alts").replaceChildren();
+    $("t-pergunta").textContent = "Carregando…";
+    $("t-categoria").textContent = "";
+    try {
+      const q = await api("/api/questao");
+      treino.questao = q;
+      $("t-categoria").textContent = "📂 " + q.categoria;
+      $("t-pergunta").textContent = q.texto;
+      q.alternativas.forEach((a, i) => {
+        const b = criarAlternativa(LETRAS[i], a.texto);
+        b.dataset.id = a.id;
+        b.onclick = () => responderTreino(a.id);
+        $("t-alts").append(b);
+      });
+    } catch (e) {
+      $("t-pergunta").textContent = e.message;
+    }
+  }
+
+  async function responderTreino(idAlt) {
+    if (treino.respondida || !treino.questao) return;
+    treino.respondida = true;
+    const botoes = [...$("t-alts").children];
+    botoes.forEach(b => b.disabled = true);
+    try {
+      const r = await api("/api/responder", { questao_id: treino.questao.id, alternativa_id: idAlt });
+      treino.total++; if (r.acertou) treino.acertos++;
+      atualizarPlacar();
+      botoes.forEach(b => {
+        const id = Number(b.dataset.id);
+        if (id === r.correta_id) b.classList.add("ok");
+        else if (id === idAlt) b.classList.add("bad");
+      });
+      const letraCorreta = LETRAS[treino.questao.alternativas.findIndex(a => a.id === r.correta_id)];
+      const fb = document.createElement("div");
+      fb.className = "feedback " + (r.acertou ? "ok" : "bad");
+      const titulo = document.createElement("strong");
+      titulo.textContent = r.acertou ? "✅ Parabéns! Você acertou a questão." : `❌ Incorreto. A alternativa certa era a letra (${letraCorreta}).`;
+      const exp = document.createElement("div");
+      exp.textContent = "📖 Explicação da AWS: " + r.explicacao;
+      fb.append(titulo, exp);
+      $("t-feedback").replaceChildren(fb);
+      $("t-proxima").hidden = false;
+      $("t-proxima").focus();
+    } catch (e) {
+      treino.respondida = false;
+      botoes.forEach(b => b.disabled = false);
+      alert(e.message);
+    }
+  }
+
+  $("btn-treino").onclick = () => {
+    treino.total = 0; treino.acertos = 0; atualizarPlacar();
+    mostrar("treino"); carregarTreino();
+  };
+  $("t-proxima").onclick = carregarTreino;
+  $("t-sair").onclick = () => mostrar("inicio");
+
+  /* ---------------- EXAME ---------------- */
+  const exame = { nome: "", questoes: [], respostas: {}, marcadas: new Set(), atual: 0,
+    inicio: 0, limite: 5400, timer: null, encerrado: false, esgotou: false };
+
+  $("btn-exame").onclick = () => { $("intro-erro").hidden = true; mostrar("intro"); $("nome").focus(); };
+
+  $("btn-iniciar").onclick = async () => {
+    const btn = $("btn-iniciar");
+    btn.disabled = true; btn.textContent = "Sorteando questões…";
+    try {
+      const d = await api("/api/exame");
+      Object.assign(exame, {
+        nome: $("nome").value.trim() || "Candidato(a)", questoes: d.questoes, respostas: {},
+        marcadas: new Set(), atual: 0, inicio: Date.now(), limite: d.tempo_limite,
+        encerrado: false, esgotou: false
+      });
+      montarGrade();
+      mostrar("exame");
+      renderQuestao();
+      exame.timer = setInterval(tick, 500); tick();
+    } catch (e) {
+      $("intro-erro").textContent = "⚠️ " + e.message; $("intro-erro").hidden = false;
+    } finally {
+      btn.disabled = false; btn.textContent = "Iniciar cronômetro";
+    }
+  };
+
+  function restante() { return exame.limite - (Date.now() - exame.inicio) / 1000; }
+
+  function tick() {
+    const r = restante();
+    $("e-timer").textContent = "⏱️ " + fmtTempo(r);
+    $("e-timer").classList.toggle("alerta", r <= 300);
+    if (r <= 0 && !exame.encerrado) { exame.esgotou = true; finalizar(); }
+  }
+
+  function montarGrade() {
+    const g = $("e-grade"); g.replaceChildren();
+    exame.questoes.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.textContent = i + 1;
+      b.onclick = () => { exame.atual = i; renderQuestao(); };
+      g.append(b);
+    });
+  }
+
+  function atualizarGrade() {
+    [...$("e-grade").children].forEach((b, i) => {
+      const q = exame.questoes[i];
+      b.classList.toggle("resp", exame.respostas[q.id] !== undefined);
+      b.classList.toggle("marc", exame.marcadas.has(q.id));
+      b.classList.toggle("atual", i === exame.atual);
+    });
+    const n = Object.keys(exame.respostas).length;
+    $("e-resp").textContent = n;
+    $("e-marc").textContent = exame.marcadas.size;
+    $("e-prog").style.width = (n / exame.questoes.length * 100) + "%";
+  }
+
+  function renderQuestao() {
+    const q = exame.questoes[exame.atual];
+    const total = exame.questoes.length;
+    $("e-num").textContent = `Questão ${exame.atual + 1} de ${total}`;
+    $("e-categoria").textContent = "📂 " + q.categoria;
+    $("e-pergunta").textContent = q.texto;
+    const alts = $("e-alts"); alts.replaceChildren();
+    q.alternativas.forEach((a, i) => {
+      const b = criarAlternativa(LETRAS[i], a.texto);
+      if (exame.respostas[q.id] === a.id) b.classList.add("sel");
+      b.onclick = () => escolher(a.id);
+      alts.append(b);
+    });
+    $("e-ant").disabled = exame.atual === 0;
+    $("e-prox").disabled = exame.atual === total - 1;
+    $("e-marcar").textContent = exame.marcadas.has(q.id) ? "🚩 Desmarcar" : "🚩 Marcar para revisar";
+    atualizarGrade();
+  }
+
+  function escolher(idAlt) {
+    if (exame.encerrado) return;
+    const q = exame.questoes[exame.atual];
+    exame.respostas[q.id] = idAlt;
+    renderQuestao();
+  }
+
+  function navegar(delta) {
+    const n = exame.atual + delta;
+    if (n >= 0 && n < exame.questoes.length) { exame.atual = n; renderQuestao(); }
+  }
+
+  $("e-ant").onclick = () => navegar(-1);
+  $("e-prox").onclick = () => navegar(1);
+  $("e-marcar").onclick = () => {
+    const id = exame.questoes[exame.atual].id;
+    exame.marcadas.has(id) ? exame.marcadas.delete(id) : exame.marcadas.add(id);
+    renderQuestao();
+  };
+  $("e-finalizar").onclick = () => {
+    const faltam = exame.questoes.length - Object.keys(exame.respostas).length;
+    const msg = faltam > 0
+      ? `Ainda há ${faltam} questão(ões) sem resposta, que contarão como erro. Finalizar mesmo assim?`
+      : "Deseja finalizar e ver o resultado?";
+    if (confirm(msg)) finalizar();
+  };
+
+  async function finalizar() {
+    if (exame.encerrado) return;
+    exame.encerrado = true;
+    clearInterval(exame.timer);
+    const tempoGasto = Math.min(exame.limite, (Date.now() - exame.inicio) / 1000);
+    const respostas = exame.questoes.map(q => ({
+      questao_id: q.id, alternativa_id: exame.respostas[q.id] ?? null
+    }));
+    try {
+      const r = await api("/api/corrigir", { respostas, tempo_gasto: tempoGasto });
+      renderResultado(r);
+    } catch (e) {
+      exame.encerrado = false;
+      alert("Não foi possível corrigir o exame: " + e.message);
+    }
+  }
+
+  function renderResultado(r) {
+    mostrar("resultado");
+    $("r-nome").textContent = "👤 " + exame.nome;
+    $("r-nota").textContent = r.nota + " / 1000";
+    const st = $("r-status");
+    st.textContent = r.aprovado ? "🎉 APROVADO(A)" : "❌ REPROVADO(A)";
+    st.className = "status " + (r.aprovado ? "ok" : "bad");
+    $("r-acertos").textContent = r.acertos;
+    $("r-erros").textContent = r.erros;
+    $("r-pct").textContent = r.percentual.toFixed(2).replace(".", ",") + "%";
+    $("r-resp").textContent = `${r.respondidas} de ${r.total}`;
+    $("r-tempo").textContent = fmtTempo(r.tempo_gasto) + " / 90:00";
+    $("r-aviso").hidden = !exame.esgotou;
+    $("r-aviso").textContent = "🚨 O tempo limite de 90 minutos foi esgotado e o exame foi encerrado automaticamente.";
+
+    const doms = $("r-dominios"); doms.replaceChildren();
+    r.por_dominio.forEach(d => {
+      const pct = d.total ? d.acertos / d.total * 100 : 0;
+      const el = document.createElement("div"); el.className = "dominio";
+      const linha = document.createElement("div"); linha.className = "linha";
+      const nome = document.createElement("span"); nome.textContent = d.dominio;
+      const val = document.createElement("b");
+      val.textContent = `${d.acertos}/${d.total} (${pct.toFixed(1).replace(".", ",")}%)`;
+      linha.append(nome, val);
+      const trilho = document.createElement("div"); trilho.className = "trilho";
+      const barra = document.createElement("div");
+      barra.style.width = pct + "%"; if (pct < 70) barra.className = "baixo";
+      trilho.append(barra);
+      el.append(linha, trilho); doms.append(el);
+    });
+
+    exame.resultado = r;
+    renderRevisao();
+  }
+
+  function renderRevisao() {
+    const r = exame.resultado; if (!r) return;
+    const soErros = $("r-so-erros").checked;
+    const det = Object.fromEntries(r.detalhes.map(d => [d.questao_id, d]));
+    const box = $("r-revisao"); box.replaceChildren();
+    exame.questoes.forEach((q, i) => {
+      const d = det[q.id]; if (!d || (soErros && d.acertou)) return;
+      const el = document.createElement("details"); el.className = "revisao";
+      const sum = document.createElement("summary");
+      sum.textContent = `${d.acertou ? "✅" : "❌"} Questão ${i + 1} · ${q.categoria}`;
+      const p = document.createElement("p"); p.className = "pergunta"; p.textContent = q.texto;
+      const alts = document.createElement("div"); alts.className = "alts";
+      q.alternativas.forEach((a, j) => {
+        const b = criarAlternativa(LETRAS[j], a.texto); b.disabled = true;
+        if (a.id === d.correta_id) b.classList.add("ok");
+        else if (a.id === d.alternativa_id) b.classList.add("bad");
+        alts.append(b);
+      });
+      const fb = document.createElement("div");
+      fb.className = "feedback " + (d.acertou ? "ok" : "bad");
+      const t = document.createElement("strong");
+      t.textContent = d.alternativa_id == null ? "Questão não respondida." : (d.acertou ? "Você acertou." : "Você errou.");
+      const ex = document.createElement("div"); ex.textContent = "📖 " + d.explicacao;
+      fb.append(t, ex);
+      el.append(sum, p, alts, fb); box.append(el);
+    });
+    if (!box.children.length) {
+      const p = document.createElement("p"); p.className = "muted";
+      p.textContent = soErros ? "Nenhum erro. Excelente!" : "Nenhuma questão para revisar.";
+      box.append(p);
+    }
+  }
+  $("r-so-erros").onchange = renderRevisao;
+  $("r-novo").onclick = () => { $("intro-erro").hidden = true; mostrar("intro"); };
+
+  /* ---------------- GERAL ---------------- */
+  function sairExameAtivo() {
+    if (telaAtual === "exame" && !exame.encerrado) {
+      if (!confirm("Sair agora descarta o exame em andamento. Deseja sair?")) return false;
+      exame.encerrado = true; clearInterval(exame.timer);
+    }
+    return true;
+  }
+  document.querySelectorAll("[data-voltar]").forEach(b => b.onclick = () => mostrar("inicio"));
+  $("logo").onclick = () => { if (sairExameAtivo()) mostrar("inicio"); };
+  window.addEventListener("beforeunload", (e) => {
+    if (telaAtual === "exame" && !exame.encerrado) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.target.tagName === "INPUT" || e.ctrlKey || e.metaKey || e.altKey) return;
+    const k = e.key.toUpperCase();
+    const idx = LETRAS.indexOf(k);
+    if (telaAtual === "treino") {
+      if (idx >= 0 && !treino.respondida && treino.questao?.alternativas[idx]) responderTreino(treino.questao.alternativas[idx].id);
+      else if (e.key === "Enter" && treino.respondida) { e.preventDefault(); carregarTreino(); }
+    } else if (telaAtual === "exame" && !exame.encerrado) {
+      const q = exame.questoes[exame.atual];
+      if (idx >= 0 && q.alternativas[idx]) escolher(q.alternativas[idx].id);
+      else if (e.key === "ArrowRight") navegar(1);
+      else if (e.key === "ArrowLeft") navegar(-1);
+    }
+  });
+  $("nome").addEventListener("keydown", (e) => { if (e.key === "Enter") $("btn-iniciar").click(); });
+})();
+</script>
+</body>
+</html>

@@ -9,37 +9,17 @@ dominios = [
     (4, "Domínio 4: Faturamento, Preços e Suporte")
 ]
 
-# 2. Banco de dados conceitual com chaves unificadas e validadas
-banco_temas = [
-    {
-        "dominio_id": 1,
-        "template_pergunta": "Uma empresa deseja migrar para a nuvem da AWS para transformar custos fixos de TI em custos variáveis baseados no uso real. Qual vantagem do Cloud Computing isso representa?",
-        "alternativas": ["Elasticidade", "Agilidade", "Trocar despesas de capital por despesas operacionais", "Economia de escala"],
-        "correta": "Trocar despesas de capital por despesas operacionais",
-        "explicacao": "A conversão de CapEx (Despesas de Capital) para OpEx (Despesas Operacionais) é um dos pilares financeiros da AWS."
-    },
-    {
-        "dominio_id": 2,
-        "template_pergunta": "De acordo com o Modelo de Responsabilidade Compartilhada da AWS, qual das seguintes opções é uma responsabilidade exclusiva do cliente?",
-        "alternativas": ["Segurança física das instalações", "Gerenciamento de patches do sistema operacional convidado", "Manutenção do software do hipervisor", "Descarte seguro de discos rígidos"],
-        "correta": "Gerenciamento de patches do sistema operacional convidado",
-        "explicacao": "A AWS cuida da segurança 'da' nuvem (infraestrutura) e o cliente cuida da segurança 'na' nuvem (dados e sistemas operacionais das instâncias EC2)."
-    },
-    {
-        "dominio_id": 3,
-        "template_pergunta": "Qual serviço da AWS fornece uma camada de armazenamento de arquivos em rede totalmente gerenciada, que pode ser montada simultaneamente por centenas de instâncias EC2 e servidores on-premises?",
-        "alternativas": ["Amazon EBS", "Amazon S3", "Amazon EFS", "Amazon Instance Store"],
-        "correta": "Amazon EFS",
-        "explicacao": "O Amazon EFS fornece um sistema de arquivos Linux compartilhado via protocolo NFS que permite conexões simultâneas."
-    },
-    {
-        "dominio_id": 4,
-        "template_pergunta": "Uma empresa precisa receber alertas automáticos quando seus custos mensais estimados com serviços AWS ultrapassarem um limite pré-definido. Qual recurso deve ser configurado?",
-        "alternativas": ["AWS Trusted Advisor", "AWS Budgets", "Cost Explorer", "AWS Pricing Calculator"],
-        "correta": "AWS Budgets",
-        "explicacao": "O AWS Budgets permite configurar orçamentos personalizados e disparar alertas quando os custos previstos ou reais excedem o limite estabelecido."
-    }
-]
+# 2. Banco de questões reais do CLF-C02 (arquivo questoes_clf_c02.py)
+from questoes_clf_c02 import QUESTOES
+
+# Validação: cada questão precisa de 4 alternativas distintas e uma correta entre elas
+ids_dominios = {d[0] for d in dominios}
+for n, q in enumerate(QUESTOES, start=1):
+    assert q["dominio_id"] in ids_dominios, f"Questão {n}: domínio inválido"
+    assert len(q["alternativas"]) == 4, f"Questão {n}: precisa de 4 alternativas"
+    assert len(set(q["alternativas"])) == 4, f"Questão {n}: alternativas repetidas"
+    assert q["correta"] in q["alternativas"], f"Questão {n}: resposta correta fora das alternativas"
+assert len({q["template_pergunta"] for q in QUESTOES}) == len(QUESTOES), "Há enunciados duplicados"
 
 # 3. Conexão e criação das tabelas no SQLite
 conn = sqlite3.connect("aws_simulados.db")
@@ -47,6 +27,11 @@ cursor = conn.cursor()
 
 # Habilita suporte a chaves estrangeiras
 cursor.execute("PRAGMA foreign_keys = ON;")
+
+# Recria as tabelas para que rodar o script de novo não duplique as questões
+cursor.execute("DROP TABLE IF EXISTS alternatives;")
+cursor.execute("DROP TABLE IF EXISTS questions;")
+cursor.execute("DROP TABLE IF EXISTS exam_categories;")
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS exam_categories (
@@ -79,30 +64,17 @@ CREATE TABLE IF NOT EXISTS alternatives (
 # 4. Inserindo domínios
 cursor.executemany("INSERT OR IGNORE INTO exam_categories (id, name) VALUES (?, ?);", dominios)
 
-# 5. Gerando e inserindo as 500 variações de forma segura
-for i in range(1, 5001):
-    tema_base = random.choice(banco_temas)
-    dom_id = tema_base["dominio_id"]
-    
-    variacoes = [
-        f" [Variação Simulado #{i}] ",
-        f" [Questão de Revisão #{i}] ",
-        f" [Cenário de Negócios #{i}] "
-    ]
-    prefixo = random.choice(variacoes)
-    enunciado = prefixo + tema_base["template_pergunta"]
-    
-    # Inserir pergunta
+# 5. Inserindo cada questão uma única vez, com as alternativas embaralhadas
+for tema_base in QUESTOES:
     cursor.execute(
         "INSERT INTO questions (category_id, question_text, difficulty, explanation) VALUES (?, ?, ?, ?);",
-        (dom_id, enunciado, "Medium", tema_base["explicacao"])
+        (tema_base["dominio_id"], tema_base["template_pergunta"], "Medium", tema_base["explicacao"])
     )
     question_id = cursor.lastrowid
-    
-    # Coleta a lista usando a chave correta em português ("alternativas")
+
     alts = list(tema_base["alternativas"])
     random.shuffle(alts)
-    
+
     # Inserir alternativas vinculadas
     for alt in alts:
         is_correct = 1 if alt == tema_base["correta"] else 0
@@ -115,4 +87,7 @@ for i in range(1, 5001):
 conn.commit()
 conn.close()
 
-print("Sucesso! Banco de dados 'aws_simulados.db' criado e populado com 5000 questões.")
+print(f"Sucesso! Banco de dados 'aws_simulados.db' criado e populado com {len(QUESTOES)} questões.")
+for id_dom, nome_dom in dominios:
+    qtd = sum(1 for q in QUESTOES if q["dominio_id"] == id_dom)
+    print(f"  • {nome_dom}: {qtd} questões")

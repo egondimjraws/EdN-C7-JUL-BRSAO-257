@@ -7,6 +7,7 @@ Este repositório contém uma aplicação baseada em terminal desenvolvida para 
 O projeto é composto pelos seguintes arquivos principais:
 
 *   **`gerar_banco.py`**: Script de automação e carga de dados. Cria o arquivo de banco de dados SQLite e popula las tabelas com as questões estruturadas.
+*   **`questoes_clf_c02.py`**: Banco com as questões reais do exame, organizadas pelos 4 domínios oficiais, com alternativas, gabarito e explicação.
 *   **`simuladoaws.py`**: Modo de treino livre. Sorteia perguntas aleatórias e fornece a validação e explicação da AWS imediatamente após a resposta.
 *   **`exame_oficial.py`**: Modo de exame simulado. Configura um ambiente de teste estrito com 64 questões, cronômetro regressivo de 90 minutos e gera uma nota final baseada na escala oficial da AWS (100 a 1000).
 
@@ -45,15 +46,15 @@ python3 gerar_banco.py
 ```
 *(Nota para usuários de Windows: Se o comando `python3` não funcionar, utilize apenas `python gerar_banco.py`)*
 
-*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 5000 questões populadas.
+*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 102 questões populadas.
 
-No total são 25.004 registros:
+No total são 514 registros:
 
 | Tabela | Registros |
 |---|---:|
 | `exam_categories` | 4 |
-| `questions` | 5.000 |
-| `alternatives` | 20.000 |
+| `questions` | 102 |
+| `alternatives` | 408 |
 
 São 4 alternativas para cada questão.
 
@@ -87,15 +88,20 @@ python3 exame_oficial.py
 
 Se você quiser modificar o volume de dados gerados, o tamanho do exame ou o tempo limite do cronômetro, você pode alterar as configurações diretamente no código-fonte dos scripts:
 
-### 1. Alterar a quantidade total de questões no Banco de Dados
-Por padrão, o gerador cria **500 variações** de perguntas no banco de dados. Para mudar esse valor:
-1. Abra o arquivo `gerar_banco.py`.
-2. Vá até a **linha 82** (início do laço de repetição `for`).
-3. Altere o número do alcance (`range`) para a quantidade desejada:
+### 1. Adicionar ou alterar questões no Banco de Dados
+As questões ficam no arquivo `questoes_clf_c02.py`, divididas pelos 4 domínios conforme o peso oficial da prova (24%, 30%, 34% e 12%). Para incluir uma nova questão:
+1. Abra o arquivo `questoes_clf_c02.py`.
+2. Adicione um novo item à lista `QUESTOES`, seguindo o mesmo formato:
    ```python
-   # Exemplo: Alterando para gerar 1000 perguntas no banco de dados
-   for i in range(1, 1001):
+   {
+       "dominio_id": 3,
+       "template_pergunta": "Qual serviço oferece armazenamento de objetos com 99,999999999% de durabilidade?",
+       "alternativas": ["Amazon S3", "Amazon EBS", "Amazon EFS", "Instance Store"],
+       "correta": "Amazon S3",
+       "explicacao": "O Amazon S3 foi projetado para 11 noves de durabilidade."
+   },
    ```
+3. Execute `python3 gerar_banco.py` novamente. O banco é recriado do zero, sem duplicar questões, e o script valida se cada questão tem 4 alternativas distintas com a correta entre elas.
 
 ### 2. Alterar o número de questões exibidas no Exame Oficial
 O simulado oficial vem configurado com **64 questões** (padrão da prova real). Se quiser fazer um teste mais rápido ou mais longo:
