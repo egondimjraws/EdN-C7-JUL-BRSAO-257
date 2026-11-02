@@ -248,7 +248,79 @@
     window.scrollTo(0, 0);
   }
 
+  /* ---------------- MODO ESTÁTICO (GitHub Pages) ----------------
+     Quando a página é gerada por web/exportar_estatico.py, o <html> recebe
+     data-modo="estatico" e as rotas /api/* são atendidas aqui no navegador,
+     a partir do arquivo questoes.json, com as mesmas regras do servidor. */
+  const ESTATICO = document.documentElement.dataset.modo === "estatico";
+  let banco = null;
+
+  async function carregarBanco() {
+    if (!banco) {
+      const resp = await fetch("questoes.json", { cache: "no-cache" });
+      if (!resp.ok) throw new Error("Não foi possível carregar o arquivo questoes.json.");
+      banco = await resp.json();
+      banco.porId = new Map(banco.questoes.map(q => [q.id, q]));
+    }
+    return banco;
+  }
+
+  function sortear(lista, n) {
+    const copia = lista.slice();
+    for (let i = copia.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia.slice(0, n);
+  }
+
+  // Envia a questão sem indicar a alternativa correta, como faz o servidor
+  const semGabarito = (q) => ({ id: q.id, texto: q.texto, categoria: q.categoria, alternativas: q.alternativas });
+
+  async function apiLocal(caminho, corpo) {
+    const b = await carregarBanco();
+    if (caminho === "/api/questao") return semGabarito(sortear(b.questoes, 1)[0]);
+    if (caminho === "/api/exame") {
+      if (b.questoes.length < b.total_exame)
+        throw new Error(`O banco possui apenas ${b.questoes.length} questões; são necessárias ${b.total_exame}.`);
+      return { questoes: sortear(b.questoes, b.total_exame).map(semGabarito), tempo_limite: b.tempo_limite };
+    }
+    if (caminho === "/api/responder") {
+      const q = b.porId.get(Number(corpo.questao_id));
+      if (!q) throw new Error("Questão não encontrada.");
+      return { acertou: Number(corpo.alternativa_id) === q.correta_id, correta_id: q.correta_id, explicacao: q.explicacao };
+    }
+    if (caminho === "/api/corrigir") {
+      // Mesma regra do exame_oficial.py: nota = 100 + percentual * 9
+      let acertos = 0;
+      const porDominio = {};
+      const detalhes = [];
+      for (const item of corpo.respostas || []) {
+        const q = b.porId.get(Number(item.questao_id));
+        if (!q) continue;
+        const escolhida = item.alternativa_id;
+        const acertou = escolhida != null && Number(escolhida) === q.correta_id;
+        const d = porDominio[q.categoria] || (porDominio[q.categoria] = { total: 0, acertos: 0 });
+        d.total++;
+        if (acertou) { acertos++; d.acertos++; }
+        detalhes.push({ questao_id: q.id, alternativa_id: escolhida, correta_id: q.correta_id, acertou, explicacao: q.explicacao });
+      }
+      const respondidas = (corpo.respostas || []).filter(r => r.alternativa_id != null).length;
+      const percentual = acertos / b.total_exame * 100;
+      const nota = 100 + Math.trunc(percentual * 9);
+      return {
+        total: b.total_exame, respondidas, acertos, erros: b.total_exame - acertos,
+        percentual: Math.round(percentual * 100) / 100, nota, aprovado: nota >= 700,
+        tempo_gasto: Math.min(Math.trunc(corpo.tempo_gasto || 0), b.tempo_limite),
+        por_dominio: Object.keys(porDominio).sort().map(k => ({ dominio: k, ...porDominio[k] })),
+        detalhes,
+      };
+    }
+    throw new Error("Rota não encontrada.");
+  }
+
   async function api(caminho, corpo) {
+    if (ESTATICO) return apiLocal(caminho, corpo);
     const resp = await fetch(caminho, corpo ? {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo)
     } : undefined);

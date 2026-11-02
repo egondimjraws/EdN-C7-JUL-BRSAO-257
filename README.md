@@ -11,6 +11,7 @@ O projeto é composto pelos seguintes arquivos principais:
 *   **`simuladoaws.py`**: Modo de treino livre. Sorteia perguntas aleatórias e fornece a validação e explicação da AWS imediatamente após a resposta.
 *   **`exame_oficial.py`**: Modo de exame simulado. Configura um ambiente de teste estrito com 64 questões, cronômetro regressivo de 90 minutos e gera uma nota final baseada na escala oficial da AWS (100 a 1000).
 *   **`web/`**: Interface web opcional (`servidor_web.py` + `static/index.html`) com os modos de treino e exame no navegador, usando o mesmo banco de dados.
+*   **`docs/`**: Versão estática da interface web, gerada por `web/exportar_estatico.py`, pronta para publicar no GitHub Pages.
 
 ---
 
@@ -103,6 +104,19 @@ Para iniciar sem abrir o navegador automaticamente, use `--sem-navegador`. Press
 *   **Exame simulado**: 64 questões com cronômetro de 90 minutos. É possível navegar entre as questões, alterar respostas e marcar questões para revisar. Ao zerar o tempo, o exame é encerrado automaticamente.
 *   **Resultado**: Nota na escala AWS (100 a 1000, aprovação com 700), desempenho por domínio e revisão de cada questão com a explicação.
 *   **Atalhos de teclado**: `A`–`D` para responder, `Enter` para a próxima questão no treino e as setas `←` `→` para navegar no exame.
+
+### Opcional: Publicar a Interface Web no GitHub Pages (`docs/`)
+A pasta `docs/` contém uma versão da interface web que funciona sem servidor Python: as questões ficam no arquivo `docs/questoes.json` e o treino, o exame e a correção rodam direto no navegador, com as mesmas regras.
+
+1. Sempre que o banco for regenerado com `gerar_banco.py`, atualize a versão estática:
+   ```bash
+   python3 web/exportar_estatico.py
+   ```
+2. Faça commit e push da pasta `docs/`.
+3. No GitHub, acesse **Settings → Pages**, escolha **Deploy from a branch**, selecione o branch `main` e a pasta `/docs`, e clique em **Save**.
+4. Após alguns minutos, o site fica disponível em `https://<usuario>.github.io/<repositorio>/`.
+
+*   **Atenção**: nessa versão o gabarito fica no arquivo `questoes.json`, visível para quem inspecionar a página. Para estudo isso não é um problema, mas não use essa versão como avaliação oficial.
 
 ---
 
