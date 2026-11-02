@@ -1,5 +1,7 @@
 # ☁️ AWS Cloud Practitioner (CLF-C02) -  Simulados Interativos SQL & Python
 
+🌐 **Acesse os simulados no navegador:** [https://egondimjraws.github.io/EdN-C7-JUL-BRSAO-257/](https://egondimjraws.github.io/EdN-C7-JUL-BRSAO-257/)
+
 Este repositório contém uma aplicação baseada em terminal desenvolvida para auxiliar na preparação para o exame de certificação **AWS Certified Cloud Practitioner (CLF-C02)**. O sistema utiliza uma base de dados local **SQLite** estruturada de acordo com os domínios oficiais da AWS e gerencia os questionários por meio de scripts Python dinâmicos.
 
 ## 🛠️ Arquitetura do Repositório
