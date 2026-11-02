@@ -47,15 +47,15 @@ python3 gerar_banco.py
 ```
 *(Nota para usuários de Windows: Se o comando `python3` não funcionar, utilize apenas `python gerar_banco.py`)*
 
-*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 102 questões populadas.
+*Retorno esperado:* Uma mensagem de sucesso confirmando que o arquivo local `aws_simulados.db` foi gerado com as 500 questões populadas.
 
-No total são 514 registros:
+No total são 2.504 registros:
 
 | Tabela | Registros |
 |---|---:|
 | `exam_categories` | 4 |
-| `questions` | 102 |
-| `alternatives` | 408 |
+| `questions` | 500 |
+| `alternatives` | 2.000 |
 
 São 4 alternativas para cada questão.
 
